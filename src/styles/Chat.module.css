@@ -1,0 +1,26 @@
+.title-container {
+  background: url(../assets/background/bg.png);
+  height: 15.5em;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.title-container .title {
+  margin: 0 auto;
+  text-align: center;
+  color: #333;
+}
+
+.title-container .title h1 {
+  padding-top: 1em;
+  padding-bottom: 8px;
+  font-size: 4em;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 6em;
+  gap: 1em;
+  max-width: 1440px;
+}

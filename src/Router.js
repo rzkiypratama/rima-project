@@ -5,12 +5,15 @@ import Homepage from "./pages/HomePage";
 import Account from "./pages/AccountPage";
 import ForgotPassword from "./pages/ForgotPassword";
 import Notification from "./pages/Notification";
+import Chat from "./pages/Chat";
+
 
 const router = createBrowserRouter([
    { path: "/", element: <Homepage /> },
    { path: "/account", element: <Account /> },
    { path: "/forgot", element: <ForgotPassword /> },
    { path: "/notification", element: <Notification /> },
+   { path: "/chat", element: <Chat /> },
 ]);
 
 export default router;
