@@ -2,6 +2,9 @@ import React from "react";
 // styles
 import styles from "../styles/Homapage.module.css";
 
+//component
+import Navbar from "../component/navbar/Navbar";
+import Footer from "../component/footer/Footer";
 // assets
 import content_first from "../assets/homepage/img_content_first.png";
 import backtowork from "../assets/homepage/img_service_backtowork.png";
@@ -10,13 +13,13 @@ import furnitureoffice from "../assets/homepage/img_service_furniture_office.png
 import workspace from "../assets/homepage/img_service_workspace.png";
 
 function HomePage() {
-<<<<<<< HEAD
    return (
       <>
-         <main className="container-fluid">
+         <Navbar />
+         <main className="container-fluid p-0">
             {/* content main */}
             <section
-               className={`${styles.home__bar} d-flex justify-content-center align-items-center`}
+               className={`${styles.home__bar} d-flex justify-content-center align-items-center p-0`}
             >
                <article className={`${styles.content__home}`}>
                   <h1>Minimal Furniture Store</h1>
@@ -272,15 +275,9 @@ function HomePage() {
                </section>
             </section>
          </main>
+         <Footer />
       </>
    );
-=======
-  return (
-    <>
-      <h1>Minimal Furniture Storelo</h1>
-    </>
-  );
->>>>>>> origin/Navbar
 }
 
 export default HomePage;
