@@ -25,24 +25,57 @@
 .cart {
   width: 18px;
 }
-.stragged {
+.toggle {
   width: 18px;
   position: relative;
   left: 25px;
 }
 
+.svg {
+  width: 20px;
+}
 @media only screen and (max-width: 768px) {
   .icon {
+    margin: 4rem 2rem 2rem 2rem;
+    justify-content: space-between !important;
+  }
+
+  .navbar-collapse {
+    margin: 2rem;
+  }
+  .toggle {
     display: none;
   }
 }
 @media only screen and (max-width: 425px) {
   .icon {
+    margin: 4rem 2rem 2rem 2rem;
+    justify-content: space-between !important;
+  }
+  .navbar-collapse {
+    margin: 2rem;
+  }
+  .toggle {
     display: none;
   }
 }
 @media only screen and (max-width: 375px) {
   .icon {
+    margin: 4rem 2rem 2rem 2rem;
+    justify-content: space-between !important;
+  }
+  .navbar-collapse {
+    margin: 2rem;
+  }
+  .toggle {
     display: none;
   }
+
+  /* . {
+     
+    } */
 }
+
+/* margin-top: 3rem; */
+/* margin: 3rem; */
+/* /* text-decoration: underline; */
