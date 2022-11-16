@@ -2,9 +2,10 @@
   background: url(../assets/background/background.png);
   height: 10em;
   width: 100%;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .title-container .title {
   margin: 0 auto;
+  text-align: center;
 }
