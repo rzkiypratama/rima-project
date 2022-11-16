@@ -6,6 +6,7 @@ import Account from "./pages/AccountPage";
 import ForgotPassword from "./pages/ForgotPassword";
 import Notification from "./pages/Notification";
 import OrderTracking from "./pages/OrderTracking";
+import OrderTrackingDetail from "./pages/OrderTrackingDetail";
 import Chat from "./pages/Chat";
 
 const router = createBrowserRouter([
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
    { path: "/forgot", element: <ForgotPassword /> },
    { path: "/notification", element: <Notification /> },
    { path: "/order/tracking", element: <OrderTracking /> },
+   { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
    { path: "/chat", element: <Chat /> },
 ]);
 
