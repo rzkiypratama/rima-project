@@ -10,6 +10,7 @@ import furnitureoffice from "../assets/homepage/img_service_furniture_office.png
 import workspace from "../assets/homepage/img_service_workspace.png";
 
 function HomePage() {
+<<<<<<< HEAD
    return (
       <>
          <main className="container-fluid">
@@ -273,6 +274,13 @@ function HomePage() {
          </main>
       </>
    );
+=======
+  return (
+    <>
+      <h1>Minimal Furniture Storelo</h1>
+    </>
+  );
+>>>>>>> origin/Navbar
 }
 
 export default HomePage;
