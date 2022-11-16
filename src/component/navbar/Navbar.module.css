@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Lato&display=swap");
+
+.company {
+  font-family: arimo;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 45.12px;
+  line-height: 52px;
+  line-height: 100%;
+  fill: Solid;
+  color: #1a1a1a;
+}
+
+.title {
+  font-family: arimo;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 18px;
+  line-height: 21px;
+  line-height: 100%;
+  fill: Solid;
+  color: #1a1a1a;
+}
+
+.cart {
+  width: 18px;
+}
+.stragged {
+  width: 18px;
+  position: relative;
+  left: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+  .icon {
+    display: none;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .icon {
+    display: none;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .icon {
+    display: none;
+  }
+}
