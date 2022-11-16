@@ -11,7 +11,6 @@ import backtowork from "../assets/homepage/img_service_backtowork.png";
 import furniture from "../assets/homepage/img_service_furniture.png";
 import furnitureoffice from "../assets/homepage/img_service_furniture_office.png";
 import workspace from "../assets/homepage/img_service_workspace.png";
-
 function HomePage() {
    return (
       <>
