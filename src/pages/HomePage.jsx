@@ -1,11 +1,10 @@
 import React from "react";
-
 // styles
 function HomePage() {
    return (
-      <div>
-         <h1>Hello</h1>
-      </div>
+      <>
+         <h1>Minimal Furniture Storelo</h1>
+      </>
    );
 }
 
