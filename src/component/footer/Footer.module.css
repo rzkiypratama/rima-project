@@ -43,6 +43,16 @@
   color: #b4b4b4;
 }
 
+.svg {
+  width: 30px;
+  padding: 5px;
+  margin-right: 5px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
 @media only screen and (max-width: 425px) {
   .a {
     margin-left: 20px;
@@ -50,5 +60,14 @@
 
   .title-footer {
     margin-top: 3rem;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .svg {
+    width: 30px;
+    padding: 5px;
+    margin-right: 5px;
+    background-color: #ffffff;
+    border-radius: 20px;
   }
 }
