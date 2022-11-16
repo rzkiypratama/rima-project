@@ -75,7 +75,7 @@
 .pagination .page-box h4 {
   margin: auto;
   padding: 15px;
-  color: #fff;
+  color: #bababa;
 }
 
 .pagination .page-box h4:hover {
@@ -96,6 +96,12 @@
     overflow: hidden;
     width: 100%;
   }
+
+  .pagination {
+    padding: 0;
+    padding-top: 10px;
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -111,4 +117,13 @@
   .form-container .chat-box {
     overflow: hidden;
   }
+
+  .pagination {
+    gap: 5px;
+    margin: auto;
+    padding-top: 10px;
+    padding-left: 0;
+    justify-content: center;
+  }
+
 }
