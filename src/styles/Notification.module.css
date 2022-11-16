@@ -65,6 +65,7 @@
   height: 3.7em;
   width: 4em;
   text-align: center;
+  cursor: pointer;
 }
 
 .pagination .page-box:hover {
