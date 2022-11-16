@@ -1,4 +1,6 @@
 import React from "react";
+
+// styles
 function HomePage() {
    return (
       <div>
