@@ -7,6 +7,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Notification from "./pages/Notification";
 import Chat from "./pages/Chat";
 import FAQ from "./pages/FAQ";
+import Profile from "./pages/Profile";
 
 const router = createBrowserRouter([
   { path: "/", element: <Homepage /> },
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
   { path: "/notification", element: <Notification /> },
   { path: "/chat", element: <Chat /> },
   { path: "/faq", element: <FAQ /> },
+  { path: "/profile", element: <Profile /> },
 ]);
 
 export default router;
