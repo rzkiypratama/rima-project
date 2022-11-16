@@ -1,0 +1,10 @@
+.title-container {
+  background: url(../assets/background/background.png);
+  height: 10em;
+  width: 100%;
+  margin: auto;
+}
+
+.title-container .title {
+  margin: 0 auto;
+}
