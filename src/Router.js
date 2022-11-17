@@ -25,6 +25,7 @@ const router = createBrowserRouter([
   { path: "/order/tracking", element: <OrderTracking /> },
   { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
   { path: "/product/detail", element: <ProductDetail /> },
+  { path: "/about", element: <About /> },
 ]);
 
 export default router;

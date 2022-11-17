@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Open+Sans&family=Playfair+Display:wght@400;700&display=swap');
 
+
 *,
 *:before,
 *:after {
@@ -46,7 +47,9 @@ body {
 }
 
 
-
+.slick-dots li button:before {
+  font-size: 15px !important;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
