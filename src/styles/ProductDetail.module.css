@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Lato&display=swap");
+
+.img-left {
+  width: 100px;
+  margin-bottom: 2rem;
+}
+/* .img-right {
+  width: 700px;
+  height: 600px;
+} */
+
+.checklist {
+  width: 20px;
+}
