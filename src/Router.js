@@ -11,6 +11,7 @@ import Chat from "./pages/Chat";
 import FAQ from "./pages/FAQ";
 import Profile from "./pages/Profile";
 import Product from "./pages/Product";
+import About from "./pages/About";
 import ProductDetail from "./pages/ProductDetail";
 
 const router = createBrowserRouter([
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
   { path: "/order/tracking", element: <OrderTracking /> },
   { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
   { path: "/product/detail", element: <ProductDetail /> },
+  { path: "/about", element: <About /> },
 ]);
 
 export default router;
