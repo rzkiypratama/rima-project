@@ -1,9 +1,12 @@
 import React from 'react';
 import styles from '../styles/AccountPage.module.css'
+import Navbar from '../component/navbar/Navbar'
+import Footer from '../component/footer/Footer'
 
 function accountPage() {
   return (
     <>
+    <Navbar/>
     <main className="container-fluid p-0">
 
     <div className={styles["title-container"]}>
@@ -57,6 +60,7 @@ function accountPage() {
     </div>
 
     </main>
+    <Footer/>
     </>
   )
 }
