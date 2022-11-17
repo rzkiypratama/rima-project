@@ -17,15 +17,16 @@ function Profile() {
       </div>
       <form className="container mt-5">
         <form className={`form-floating `}>
-          <input type="text" className={`form-control my-auto ${styles["floating-form"]}`} id="floatingInputValue" placeholder=" " value="Female" />
+          <input type="text" className={`form-control my-auto ${styles["floating-form"]}`} id="floatingInputValue" placeholder="Male / Female " />
+
           <label for="floatingInputValue">Gender</label>
         </form>
         <form className="form-floating ">
-          <input type="email" className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-2"]}`} id="floatingInputValue" placeholder="name@example.com" value="syifa@gamil.com" />
+          <input type="email" className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-2"]}`} id="floatingInputValue" placeholder="name@example.com" />
           <label for="floatingInputValue">Your Email</label>
         </form>
         <form className="form-floating">
-          <input type="text" className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`} id="floatingInputValue" placeholder=" " value="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+          <input type="text" className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`} id="floatingInputValue" placeholder=" " />
           <label for="floatingInputValue">Store Description</label>
         </form>
 
