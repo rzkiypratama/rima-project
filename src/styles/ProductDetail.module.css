@@ -1,14 +1,217 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Lato&display=swap");
 
 .img-left {
-  width: 100px;
+  width: 150px;
   margin-bottom: 2rem;
 }
-/* .img-right {
-  width: 700px;
-  height: 600px;
-} */
-
+.img-left-5 {
+  width: 151px;
+}
+.hot {
+  position: relative;
+  top: -44rem;
+  right: -40rem;
+}
+.cont-2 {
+  margin-top: 5rem;
+}
 .checklist {
   width: 20px;
+}
+.title-coast {
+  font-family: Arimo;
+  font-style: regular;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 28px;
+  line-height: 100%;
+  fill: Solid #1a1a1a;
+}
+.cont-star {
+  margin-top: 1rem;
+  gap: 4rem;
+}
+.star {
+  margin-right: 1rem;
+}
+.cont-price {
+  margin-top: 2rem;
+  gap: 4rem;
+}
+.price {
+  font-family: Arimo;
+  font-style: bold;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 28px;
+  line-height: 100%;
+  fill: Solid #1a1a1a;
+  margin-right: 10rem;
+}
+.sold-out {
+  font-family: Arimo;
+  font-style: regular;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 28px;
+  line-height: 100%;
+  fill: Solid #262626;
+  width: 20px;
+  height: 20px;
+}
+
+.donec {
+  font-family: Arimo;
+  font-style: regular;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 50px;
+  line-height: 201%;
+  fill: Solid #4d4d4d;
+}
+
+.cart-btn {
+  width: 10rem;
+}
+.heart-btn {
+  width: 4rem;
+}
+.whistlist-btn {
+  width: 10rem;
+  font-family: Arimo;
+  font-style: regular;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
+  line-height: 100%;
+  fill: Solid #4d4d4d;
+}
+.height-btn {
+  height: 3rem;
+}
+.SKU {
+  width: 15rem;
+  font-family: Arimo;
+  font-style: regular;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 28px;
+  line-height: 221%;
+  fill: Solid #2f2f2f;
+}
+.spantext {
+  font-family: Arimo;
+  font-style: regular;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  line-height: 100%;
+  fill: Solid #1a1a1a;
+}
+
+.title-desc {
+  font-family: Arimo;
+  font-style: bold;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 14px;
+  line-height: 100%;
+  fill: Solid;
+  color: #1a1a1a !important;
+}
+.donec {
+  font-family: Arimo;
+  font-style: regular;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  line-height: 149%;
+  fill: Solid;
+  color: #777777;
+}
+.cont-image {
+  width: 30rem;
+}
+.image {
+  width: 80%;
+  height: 100%;
+}
+.cont-card-down {
+  height: 600px;
+}
+.card-title {
+  font-family: Arimo;
+  font-style: Regular;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  line-height: 100%;
+  fill: Solid #1a1a1a;
+}
+.card-text {
+  font-family: Arimo;
+  font-style: bold;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  line-height: 100%;
+  fill: Solid #1a1a1a;
+}
+@media screen and (max-width: 1024px) {
+  .hot {
+    position: relative;
+    top: -37rem;
+    right: -32rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card-text {
+    font-family: Arimo !important;
+    font-style: bold !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    line-height: 28px !important;
+    line-height: 100% !important;
+    fill: Solid #1a1a1a;
+  }
+  .card-title {
+    font-family: Arimo !important;
+    font-style: Regular !important;
+    font-weight: 400 !important;
+    font-size: 20px !important;
+    line-height: 28px !important;
+    line-height: 100% !important;
+    fill: Solid #1a1a1a !important;
+  }
+  .hot {
+    position: relative;
+    top: -33rem;
+    left: 37rem;
+  }
+}
+@media screen and (max-width: 425px) {
+  .hot {
+    position: relative;
+    top: -20rem;
+    left: 20rem;
+    width: 32px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .hot {
+    position: relative;
+    top: -17rem;
+    left: 18rem;
+    width: 32px;
+  }
+  .img-left {
+    width: 100px;
+    margin-right: 0px !important;
+  }
+  .img-left-5 {
+    width: 100px;
+    position: relative;
+    top: -17px;
+  }
 }
