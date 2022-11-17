@@ -26,15 +26,15 @@ function OrderTracking() {
             {/* content */}
             <section className="row d-flex flex-sm-column flex-md-row flex-lg-row">
                <section
-                  className={`${styles.content_left} col-12 col-sm-12 col-md-6 col-lg-6 mb-5 mb-md-0 mb-lg-0 `}
+                  className={`${styles.content_left} col-12 col-sm-12 col-md-6 col-lg-6 mb-5 mb-md-0 mb-lg-0 pe-0`}
                >
                   <img className="w-100" src={maps} alt="maps" />
                </section>
                <section
-                  className={`${styles.content_right} col-12 col-sm-12 col-md-6 col-lg-6  d-flex justify-content-center align-items-center`}
+                  className={`${styles.content_right} col-12 col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center`}
                >
                   <div>
-                     <p className="text-center pb-5">
+                     <p className="text-center pb-3 pb-sm-3 py-md-3 pt-lg-3 pb-lg-5">
                         To track your order please enter your Order ID in the
                         box below and press the "Track" button. This was given
                         to you on your receipt and in the confirmation email you

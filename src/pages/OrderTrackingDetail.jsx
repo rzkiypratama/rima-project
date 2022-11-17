@@ -27,7 +27,7 @@ function OrderTracking() {
             {/* content */}
             <section className="row d-flex flex-sm-column flex-md-row flex-lg-row">
                <section
-                  className={`${styles.content_left} col-12 col-sm-12 col-md-6 col-lg-6 mb-5 mb-md-0 mb-lg-0 `}
+                  className={`${styles.content_left} col-12 col-sm-12 col-md-6 col-lg-6 mb-5 mb-md-0 mb-lg-0 pe-0`}
                >
                   <img className="w-100" src={maps} alt="maps" />
                </section>
