@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from "react";
 import styles from '../styles/Notification.module.css'
+import Navbar from '../component/navbar/Navbar'
+import Footer from '../component/footer/Footer'
 
 function Notification() {
   const [linkActive, setLinkActive] = useState("one")
@@ -8,6 +10,7 @@ function Notification() {
 
   return (
     <>
+    <Navbar/>
     <main className="container-fluid p-0">
 
     <div className={styles["title-container"]}>
@@ -36,8 +39,6 @@ function Notification() {
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit dapibus non elementum arcu tortor...</p>
       </div>
       </div>
-    </div>
-
     <section>
       <div className={styles.pagination}>
         <div 
@@ -83,8 +84,11 @@ function Notification() {
         </div>
       </div>
     </section>
+    </div>
+
 
     </main>
+    <Footer/>
     </>
   )
 }

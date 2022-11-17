@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Lato&display=swap");
+
+.cont-fluid {
+  background-color: #f3f3f3;
+}
+
+.floating-form {
+  height: 80px !important;
+  border-radius: 0px;
+}
+.floating-form-2 {
+  height: 80px !important;
+  border-radius: 0px;
+  border-top: 0px;
+}
+.floating-form-3 {
+  height: 80px !important;
+  border-radius: 0px;
+  border-top: 0px;
+}
+.profile {
+  font-weight: 400;
+
+  font-family: Arimo;
+  font-style: Regular;
+  font-size: 56px;
+  line-height: 64px;
+  line-height: 100%;
+  vertical-align: Top;
+  fill: Solid #1a1a1a;
+}
+
+.text-profile {
+  font-weight: 400;
+
+  font-family: Arimo;
+  font-style: Regular;
+  font-size: 16px;
+  line-height: 64px;
+  line-height: 100%;
+  vertical-align: Top;
+  fill: Solid #1a1a1a;
+}

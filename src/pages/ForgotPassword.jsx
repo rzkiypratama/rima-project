@@ -1,9 +1,12 @@
 import React from 'react'
 import styles from '../styles/ForgotPassword.module.css'
+import Navbar from '../component/navbar/Navbar'
+import Footer from '../component/footer/Footer'
 
 export default function ForgotPassword() {
   return (
     <>
+    <Navbar/>
     <main className="container-fluid p-0">
 
     <div className={styles["title-container"]}>
@@ -31,6 +34,7 @@ export default function ForgotPassword() {
     </div>
 
     </main>
+    <Footer/>
     </>
   )
 }

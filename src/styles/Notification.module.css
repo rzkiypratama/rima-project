@@ -25,6 +25,7 @@
 
 .form-container {
   padding-top: 5em;
+  padding-bottom: 5em;
   max-width: 1440px;
   display: flex;
   flex-flow: column;
