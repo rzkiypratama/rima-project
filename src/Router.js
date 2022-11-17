@@ -13,14 +13,16 @@ import Profile from "./pages/Profile";
 import Product from "./pages/Product";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Homepage /> },
-  { path: "/account", element: <Account /> },
-  { path: "/forgot", element: <ForgotPassword /> },
-  { path: "/notification", element: <Notification /> },
-  { path: "/chat", element: <Chat /> },
-  { path: "/faq", element: <FAQ /> },
-  { path: "/profile", element: <Profile /> },
-  { path: "/product", element: <Product /> },
+   { path: "/", element: <Homepage /> },
+   { path: "/account", element: <Account /> },
+   { path: "/forgot", element: <ForgotPassword /> },
+   { path: "/notification", element: <Notification /> },
+   { path: "/chat", element: <Chat /> },
+   { path: "/faq", element: <FAQ /> },
+   { path: "/profile", element: <Profile /> },
+   { path: "/product", element: <Product /> },
+   { path: "/order/tracking", element: <OrderTracking /> },
+   { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
 ]);
 
 export default router;
