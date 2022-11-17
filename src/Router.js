@@ -8,6 +8,7 @@ import Notification from "./pages/Notification";
 import Chat from "./pages/Chat";
 import FAQ from "./pages/FAQ";
 import Profile from "./pages/Profile";
+import Product from "./pages/Product";
 
 const router = createBrowserRouter([
   { path: "/", element: <Homepage /> },
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
   { path: "/chat", element: <Chat /> },
   { path: "/faq", element: <FAQ /> },
   { path: "/profile", element: <Profile /> },
+  { path: "/product", element: <Product /> },
 ]);
 
 export default router;

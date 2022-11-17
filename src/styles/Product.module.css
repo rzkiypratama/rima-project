@@ -1,0 +1,49 @@
+.title-container {
+  background: url(../assets/background/bg.png);
+  height: 15.5em;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.title-container .title {
+  margin: 0 auto;
+  text-align: center;
+  color: #000;
+}
+
+.title-container .title h1 {
+  padding-top: 1em;
+  padding-bottom: 8px;
+  font-size: 4em;
+}
+
+.main-product {
+  padding-top: 6em;
+  padding-bottom: 6em;
+}
+
+.main-product .category-list {
+  display: flex;
+  justify-content: center;
+}
+
+.main-product .category-list .category {
+  padding-right: 9em;
+}
+
+.main-product .category-list .category ul, .main-product .category-list .category-number ul {
+  list-style-type: none;
+  padding: 0;
+  padding-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.main-product .category-list .category ul {
+  cursor: pointer;
+}
+
+.main-product .category-list .category li:hover {
+  font-weight: bold;
+}
