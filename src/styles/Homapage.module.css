@@ -183,23 +183,11 @@
     padding-bottom: 40px;
   }
 
-<<<<<<< HEAD
   .content_article_left {
     width: 100%;
     height: 100%;
     padding: 20px 0;
   }
-=======
-    .content_article_left {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .content_article_right div h1 {
-        font-size: 2rem;
-        padding-bottom: 40px;
-    }
->>>>>>> origin/order-tracking
 
   .content_article_left div > p {
     padding-bottom: 20px;
@@ -224,13 +212,6 @@
     height: auto;
   }
 
-<<<<<<< HEAD
-  .explore {
-    padding-top: 50px;
-    padding-left: 0;
-  }
-}
-=======
     .explore {
         padding-top: 50px;
         padding-left: 0;
@@ -248,4 +229,3 @@
         padding: 25px;
     }
 }
->>>>>>> origin/order-tracking
