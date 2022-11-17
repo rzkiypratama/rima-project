@@ -11,6 +11,7 @@ import Chat from "./pages/Chat";
 import FAQ from "./pages/FAQ";
 import Profile from "./pages/Profile";
 import Product from "./pages/Product";
+import MultiRangeSlider from "./component/priceslider/MultiRangeSlider";
 
 const router = createBrowserRouter([
    { path: "/", element: <Homepage /> },
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
    { path: "/product", element: <Product /> },
    { path: "/order/tracking", element: <OrderTracking /> },
    { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
+   { path: "/slider", element: <MultiRangeSlider /> },
 ]);
 
 export default router;
