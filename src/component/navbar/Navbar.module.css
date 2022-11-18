@@ -21,6 +21,9 @@
   fill: Solid;
   color: #1a1a1a;
 }
+.no-underline {
+  text-decoration: none;
+}
 
 .cart {
   width: 18px;

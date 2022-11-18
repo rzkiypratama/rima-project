@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import styles from "../navbar/Navbar.module.css";
+import { Link } from "react-router-dom";
 
 function BasicExample() {
   return (
@@ -14,15 +15,17 @@ function BasicExample() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-auto gap-5">
-            <Nav.Link className={styles["title"]} href="#home">
+            <Nav.Link className={styles["title"]} href="/">
               HOME
             </Nav.Link>
             <NavDropdown className={styles["title"]} title="PAGES" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+              <Link className={styles["no-underline"]} to={"/about"}>
+                <NavDropdown.Item href="#action/3.1">About Us </NavDropdown.Item>
+              </Link>
+              <NavDropdown.Item href="#action/3.2">Contact Us</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Coming Soon </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">404 Page </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">FAQ Page</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown className={styles["title"]} title="SHOP" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
