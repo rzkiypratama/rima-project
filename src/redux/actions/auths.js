@@ -16,6 +16,18 @@ const loginFulfilled = (data) => ({
   payload: { data },
 });
 
+const resetPending = () => ({
+  type: ACTION_STRING.authReset.concat("_", Pending),
+});
+const resetRejected = (error) => ({
+  type: ACTION_STRING.authReset.concat("_", Rejected),
+  payload: { error },
+});
+const resetFulfilled = (data) => ({
+  type: ACTION_STRING.authReset.concat("_", Fulfilled),
+  payload: { data },
+});
+
 const logoutPending = () => ({
   type: ACTION_STRING.authLogout.concat("_", Pending),
 });
@@ -58,8 +70,23 @@ const logoutThunk = (token, navigate) => {
   };
 };
 
+const resetThunk = (body, navigate) => {
+  return async (dispacth) => {
+    try {
+      dispacth(resetPending());
+      const result = await reset(body);
+      dispacth(resetFulfilled(result.data));
+      console.log(result.data.data);
+      if (typeof navigate === "function") navigate();
+    } catch (error) {
+      dispacth(resetRejected(error));
+    }
+  };
+};
+
 const authActions = {
   loginThunk,
+  resetThunk,
   logoutThunk,
 };
 
