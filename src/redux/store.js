@@ -2,7 +2,9 @@ import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+// import reducers from "./reducers/index";
 import reducers from "./reducers/index";
+
 
 const persistConfig = {
   key: "rima",
