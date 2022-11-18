@@ -28,5 +28,5 @@ export const register = (body) => {
 };
 
 export const reset = (data) => {
-  return axiosRequest("POST", "/auth/reset", data);
+  return axiosRequest("POST", "/profile/change-password", data);
 };
