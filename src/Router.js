@@ -12,20 +12,22 @@ import FAQ from "./pages/FAQ";
 import Profile from "./pages/Profile";
 import Product from "./pages/Product";
 import ProductDetail from "./pages/ProductDetail";
-
+import About from "./pages/About";
+import Cart from "./pages/Cart";
 const router = createBrowserRouter([
-  { path: "/", element: <Homepage /> },
-  { path: "/account", element: <Account /> },
-  { path: "/forgot", element: <ForgotPassword /> },
-  { path: "/notification", element: <Notification /> },
-  { path: "/chat", element: <Chat /> },
-  { path: "/faq", element: <FAQ /> },
-  { path: "/profile", element: <Profile /> },
-  { path: "/product", element: <Product /> },
-  { path: "/order/tracking", element: <OrderTracking /> },
-  { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
-  { path: "/product/detail", element: <ProductDetail /> },
-  { path: "/about", element: <About /> },
+   { path: "/", element: <Homepage /> },
+   { path: "/account", element: <Account /> },
+   { path: "/forgot", element: <ForgotPassword /> },
+   { path: "/notification", element: <Notification /> },
+   { path: "/chat", element: <Chat /> },
+   { path: "/faq", element: <FAQ /> },
+   { path: "/profile", element: <Profile /> },
+   { path: "/product", element: <Product /> },
+   { path: "/order/tracking", element: <OrderTracking /> },
+   { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
+   { path: "/product/detail", element: <ProductDetail /> },
+   { path: "/about", element: <About /> },
+   { path: "/cart", element: <Cart /> },
 ]);
 
 export default router;
