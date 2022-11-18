@@ -50,11 +50,12 @@ function BasicExample() {
               </Link>
             </NavDropdown>
             <NavDropdown className={styles["title"]} title="SHOP" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1">Other Page</NavDropdown.Item>
+
+              <NavDropdown.Item href="#action/3.2"> Shopping Cart</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Check Out</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">My Account</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Order Tracking</NavDropdown.Item>
             </NavDropdown>
 
             <Nav.Link className={styles["title"]} href="#home">
