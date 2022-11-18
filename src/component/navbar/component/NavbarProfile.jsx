@@ -10,16 +10,16 @@ function NavbarProvile() {
   return (
     <div>
       <NavDropdown className={styles["menu"]} title={<img className={styles["icon-menu"]} src={hamburger} alt="/"></img>} id="basic-nav-dropdown">
-        <Link className={styles["no-underline"]} to={"/about"}>
+        <Link className={styles["no-underline"]} to={"/profile"}>
           <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
         </Link>
-        <Link className={styles["no-underline"]} to={"/about"}>
+        <Link className={styles["no-underline"]} to={"/chat"}>
           <NavDropdown.Item href="#action/3.1">Chat</NavDropdown.Item>
         </Link>
-        <Link className={styles["no-underline"]} to={"/about"}>
+        <Link className={styles["no-underline"]} to={"/notification"}>
           <NavDropdown.Item href="#action/3.1">Notification</NavDropdown.Item>
         </Link>
-        <Link className={styles["no-underline"]} to={"/about"}>
+        <Link className={styles["no-underline"]} to={"/"}>
           <NavDropdown.Item href="#action/3.1">Logout</NavDropdown.Item>
         </Link>
       </NavDropdown>
