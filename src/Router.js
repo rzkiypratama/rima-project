@@ -16,19 +16,19 @@ import About from "./pages/About";
 import ProductDetail from "./pages/ProductDetail";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Homepage /> },
-  { path: "/login", element: <Login /> },
-  { path: "/register", element: <Register /> },
-  { path: "/forgot", element: <ForgotPassword /> },
-  { path: "/notification", element: <Notification /> },
-  { path: "/chat", element: <Chat /> },
-  { path: "/faq", element: <FAQ /> },
-  { path: "/profile", element: <Profile /> },
-  { path: "/product", element: <Product /> },
-  { path: "/order/tracking", element: <OrderTracking /> },
-  { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
-  { path: "/product/detail", element: <ProductDetail /> },
-  { path: "/about", element: <About /> },
+   { path: "/", element: <Homepage /> },
+   { path: "/login", element: <Login /> },
+   { path: "/register", element: <Register /> },
+   { path: "/forgot", element: <ForgotPassword /> },
+   { path: "/notification", element: <Notification /> },
+   { path: "/chat", element: <Chat /> },
+   { path: "/faq", element: <FAQ /> },
+   { path: "/profile", element: <Profile /> },
+   { path: "/product", element: <Product /> },
+   { path: "/order/tracking", element: <OrderTracking /> },
+   { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
+   { path: "/product/detail", element: <ProductDetail /> },
+   { path: "/about", element: <About /> },
 ]);
 
 export default router;
