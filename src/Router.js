@@ -12,6 +12,7 @@ import FAQ from "./pages/FAQ";
 import Profile from "./pages/Profile";
 import Product from "./pages/Product";
 import ProductDetail from "./pages/ProductDetail";
+import About from "./pages/About"
 
 const router = createBrowserRouter([
   { path: "/", element: <Homepage /> },
