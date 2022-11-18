@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Lato&display=swap");
 
 .cont-fluid {
-  background-color: #f3f3f3;
+  background-image: url(../assets/background/background.png);
 }
 
 .floating-form {
@@ -40,4 +40,14 @@
   line-height: 100%;
   vertical-align: Top;
   fill: Solid #1a1a1a;
+}
+
+.logout-btn {
+  height: 4rem;
+}
+
+@media only screen and (max-width: 425px) {
+  .logout-btn {
+    height: 3rem;
+  }
 }
