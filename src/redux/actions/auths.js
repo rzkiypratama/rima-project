@@ -41,20 +41,6 @@ const resetFulfilled = (data) => ({
 });
 
 const loginThunk = (body, navigate) => {
-<<<<<<< HEAD
-  return async (dispacth) => {
-    try {
-      dispacth(loginPending());
-      const result = await login(body);
-      dispacth(loginFulfilled(result.data));
-      console.log(result.data);
-      localStorage.setItem("token", JSON.stringify(result.data.data.token));
-      if (typeof navigate === "function") navigate();
-    } catch (error) {
-      dispacth(loginRejected(error));
-    }
-  };
-=======
    return async (dispacth) => {
       try {
          dispacth(loginPending());
@@ -68,7 +54,6 @@ const loginThunk = (body, navigate) => {
          dispacth(loginRejected(error));
       }
    };
->>>>>>> main
 };
 
 const logoutThunk = (token, navigate) => {
@@ -100,14 +85,9 @@ const resetThunk = (body, navigate) => {
 };
 
 const authActions = {
-<<<<<<< HEAD
   loginThunk,
   logoutThunk,
   resetThunk,
-=======
-   loginThunk,
-   logoutThunk,
->>>>>>> main
 };
 
 export default authActions;
