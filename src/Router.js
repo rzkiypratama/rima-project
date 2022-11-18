@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 // Pages
 import Homepage from "./pages/HomePage";
-import Account from "./pages/AccountPage";
+import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import Notification from "./pages/Notification";
 import OrderTracking from "./pages/OrderTracking";
@@ -11,6 +11,7 @@ import Chat from "./pages/Chat";
 import FAQ from "./pages/FAQ";
 import Profile from "./pages/Profile";
 import Product from "./pages/Product";
+import About from "./pages/About";
 import ProductDetail from "./pages/ProductDetail";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
