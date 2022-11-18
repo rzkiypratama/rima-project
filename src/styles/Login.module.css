@@ -162,6 +162,12 @@
       max-width: 100%;
   }
 
+  .form .form-login p {
+    font-size: 13px;
+    padding: 3px 0px 5px 0px;
+    text-align: center;
+  }
+
   .form .btn-login button {
       width: 100%;
      }
