@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Lato&display=swap");
+
+.cont-fluid {
+  background-color: #f3f3f3;
+}
+
+.floating-form {
+  height: 80px !important;
+  border-radius: 0px;
+}
+.floating-form-2 {
+  height: 80px !important;
+  border-radius: 0px;
+  border-top: 0px;
+}
+.floating-form-3 {
+  height: 80px !important;
+  border-radius: 0px;
+  border-top: 0px;
+}
+.profile {
+  font-weight: 400;
+
+  font-family: Arimo;
+  font-style: Regular;
+  font-size: 56px;
+  line-height: 64px;
+  line-height: 100%;
+  vertical-align: Top;
+  fill: Solid #1a1a1a;
+}
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+.cursor {
+  cursor: pointer;
+}
+.svg {
+  width: 30px;
+  position: relative;
+  top: -2rem;
+}
+.text-profile {
+  font-weight: 400;
+
+  font-family: Arimo;
+  font-style: Regular;
+  font-size: 16px;
+  line-height: 64px;
+  line-height: 100%;
+  vertical-align: Top;
+  fill: Solid #1a1a1a;
+}
+
+.logout {
+  width: 210px;
+  height: 70px;
+  font: Arimo;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18.4px;
+  fill: Solid #ffffff;
+}
+.logout-icon {
+  width: 30px;
+  color: #ffffff;
+}
+.edit-svg {
+  width: 20px;
+}
+
+.cont-edit {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+}
+
+.edit-text {
+  font: Arimo;
+  font-weight: 700;
+  font-size: 16px !important;
+  line-height: 18.4px;
+  fill: Solid #1a1a1a;
+  padding-top: 5px;
+}
