@@ -33,8 +33,9 @@ const loginThunk = (body, navigate) => {
     try {
       dispacth(loginPending());
       const result = await login(body);
+      // console.log(result)
       dispacth(loginFulfilled(result.data));
-      console.log(result.data);
+      console.log(result);
       localStorage.setItem("token", JSON.stringify(result.data.data.token));
       if (typeof navigate === "function") navigate();
     } catch (error) {

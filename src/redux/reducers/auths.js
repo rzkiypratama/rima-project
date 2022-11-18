@@ -9,15 +9,14 @@ const initialState = {
   userInfo: {
     id: null,
     token: null,
-    role: null,
     email: null,
+    role: null,
   },
 };
 
 const authReducer = (prevState = initialState, { type, payload }) => {
   const { Pending, Rejected, Fulfilled } = ActionType;
   const { authLogin, authLogout } = ACTION_STRING;
-
   switch (type) {
     case authLogin.concat("_", Pending):
       return {

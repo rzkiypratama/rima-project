@@ -24,5 +24,5 @@ export const logout = (token) => {
 };
 
 export const register = (body) => {
-  return axiosRequest("POST", "/users/register", body);
+  return axiosRequest("POST", "/auth/register", body);
 };

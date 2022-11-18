@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import reportWebVitals from "./reportWebVitals";
+// import reportWebVitals from "./reportWebVitals";
 
 import { RouterProvider } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";

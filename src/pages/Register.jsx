@@ -1,29 +1,39 @@
 import React, { useState } from "react";
 import Header from "../component/navbar/Navbar";
 import Footer from "../component/footer/Footer";
-import styles from "../styles/Login.module.css";
+import styles from "../styles/Register.module.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import authActions from "../redux/actions/auths";
+import registerActions from "../redux/actions/register";
 
-function Login() {
+function Regist() {
    const navigate = useNavigate();
    const dispacth = useDispatch();
    const [body, setBody] = useState({});
-   const [selected, setSelected] = useState("login");
+   const [selected, setSelected] = useState("register");
 
    const changeHandler = (e) =>
       setBody({ ...body, [e.target.name]: e.target.value });
    console.log(body);
 
-   const goHome = () => navigate("/");
-   const toRegister = () => navigate("/register");
+   const toLogin = () => navigate("/login");
 
    const submitHandler = () => {
-      dispacth(authActions.loginThunk(body, goHome));
-      return toast.success(`Congrats! ${body.email} login success`, {
+      if (!body.email || !body.password || !body.role)
+         return toast.error("All input must be fulfilled", {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+         });
+      dispacth(registerActions.registerThunk(body, toLogin));
+      return toast.success(`Congrats! ${body.email} register success`, {
          position: "top-center",
          autoClose: 2000,
          hideProgressBar: false,
@@ -34,6 +44,7 @@ function Login() {
          theme: "light",
       });
    };
+
    return (
       <>
          <Header />
@@ -53,46 +64,65 @@ function Login() {
                <div className="col-lg-3 offset-lg-2">
                   <div className={styles["account"]}>
                      <div className={styles["login-account"]}>
-                        <h1
-                           onClick={() => {
-                              setSelected("login");
-                           }}
-                           className={
-                              selected === "login" && `${styles["selected"]}`
-                           }
-                        >
-                           Login Account
-                        </h1>
+                        <h1 onClick={toLogin}>Login Account</h1>
                      </div>
                      <div className={styles["regist-account"]}>
-                        <h1 onClick={toRegister}>Register Account</h1>
+                        <h1
+                           onClick={() => {
+                              setSelected("register");
+                           }}
+                           className={
+                              selected === "register" && `${styles["selected"]}`
+                           }
+                        >
+                           Register Account
+                        </h1>
                      </div>
                   </div>
                </div>
                <div className="col-lg-6 offset-lg-1 col-12">
                   <div className={styles["form"]}>
                      <div className={styles["title-form"]}>
-                        <h1>Login</h1>
+                        <h1>Create Account</h1>
                      </div>
                      <div className={styles["form-login"]}>
                         <form action="">
                            <input
-                              onChange={changeHandler}
                               type="text"
                               name="email"
-                              placeholder="User name or email address *"
+                              placeholder="Email address*"
+                              onChange={changeHandler}
                            />
                            <input
-                              onChange={changeHandler}
                               type="password"
                               name="password"
                               placeholder="Password *"
+                              onChange={changeHandler}
                            />
-                           <p>Forget your password?</p>
+                           <div className={styles["radio"]}>
+                              <div className={styles["input"]}>
+                                 <input
+                                    type="checkbox"
+                                    name="role"
+                                    value="customer"
+                                    onChange={changeHandler}
+                                 />
+                                 <label htmlFor="">I'm Customer</label>
+                              </div>
+                              <div className={styles["input"]}>
+                                 <input
+                                    type="checkbox"
+                                    name="role"
+                                    value="seller"
+                                    onChange={changeHandler}
+                                 />
+                                 <label htmlFor="">I'm Seller</label>
+                              </div>
+                           </div>
                         </form>
                      </div>
                      <div className={styles["btn-login"]}>
-                        <button onClick={submitHandler}>Login</button>
+                        <button onClick={submitHandler}>Register</button>
                      </div>
                   </div>
                </div>
@@ -104,4 +134,4 @@ function Login() {
    );
 }
 
-export default Login;
+export default Regist;
