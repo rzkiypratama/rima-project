@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 // components
 import Navbar from "../component/navbar/Navbar";
 import Footer from "../component/footer/Footer";
+import CardCart from "../component/cart/CardCart";
 // helpers
 import title from "../helper/title";
 // styles
 import styles from "../styles/Cart.module.css";
-import img_chair from "../assets/cart/img_chair.png";
 
 function Cart() {
    title("Cart");
@@ -67,180 +67,10 @@ function Cart() {
                      </thead>
                      <tbody className={`${styles.product__bar}`}>
                         {/* card 1 */}
-                        <tr className={styles.product}>
-                           <td className="w-50">
-                              <span className="d-flex justify-content-start align-items-center">
-                                 <span className={styles.delete}>
-                                    <i className="bi bi-x fs-3 pe-3"></i>
-                                 </span>
-                                 <img
-                                    className={`${styles.img_product}`}
-                                    src={img_chair}
-                                    alt="img_chair"
-                                 />
-                                 <span className="ms-0 ms-sm-0 ms-md-5 ms-lg-5">
-                                    Fabric Mid Century Chair
-                                 </span>
-                              </span>
-                           </td>
-                           <div className="w-50 d-flex justify-content-between align-items-center">
-                              <td className="text-center">$10.50</td>
-                              <td className="text-center">
-                                 <span className="d-flex justify-content-center align-items-center">
-                                    <span className={styles.btn__qty}>-</span>
-                                    <span>
-                                       <input
-                                          className={styles.input__qty}
-                                          type="number"
-                                          value={"02"}
-                                       />
-                                    </span>
-                                    <span className={styles.btn__qty}>+</span>
-                                 </span>
-                              </td>
-                              <td className="text-center fw-bold">$21.00</td>
-                           </div>
-                        </tr>
-                        {/* card 2 */}
-                        <tr className={styles.product}>
-                           <td className="w-50">
-                              <span className="d-flex justify-content-start align-items-center">
-                                 <span className={styles.delete}>
-                                    <i className="bi bi-x fs-3 pe-3"></i>
-                                 </span>
-                                 <img
-                                    className={`${styles.img_product}`}
-                                    src={img_chair}
-                                    alt="img_chair"
-                                 />
-                                 <span className="ms-0 ms-sm-0 ms-md-5 ms-lg-5">
-                                    Fabric Mid Century Chair
-                                 </span>
-                              </span>
-                           </td>
-                           <div className="w-50 d-flex justify-content-between align-items-center">
-                              <td className="text-center">$10.50</td>
-                              <td className="text-center">
-                                 <span className="d-flex justify-content-center align-items-center">
-                                    <span className={styles.btn__qty}>-</span>
-                                    <span>
-                                       <input
-                                          className={styles.input__qty}
-                                          type="number"
-                                          value={"02"}
-                                       />
-                                    </span>
-                                    <span className={styles.btn__qty}>+</span>
-                                 </span>
-                              </td>
-                              <td className="text-center fw-bold">$21.00</td>
-                           </div>
-                        </tr>
-                        {/* card 2 */}
-                        <tr className={styles.product}>
-                           <td className="w-50">
-                              <span className="d-flex justify-content-start align-items-center">
-                                 <span className={styles.delete}>
-                                    <i className="bi bi-x fs-3 pe-3"></i>
-                                 </span>
-                                 <img
-                                    className={`${styles.img_product}`}
-                                    src={img_chair}
-                                    alt="img_chair"
-                                 />
-                                 <span className="ms-0 ms-sm-0 ms-md-5 ms-lg-5">
-                                    Fabric Mid Century Chair
-                                 </span>
-                              </span>
-                           </td>
-                           <div className="w-50 d-flex justify-content-between align-items-center">
-                              <td className="text-center">$10.50</td>
-                              <td className="text-center">
-                                 <span className="d-flex justify-content-center align-items-center">
-                                    <span className={styles.btn__qty}>-</span>
-                                    <span>
-                                       <input
-                                          className={styles.input__qty}
-                                          type="number"
-                                          value={"02"}
-                                       />
-                                    </span>
-                                    <span className={styles.btn__qty}>+</span>
-                                 </span>
-                              </td>
-                              <td className="text-center fw-bold">$21.00</td>
-                           </div>
-                        </tr>{" "}
-                        {/* card 2 */}
-                        <tr className={styles.product}>
-                           <td className="w-50">
-                              <span className="d-flex justify-content-start align-items-center">
-                                 <span className={styles.delete}>
-                                    <i className="bi bi-x fs-3 pe-3"></i>
-                                 </span>
-                                 <img
-                                    className={`${styles.img_product}`}
-                                    src={img_chair}
-                                    alt="img_chair"
-                                 />
-                                 <span className="ms-0 ms-sm-0 ms-md-5 ms-lg-5">
-                                    Fabric Mid Century Chair
-                                 </span>
-                              </span>
-                           </td>
-                           <div className="w-50 d-flex justify-content-between align-items-center">
-                              <td className="text-center">$10.50</td>
-                              <td className="text-center">
-                                 <span className="d-flex justify-content-center align-items-center">
-                                    <span className={styles.btn__qty}>-</span>
-                                    <span>
-                                       <input
-                                          className={styles.input__qty}
-                                          type="number"
-                                          value={"02"}
-                                       />
-                                    </span>
-                                    <span className={styles.btn__qty}>+</span>
-                                 </span>
-                              </td>
-                              <td className="text-center fw-bold">$21.00</td>
-                           </div>
-                        </tr>{" "}
-                        {/* card 2 */}
-                        <tr className={styles.product}>
-                           <td className="w-50">
-                              <span className="d-flex justify-content-start align-items-center">
-                                 <span className={styles.delete}>
-                                    <i className="bi bi-x fs-3 pe-3"></i>
-                                 </span>
-                                 <img
-                                    className={`${styles.img_product}`}
-                                    src={img_chair}
-                                    alt="img_chair"
-                                 />
-                                 <span className="ms-0 ms-sm-0 ms-md-5 ms-lg-5">
-                                    Fabric Mid Century Chair
-                                 </span>
-                              </span>
-                           </td>
-                           <div className="w-50 d-flex justify-content-between align-items-center">
-                              <td className="text-center">$10.50</td>
-                              <td className="text-center">
-                                 <span className="d-flex justify-content-center align-items-center">
-                                    <span className={styles.btn__qty}>-</span>
-                                    <span>
-                                       <input
-                                          className={styles.input__qty}
-                                          type="number"
-                                          value={"02"}
-                                       />
-                                    </span>
-                                    <span className={styles.btn__qty}>+</span>
-                                 </span>
-                              </td>
-                              <td className="text-center fw-bold">$21.00</td>
-                           </div>
-                        </tr>
+                        <CardCart />
+                        <CardCart />
+                        <CardCart />
+                        <CardCart />
                      </tbody>
                      {/* coupun */}
                      <section className={`${styles.coupon} row d-flex `}>
@@ -252,7 +82,10 @@ function Cart() {
                                  type="text"
                                  placeholder="Enter your coupon code"
                               />
-                              Apply Coupon
+                              <span className={styles.apply_coupon}>
+                                 {" "}
+                                 Apply Coupon
+                              </span>
                            </span>
                         </section>
                         <section className="col-12 col-sm-12 col-md-5 d-flex justify-content-end">
