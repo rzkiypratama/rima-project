@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 // Pages
 import Homepage from "./pages/HomePage";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
 import Notification from "./pages/Notification";
 import OrderTracking from "./pages/OrderTracking";
@@ -17,6 +18,7 @@ import ProductDetail from "./pages/ProductDetail";
 const router = createBrowserRouter([
   { path: "/", element: <Homepage /> },
   { path: "/login", element: <Login /> },
+  { path: "/register", element: <Register /> },
   { path: "/forgot", element: <ForgotPassword /> },
   { path: "/notification", element: <Notification /> },
   { path: "/chat", element: <Chat /> },
