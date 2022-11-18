@@ -10,6 +10,9 @@
   fill: Solid;
   color: #1a1a1a;
 }
+.cursor {
+  cursor: pointer;
+}
 
 .title {
   font-family: arimo;
@@ -20,6 +23,11 @@
   line-height: 100%;
   fill: Solid;
   color: #1a1a1a;
+}
+.menu {
+  position: relative;
+  top: 1rem;
+  left: -17px;
 }
 .no-underline {
   text-decoration: none;
@@ -37,7 +45,21 @@
 .svg {
   width: 20px;
 }
+.icon-1 {
+  height: 24px;
+  position: relative;
+  top: 27px;
+}
+.icon-menu {
+  height: 24px;
+  position: relative;
+  top: 7px;
+  left: 12px;
+}
 @media only screen and (max-width: 768px) {
+  .navbar {
+    margin-top: 3rem;
+  }
   .icon {
     margin: 4rem 2rem 2rem 2rem;
     justify-content: space-between !important;
