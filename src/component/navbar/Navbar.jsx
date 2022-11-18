@@ -5,6 +5,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import styles from "../navbar/Navbar.module.css";
 import { Link } from "react-router-dom";
 import NavbarRegister from "./component/NavbarRegister";
+import NavbarLogin from "./component/NavbarProfile";
 // import { useState } from "react";
 
 import wishlist from "../navbar/wishlist.png";
@@ -24,6 +25,9 @@ function BasicExample() {
   //     return this.state.navnotLogin;
   //   }
   // };
+
+  const isLogin = JSON.parse(localStorage["userInfo"] || "{}")
+
   return (
     <Navbar expand="lg">
       <Container>
@@ -66,7 +70,7 @@ function BasicExample() {
             <img className={`  ${styles["icon-1"]} ${styles["cursor"]}`} src={search} alt="/" />
             <img className={`   ${styles["cursor"]}`} src={wishlist} alt="/" />
             <img className={`   ${styles["cursor"]}`} src={cart} alt="/" />
-            <NavbarRegister />
+           {isLogin.token ? <NavbarLogin/> : <NavbarRegister /> } 
           </div>
         </Navbar.Collapse>
       </Container>

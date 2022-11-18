@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "../navbar/Navbar.module.css";
+import styles from "../../navbar/Navbar.module.css";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 
 // IMport Image
-import hamburger from "../navbar/menu.png";
+import hamburger from "../../navbar/menu.png";
 
 function NavbarProvile() {
   return (
