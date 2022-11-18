@@ -12,7 +12,7 @@ function Profile() {
       <div className={`container-fluid p-5 ${styles["cont-fluid"]}`}>
         <div className="container justify-content-center">
           <p className={`text-center  ${styles["profile"]}`}>Profile</p>
-          <p className={`text-center mt-4 fs-6 ${styles["text-profile"]}`}>See your notifications for the latest updates</p>
+          <p className={`text-center mt-4  fs-6 ${styles["text-profile"]}`}>See your notifications for the latest updates</p>
         </div>
       </div>
       <form className="container mt-5">
