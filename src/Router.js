@@ -13,7 +13,6 @@ import Profile from "./pages/Profile";
 import Product from "./pages/Product";
 import About from "./pages/About";
 import ProductDetail from "./pages/ProductDetail";
-import About from "./pages/About"
 
 const router = createBrowserRouter([
   { path: "/", element: <Homepage /> },
