@@ -40,6 +40,16 @@
   height: 3.5em;
   margin-bottom: 0.5em;
   padding-left: 15px;
+  border-bottom: 2px solid black;
+}
+
+.form-container .input-box input {
+  /* border:0; */
+  outline:0;
+}
+
+.form-container .input-box input:focus {
+  outline: none!important;
 }
 
 .form-forgot .forgot-btn {

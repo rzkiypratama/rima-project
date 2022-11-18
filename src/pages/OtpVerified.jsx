@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from '../styles/ForgotPassword.module.css'
+import styles from '../styles/OtpVerified.module.css'
 import Navbar from '../component/navbar/Navbar'
 import Footer from '../component/footer/Footer'
 
-export default function ForgotPassword() {
+export default function OtpVerified() {
   return (
     <>
     <Navbar/>
@@ -19,13 +19,16 @@ export default function ForgotPassword() {
     <div className={`${styles["form-container"]} container`}>
     <form action='forgot'>
       <div className={styles["form-forgot"]}>
-      <h1>Forgot your Password?</h1>
-      <p>Don't worry! Just fill in your email and we'll send you a link</p>
+      <h1>OTP Verified!</h1>
+      <p>Enter your new password bellow!</p>
       <div className={styles["input-box"]}>
-      <input type="text" name="email" id="email" placeholder='Username or email address *' />
+      <input type="text" name="email" id="email" placeholder='Enter new password *' />
+      </div>
+      <div className={styles["input-box"]}>
+      <input type="text" name="email" id="email" placeholder='Confirm new password *' />
       </div>
       <div className={styles["forgot-btn"]}>
-      <button>Send Email</button>
+      <button>Send</button>
       </div>
       </div>
     </form>
