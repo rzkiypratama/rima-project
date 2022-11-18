@@ -1,5 +1,5 @@
 import { ActionType } from "redux-promise-middleware";
-import { login, logout } from "../../utils/fetchers";
+import { login, logout, reset } from "../../utils/fetchers";
 import { ACTION_STRING } from "./actionStrings";
 
 const { Pending, Rejected, Fulfilled } = ActionType;
@@ -16,18 +16,6 @@ const loginFulfilled = (data) => ({
   payload: { data },
 });
 
-const resetPending = () => ({
-  type: ACTION_STRING.authReset.concat("_", Pending),
-});
-const resetRejected = (error) => ({
-  type: ACTION_STRING.authReset.concat("_", Rejected),
-  payload: { error },
-});
-const resetFulfilled = (data) => ({
-  type: ACTION_STRING.authReset.concat("_", Fulfilled),
-  payload: { data },
-});
-
 const logoutPending = () => ({
   type: ACTION_STRING.authLogout.concat("_", Pending),
 });
@@ -40,14 +28,25 @@ const logoutFulfilled = (data) => ({
   payload: { data },
 });
 
+const resetPending = () => ({
+  type: ACTION_STRING.authReset.concat("_", Pending),
+});
+const resetRejected = (error) => ({
+  type: ACTION_STRING.authReset.concat("_", Rejected),
+  payload: { error },
+});
+const resetFulfilled = (data) => ({
+  type: ACTION_STRING.authReset.concat("_", Fulfilled),
+  payload: { data },
+});
+
 const loginThunk = (body, navigate) => {
   return async (dispacth) => {
     try {
       dispacth(loginPending());
       const result = await login(body);
-      // console.log(result)
       dispacth(loginFulfilled(result.data));
-      console.log(result);
+      console.log(result.data);
       localStorage.setItem("token", JSON.stringify(result.data.data.token));
       if (typeof navigate === "function") navigate();
     } catch (error) {
@@ -86,8 +85,8 @@ const resetThunk = (body, navigate) => {
 
 const authActions = {
   loginThunk,
-  resetThunk,
   logoutThunk,
+  resetThunk,
 };
 
 export default authActions;
