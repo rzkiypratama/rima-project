@@ -72,7 +72,7 @@
 /* input */
 .product__bar {
     border: 1px solid green !important;
-    height: 234px;
+    height: auto;
 }
 
 .input__qty {
@@ -142,7 +142,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 
