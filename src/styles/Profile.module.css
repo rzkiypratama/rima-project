@@ -48,7 +48,8 @@
   width: 21px;
   height: 21px;
   position: relative;
-  top: 14px;
+  top: 20px;
+  right: -20px
 }
 
 .buttons {
@@ -88,7 +89,9 @@
   transform: scale(1.050);
 }
 
-
+.edit-text:hover {
+  color: salmon;
+}
 
 .cursor:hover {
   transform: scale(1.2);
@@ -117,6 +120,11 @@
   line-height: 18.4px;
   fill: Solid #1a1a1a;
   padding-top: 5px;
+}
+
+.username {
+  border: none;
+  width: 100%;
 }
 
 /*Any Mobile Device*/
