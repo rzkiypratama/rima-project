@@ -26,3 +26,7 @@ export const logout = (token) => {
 export const register = (body) => {
   return axiosRequest("POST", "/auth/register", body);
 };
+
+export const reset = (data) => {
+  return axiosRequest("POST", "/profile/change-password", data);
+};

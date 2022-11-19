@@ -1,21 +1,84 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../styles/Profile.module.css";
-
+import { useDispatch } from "react-redux";
+import authActions from "../redux/actions/auths";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import axios from "axios";
 //component
 import Navbar from "../component/navbar/Navbar";
 import Footer from "../component/footer/Footer";
 
 // Import Image
-import Parker from "../assets/profile/parker.jpeg";
+import pencil from "../assets/profile/img_pencil.png";
+// import Parker from "../assets/profile/parker.jpeg";
 
 function Profile() {
+   const navigate = useNavigate();
+   const dispatch = useDispatch();
+   const [show, setShow] = useState(false);
+
+   const handleClose = () => setShow(false);
+   const handleShow = () => setShow(true);
+
+   const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
+
+   const toLogout = () => navigate("/login");
+   const logoutHandler = (e) => {
+      e.preventDefault();
+      dispatch(authActions.logoutThunk(userInfo.token, toLogout));
+      localStorage.removeItem("userInfo");
+   };
+   // get profile
+   const [name, setName] = useState("");
+   const [gender, setGender] = useState("");
+   const [email, setEmail] = useState("");
+   const [phone, setPhone] = useState(0);
+   const [image, setImage] = useState("");
+   const [display, setDisplay] = useState("");
+
+   //  handle input image
+   const inputImage = (event) => {
+      // console.log(image);
+      if (event.target.files && event.target.files[0]) {
+         setDisplay(URL.createObjectURL(event.target.files[0]));
+         setImage(event.target.files[0]);
+      }
+   };
+
+   //  didmount
+   useEffect(() => {
+      console.log(userInfo.id);
+      const urlGetProfile = `${process.env.REACT_APP_BACKEND_HOST}/profile/:${userInfo.id}`;
+      axios
+         .get(urlGetProfile, {
+            headers: {
+               "x-access-token": userInfo.token,
+            },
+         })
+         .then((res) => {
+            console.log(res.data);
+            // console.log(res.data.data.profileUser[0]);
+            // console.log(res.data.data.profileData[0].email);
+            const data = res.data.data.profileUser[0];
+            setName(data.name);
+            setGender(data.gender);
+            setEmail(res.data.data.profileData[0].email);
+            setPhone(data.phone);
+            setImage(data.image);
+            setDisplay(data.image);
+         })
+         .catch((err) => console.log(err));
+   }, []);
    return (
       <>
          <Navbar />
          <div className={`container-fluid p-5 ${styles["cont-fluid"]}`}>
             <div className="container justify-content-center">
                <p className={`text-center  ${styles["profile"]}`}>Profile</p>
-               <p className={`text-center mt-4 fs-6 ${styles["text-profile"]}`}>
+               <p className={`text-center fs-6 ${styles["text-profile"]}`}>
                   See your notifications for the latest updates
                </p>
             </div>
@@ -23,21 +86,29 @@ function Profile() {
          <div className={`container d-flex mt-5 ${styles["cont-profile"]}`}>
             <img
                className={`${styles["profile-picture"]} ${styles["cursor"]}`}
-               src={Parker}
+               src={display}
                alt="/"
             />
 
             <p className={`fs-3 ms-3 mt-2 ${styles["name"]}`}>
-               Syifa
+               {name}
                <p className="fs-6">as Costumer</p>
             </p>
-            <svg
-               className={` ${styles["svg"]} ${styles["cursor"]}`}
-               xmlns="http://www.w3.org/2000/svg"
-               viewBox="0 0 512 512"
-            >
-               <path d="M373.1 24.97C401.2-3.147 446.8-3.147 474.9 24.97L487 37.09C515.1 65.21 515.1 110.8 487 138.9L289.8 336.2C281.1 344.8 270.4 351.1 258.6 354.5L158.6 383.1C150.2 385.5 141.2 383.1 135 376.1C128.9 370.8 126.5 361.8 128.9 353.4L157.5 253.4C160.9 241.6 167.2 230.9 175.8 222.2L373.1 24.97zM440.1 58.91C431.6 49.54 416.4 49.54 407 58.91L377.9 88L424 134.1L453.1 104.1C462.5 95.6 462.5 80.4 453.1 71.03L440.1 58.91zM203.7 266.6L186.9 325.1L245.4 308.3C249.4 307.2 252.9 305.1 255.8 302.2L390.1 168L344 121.9L209.8 256.2C206.9 259.1 204.8 262.6 203.7 266.6zM200 64C213.3 64 224 74.75 224 88C224 101.3 213.3 112 200 112H88C65.91 112 48 129.9 48 152V424C48 446.1 65.91 464 88 464H360C382.1 464 400 446.1 400 424V312C400 298.7 410.7 288 424 288C437.3 288 448 298.7 448 312V424C448 472.6 408.6 512 360 512H88C39.4 512 0 472.6 0 424V152C0 103.4 39.4 64 88 64H200z" />
-            </svg>
+            <span>
+               <input
+                  type="file"
+                  id={"images"}
+                  className="d-none"
+                  onChange={inputImage}
+               />
+               <label htmlFor="images">
+                  <img
+                     src={pencil}
+                     alt="pencil"
+                     className={` ${styles["svg"]} ${styles["cursor"]}`}
+                  />
+               </label>
+            </span>
          </div>
          <form className="container mt-5">
             <form className={`form-floating `}>
@@ -46,6 +117,7 @@ function Profile() {
                   className={`form-control my-auto ${styles["floating-form"]}`}
                   id="floatingInputValue"
                   placeholder="Male / Female "
+                  value={gender}
                />
 
                <label for="floatingInputValue">Gender</label>
@@ -55,13 +127,11 @@ function Profile() {
                   <p className={`my-auto me-3 fs-5 ${styles["edit-text"]}`}>
                      EDIT
                   </p>
-                  <svg
-                     className={` ${styles["edit-svg"]} ${styles["cursor"]}`}
-                     xmlns="http://www.w3.org/2000/svg"
-                     viewBox="0 0 512 512"
-                  >
-                     <path d="M373.1 24.97C401.2-3.147 446.8-3.147 474.9 24.97L487 37.09C515.1 65.21 515.1 110.8 487 138.9L289.8 336.2C281.1 344.8 270.4 351.1 258.6 354.5L158.6 383.1C150.2 385.5 141.2 383.1 135 376.1C128.9 370.8 126.5 361.8 128.9 353.4L157.5 253.4C160.9 241.6 167.2 230.9 175.8 222.2L373.1 24.97zM440.1 58.91C431.6 49.54 416.4 49.54 407 58.91L377.9 88L424 134.1L453.1 104.1C462.5 95.6 462.5 80.4 453.1 71.03L440.1 58.91zM203.7 266.6L186.9 325.1L245.4 308.3C249.4 307.2 252.9 305.1 255.8 302.2L390.1 168L344 121.9L209.8 256.2C206.9 259.1 204.8 262.6 203.7 266.6zM200 64C213.3 64 224 74.75 224 88C224 101.3 213.3 112 200 112H88C65.91 112 48 129.9 48 152V424C48 446.1 65.91 464 88 464H360C382.1 464 400 446.1 400 424V312C400 298.7 410.7 288 424 288C437.3 288 448 298.7 448 312V424C448 472.6 408.6 512 360 512H88C39.4 512 0 472.6 0 424V152C0 103.4 39.4 64 88 64H200z" />
-                  </svg>
+                  <img
+                     src={pencil}
+                     alt="pencil"
+                     className={` ${styles["pencil"]} ${styles["cursor"]}`}
+                  />
                </div>
             </form>
             <form className="form-floating ">
@@ -70,6 +140,7 @@ function Profile() {
                   className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-2"]}`}
                   id="floatingInputValue"
                   placeholder="name@example.com"
+                  value={email}
                />
                <label for="floatingInputValue">Your Email</label>
                <div
@@ -78,53 +149,92 @@ function Profile() {
                   <p className={`my-auto me-3 fs-5 ${styles["edit-text"]}`}>
                      EDIT
                   </p>
-                  <svg
-                     className={` ${styles["edit-svg"]} ${styles["cursor"]}`}
-                     xmlns="http://www.w3.org/2000/svg"
-                     viewBox="0 0 512 512"
-                  >
-                     <path d="M373.1 24.97C401.2-3.147 446.8-3.147 474.9 24.97L487 37.09C515.1 65.21 515.1 110.8 487 138.9L289.8 336.2C281.1 344.8 270.4 351.1 258.6 354.5L158.6 383.1C150.2 385.5 141.2 383.1 135 376.1C128.9 370.8 126.5 361.8 128.9 353.4L157.5 253.4C160.9 241.6 167.2 230.9 175.8 222.2L373.1 24.97zM440.1 58.91C431.6 49.54 416.4 49.54 407 58.91L377.9 88L424 134.1L453.1 104.1C462.5 95.6 462.5 80.4 453.1 71.03L440.1 58.91zM203.7 266.6L186.9 325.1L245.4 308.3C249.4 307.2 252.9 305.1 255.8 302.2L390.1 168L344 121.9L209.8 256.2C206.9 259.1 204.8 262.6 203.7 266.6zM200 64C213.3 64 224 74.75 224 88C224 101.3 213.3 112 200 112H88C65.91 112 48 129.9 48 152V424C48 446.1 65.91 464 88 464H360C382.1 464 400 446.1 400 424V312C400 298.7 410.7 288 424 288C437.3 288 448 298.7 448 312V424C448 472.6 408.6 512 360 512H88C39.4 512 0 472.6 0 424V152C0 103.4 39.4 64 88 64H200z" />
-                  </svg>
+                  <img
+                     src={pencil}
+                     alt="pencil"
+                     className={` ${styles["pencil"]} ${styles["cursor"]}`}
+                  />
                </div>
             </form>
             <form className="form-floating">
                <input
-                  type="text"
+                  type="tel"
                   className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`}
                   id="floatingInputValue"
                   placeholder=" "
+                  value={phone}
                />
-               <label for="floatingInputValue">Store Description</label>
+               <label for="floatingInputValue">Phone</label>
                <div
                   className={`d-flex justify-content-end ${styles["cont-edit"]}`}
                >
                   <p className={`my-auto me-3 fs-5 ${styles["edit-text"]}`}>
                      EDIT
                   </p>
-                  <svg
-                     className={` ${styles["edit-svg"]} ${styles["cursor"]}`}
-                     xmlns="http://www.w3.org/2000/svg"
-                     viewBox="0 0 512 512"
-                  >
-                     <path d="M373.1 24.97C401.2-3.147 446.8-3.147 474.9 24.97L487 37.09C515.1 65.21 515.1 110.8 487 138.9L289.8 336.2C281.1 344.8 270.4 351.1 258.6 354.5L158.6 383.1C150.2 385.5 141.2 383.1 135 376.1C128.9 370.8 126.5 361.8 128.9 353.4L157.5 253.4C160.9 241.6 167.2 230.9 175.8 222.2L373.1 24.97zM440.1 58.91C431.6 49.54 416.4 49.54 407 58.91L377.9 88L424 134.1L453.1 104.1C462.5 95.6 462.5 80.4 453.1 71.03L440.1 58.91zM203.7 266.6L186.9 325.1L245.4 308.3C249.4 307.2 252.9 305.1 255.8 302.2L390.1 168L344 121.9L209.8 256.2C206.9 259.1 204.8 262.6 203.7 266.6zM200 64C213.3 64 224 74.75 224 88C224 101.3 213.3 112 200 112H88C65.91 112 48 129.9 48 152V424C48 446.1 65.91 464 88 464H360C382.1 464 400 446.1 400 424V312C400 298.7 410.7 288 424 288C437.3 288 448 298.7 448 312V424C448 472.6 408.6 512 360 512H88C39.4 512 0 472.6 0 424V152C0 103.4 39.4 64 88 64H200z" />
-                  </svg>
+                  <img
+                     src={pencil}
+                     alt="pencil"
+                     className={` ${styles["pencil"]} ${styles["cursor"]}`}
+                  />
                </div>
             </form>
 
-            <button
-               type="submit"
-               className={`btn btn-danger my-5 fa-xs ${styles["logout"]} `}
+            <div
+               className={`${styles.buttons} d-flex flex-md-row flex-column justify-content-between align-items-center`}
             >
-               <div className="d-flex justify-content-center">
-                  {/* <svg className={`${styles["logout-icon"]}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path d="M534.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L434.7 224 224 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM192 96c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-53 0-96 43-96 96l0 256c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
-            </svg> */}
-                  <i className="bi bi-box-arrow-right fa-2x"></i>
-                  <p className="my-auto ms-3 fs-5">Logout</p>
-               </div>
-            </button>
+               <section className="d-flex flex-md-row flex-column w-100">
+                  <button
+                     type="submit"
+                     className={`btn btn-danger my-3 fa-xs ${styles["logout"]} me-4`}
+                     onClick={(e) => {
+                        e.preventDefault();
+                        handleShow();
+                     }}
+                  >
+                     <div className="d-flex justify-content-center">
+                        <i className="bi bi-box-arrow-right fa-2x"></i>
+                        <p className="my-auto ms-3 fs-5">Logout</p>
+                     </div>
+                  </button>
+
+                  {/* edit password dengan modal form data post to api*/}
+                  <button
+                     type="submit"
+                     className={`btn btn-warning my-3 fa-xs ${styles["logout"]} `}
+                  >
+                     <div className="d-flex justify-content-center">
+                        <i class="bi bi-credit-card-2-front fa-2x"></i>
+                        <p className="my-auto ms-3 fs-5">Edit Password</p>
+                     </div>
+                  </button>
+               </section>
+               {/* button saved data buat kondisi jika edit pada form diklik kan muncul button */}
+               <button
+                  type="submit"
+                  className={`btn btn-success my-3 fa-xs ${styles["logout"]} d-flex justify-content-center align-items-center`}
+               >
+                  <div className="d-flex justify-content-center">
+                     <i class="bi bi-person-check fa-2x"></i>
+                     <p className="my-auto ms-3 fs-5">Save</p>
+                  </div>
+               </button>
+            </div>
          </form>
          <Footer />
+         <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+               {/* <Modal.Title>Monlight</Modal.Title> */}
+            </Modal.Header>
+            <Modal.Body>Are you sure to logout?</Modal.Body>
+            <Modal.Footer>
+               <Button variant="secondary" onClick={handleClose}>
+                  Close
+               </Button>
+               <Button variant="danger" onClick={logoutHandler}>
+                  Yes
+               </Button>
+            </Modal.Footer>
+         </Modal>
       </>
    );
 }

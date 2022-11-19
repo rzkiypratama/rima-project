@@ -21,9 +21,11 @@ function Login() {
    const goHome = () => navigate("/");
    const toRegister = () => navigate("/register");
 
-   const submitHandler = () => {
+   const submitHandler = (e) => {
+      e.preventDefault();
+      console.log(body);
       dispacth(authActions.loginThunk(body, goHome));
-      return toast.success(`Congrats! ${body.email} login success`, {
+      return toast.success(`Hi! ${body.emailOrusername} thanks for login!`, {
          position: "top-center",
          autoClose: 2000,
          hideProgressBar: false,
@@ -75,11 +77,11 @@ function Login() {
                         <h1>Login</h1>
                      </div>
                      <div className={styles["form-login"]}>
-                        <form action="">
+                        <form>
                            <input
                               onChange={changeHandler}
                               type="text"
-                              name="email"
+                              name="emailOrusername"
                               placeholder="User name or email address *"
                            />
                            <input
@@ -88,7 +90,9 @@ function Login() {
                               name="password"
                               placeholder="Password *"
                            />
-                           <p>Forget your password?</p>
+                           <p onClick={() =>{
+                              navigate('/forgot')
+                           }}>Forget your password?</p>
                         </form>
                      </div>
                      <div className={styles["btn-login"]}>
