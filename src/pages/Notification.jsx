@@ -14,10 +14,12 @@ function Notification() {
     <main className="container-fluid p-0">
 
     <div className={styles["title-container"]}>
-      <div className={styles.title}>
-      <h1>Notification</h1>
-      <p>See your notifications for the latest updates</p>
-      </div>
+    <div className={`col-lg-12 ${styles["page-title"]}`}>
+                  <h1>Notification</h1>
+                  <p>
+                     See your latest notification here
+                  </p>
+          </div>
     </div>
 
     <div className={`${styles["form-container"]} container`}>

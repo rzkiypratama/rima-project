@@ -5,13 +5,17 @@ import styles from "../styles/Homapage.module.css";
 //component
 import Navbar from "../component/navbar/Navbar";
 import Footer from "../component/footer/Footer";
+import CardImageLeft from "../component/homepage_card/CardLeftImage";
+import CardImageRight from "../component/homepage_card/CardRightImage";
 // assets
-import content_first from "../assets/homepage/img_content_first.png";
 import backtowork from "../assets/homepage/img_service_backtowork.png";
 import furniture from "../assets/homepage/img_service_furniture.png";
 import furnitureoffice from "../assets/homepage/img_service_furniture_office.png";
 import workspace from "../assets/homepage/img_service_workspace.png";
+// helper
+import title from "../helper/title";
 function HomePage() {
+   title("RIMA FURNITURE");
    return (
       <>
          <Navbar />
@@ -30,204 +34,18 @@ function HomePage() {
                   </p>
                   <section className={`${styles.explore} text-center`}>
                      <p>Explore now</p>
-                     <span>
-                        <i className="bi bi-arrow-down-short fs-1 fw-bolder"></i>
-                     </span>
+                     <div className={`${styles.arrow}`}>
+                        <i
+                           className={"bi bi-arrow-down-short fs-1 fw-bolder"}
+                        ></i>
+                     </div>
                   </section>
                </article>
             </section>
             {/* content first */}
-            <section className="row d-flex flex-lg-row flex-md-row flex-sm-column flex-column align-content-center">
-               <section className="col-12 col-10 col-sm-12 col-md-5 col-lg-5">
-                  <img
-                     className={`${styles.images} w-100`}
-                     src={content_first}
-                     alt="content_first"
-                  />
-               </section>
-               <section className="col-12 col-sm-12 col-md-7 col-lg-7 d-flex justify-content-center align-items-center">
-                  <article
-                     className={`${styles.content_article_right} d-flex justify-content-center align-items-center`}
-                  >
-                     <div>
-                        <h1>
-                           Mid-Century 1929 <br /> Sofa with Pilow
-                        </h1>
-                        <p>
-                           Donec nunc nunc, gravida vitae diam vel, varius
-                           interdum erat. Quisque a nunc vel diam auctor
-                           commodo. Curabitur blandit ultrices ex. Curabitur ut
-                           magna dignissim, dignissim neque et, placerat risus.
-                           Morbi dictum lectus quam
-                        </p>
-                        <div className="d-flex justify-content-start align-items-center">
-                           <div className={`${styles.line} me-4`}></div>
-                           <span className="fw-bold">SHOP NOW</span>
-                        </div>
-                     </div>
-                  </article>
-               </section>
-            </section>
+            <CardImageLeft />
             {/* content two */}
-            <section className="row d-flex flex-lg-row flex-md-row flex-sm-column-reverse flex-column-reverse align-content-center ">
-               <section className="col-12 col-sm-12 col-md-7 col-lg-7 d-flex justify-content-center align-items-center">
-                  <article
-                     className={`${styles.content_article_left} d-flex justify-content-center align-items-center`}
-                  >
-                     <div>
-                        <h1>
-                           Mid-Century 1929 <br /> Sofa with Pilow
-                        </h1>
-                        <p>
-                           Donec nunc nunc, gravida vitae diam vel, varius
-                           interdum erat. Quisque a nunc vel diam auctor
-                           commodo. Curabitur blandit ultrices ex. Curabitur ut
-                           magna dignissim, dignissim neque et, placerat risus.
-                           Morbi dictum lectus quam
-                        </p>
-                        <div className="d-flex justify-content-start align-items-center">
-                           <div className={`${styles.line} me-4`}></div>
-                           <span className="fw-bold">SHOP NOW</span>
-                        </div>
-                     </div>
-                  </article>
-               </section>
-               <section className="col-12 col-10 col-sm-12 col-md-5 col-lg-5">
-                  <img
-                     className={`${styles.images}`}
-                     src={content_first}
-                     alt="content_first"
-                  />
-               </section>
-            </section>
-            {/* content three */}
-            <section className="row d-flex flex-lg-row flex-md-row flex-sm-column flex-column align-content-center">
-               <section className="col-12 col-10 col-sm-12 col-md-5 col-lg-5">
-                  <img
-                     className={`${styles.images} w-100`}
-                     src={content_first}
-                     alt="content_first"
-                  />
-               </section>
-               <section className="col-12 col-sm-12 col-md-7 col-lg-7 d-flex justify-content-center align-items-center">
-                  <article
-                     className={`${styles.content_article_right} d-flex justify-content-center align-items-center`}
-                  >
-                     <div>
-                        <h1>
-                           Mid-Century 1929 <br /> Sofa with Pilow
-                        </h1>
-                        <p>
-                           Donec nunc nunc, gravida vitae diam vel, varius
-                           interdum erat. Quisque a nunc vel diam auctor
-                           commodo. Curabitur blandit ultrices ex. Curabitur ut
-                           magna dignissim, dignissim neque et, placerat risus.
-                           Morbi dictum lectus quam
-                        </p>
-                        <div className="d-flex justify-content-start align-items-center">
-                           <div className={`${styles.line} me-4`}></div>
-                           <span className="fw-bold">SHOP NOW</span>
-                        </div>
-                     </div>
-                  </article>
-               </section>
-            </section>
-            {/* content four */}
-            <section className="row d-flex flex-lg-row flex-md-row flex-sm-column-reverse flex-column-reverse align-content-center ">
-               <section className="col-12 col-sm-12 col-md-7 col-lg-7 d-flex justify-content-center align-items-center">
-                  <article
-                     className={`${styles.content_article_left} d-flex justify-content-center align-items-center`}
-                  >
-                     <div>
-                        <h1>
-                           Mid-Century 1929 <br /> Sofa with Pilow
-                        </h1>
-                        <p>
-                           Donec nunc nunc, gravida vitae diam vel, varius
-                           interdum erat. Quisque a nunc vel diam auctor
-                           commodo. Curabitur blandit ultrices ex. Curabitur ut
-                           magna dignissim, dignissim neque et, placerat risus.
-                           Morbi dictum lectus quam
-                        </p>
-                        <div className="d-flex justify-content-start align-items-center">
-                           <div className={`${styles.line} me-4`}></div>
-                           <span className="fw-bold">SHOP NOW</span>
-                        </div>
-                     </div>
-                  </article>
-               </section>
-               <section className="col-12 col-10 col-sm-12 col-md-5 col-lg-5">
-                  <img
-                     className={`${styles.images}`}
-                     src={content_first}
-                     alt="content_first"
-                  />
-               </section>
-            </section>
-            {/* content five */}
-            <section className="row d-flex flex-lg-row flex-md-row flex-sm-column flex-column align-content-center">
-               <section className="col-12 col-10 col-sm-12 col-md-5 col-lg-5">
-                  <img
-                     className={`${styles.images} w-100`}
-                     src={content_first}
-                     alt="content_first"
-                  />
-               </section>
-               <section className="col-12 col-sm-12 col-md-7 col-lg-7 d-flex justify-content-center align-items-center">
-                  <article
-                     className={`${styles.content_article_right} d-flex justify-content-center align-items-center`}
-                  >
-                     <div>
-                        <h1>
-                           Mid-Century 1929 <br /> Sofa with Pilow
-                        </h1>
-                        <p>
-                           Donec nunc nunc, gravida vitae diam vel, varius
-                           interdum erat. Quisque a nunc vel diam auctor
-                           commodo. Curabitur blandit ultrices ex. Curabitur ut
-                           magna dignissim, dignissim neque et, placerat risus.
-                           Morbi dictum lectus quam
-                        </p>
-                        <div className="d-flex justify-content-start align-items-center">
-                           <div className={`${styles.line} me-4`}></div>
-                           <span className="fw-bold">SHOP NOW</span>
-                        </div>
-                     </div>
-                  </article>
-               </section>
-            </section>
-            {/* content six */}
-            <section className="row d-flex flex-lg-row flex-md-row flex-sm-column-reverse flex-column-reverse align-content-center ">
-               <section className="col-12 col-sm-12 col-md-7 col-lg-7 d-flex justify-content-center align-items-center">
-                  <article
-                     className={`${styles.content_article_left} d-flex justify-content-center align-items-center`}
-                  >
-                     <div>
-                        <h1>
-                           Mid-Century 1929 <br /> Sofa with Pilow
-                        </h1>
-                        <p>
-                           Donec nunc nunc, gravida vitae diam vel, varius
-                           interdum erat. Quisque a nunc vel diam auctor
-                           commodo. Curabitur blandit ultrices ex. Curabitur ut
-                           magna dignissim, dignissim neque et, placerat risus.
-                           Morbi dictum lectus quam
-                        </p>
-                        <div className="d-flex justify-content-start align-items-center">
-                           <div className={`${styles.line} me-4`}></div>
-                           <span className="fw-bold">SHOP NOW</span>
-                        </div>
-                     </div>
-                  </article>
-               </section>
-               <section className="col-12 col-10 col-sm-12 col-md-5 col-lg-5">
-                  <img
-                     className={`${styles.images}`}
-                     src={content_first}
-                     alt="content_first"
-                  />
-               </section>
-            </section>
+            <CardImageRight />
             {/* services */}
             <section
                className={`${styles.services__bar} text-center d-flex flex-column justify-content-around align-items-center`}
