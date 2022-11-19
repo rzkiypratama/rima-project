@@ -10,10 +10,10 @@ function NavbarRegister() {
   return (
     <div>
       <NavDropdown className={styles["menu"]} title={<img className={styles["icon-menu"]} src={hamburger} alt="/"></img>} id="basic-nav-dropdown">
-        <Link className={styles["no-underline"]} to={"/account"}>
+        <Link className={styles["no-underline"]} to={"/login"}>
           <NavDropdown.Item href="#action/3.1">Login</NavDropdown.Item>
         </Link>
-        <Link className={styles["no-underline"]} to={"/account"}>
+        <Link className={styles["no-underline"]} to={"/register"}>
           <NavDropdown.Item href="#action/3.1">Register</NavDropdown.Item>
         </Link>
         <Link className={styles["no-underline"]} to={"/chat"}>
