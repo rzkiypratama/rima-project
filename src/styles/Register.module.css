@@ -126,6 +126,193 @@ padding: .5rem 2rem;
   top: .2rem;
 }
 
+
+/* verify form style */
+
+.form-container-verify {
+  padding: 2rem 0 7rem;
+  justify-content: center;
+}
+
+.form-verify {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-verify .title-form-verify {
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.form-verify .title-form-verify h1 {
+  font-size: 2.5rem;
+  color: #1A1A1A;
+  font-weight: 400;
+}
+
+.form-verify .form-login-verify form  {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.form-verify .form-login-verify input {
+  padding: 1rem;
+  border: 1px solid #CECECE;
+  width: 100%;
+}
+
+.form-verify .form-login-verify p  {
+  font-size: 1rem;
+  color: #D25B5B;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+.form-verify .form-login-verify .radio .input label {
+  font-size: .8rem;
+  font-weight: 400;
+  color: #4A4141;
+}
+
+.form-verify .btn-verify {
+  padding-top: 1rem;
+}
+
+.form-verify .btn-verify button  {
+  border: none;
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+  padding: .5rem 2rem;
+  width: 100%;
+  }
+
+  .form-verify .btn-verify button:active {
+  position: relative;
+  top: .2rem;
+}
+
+/* username form style */
+
+.form-container-username {
+  padding: 2rem 0 7rem;
+  justify-content: center;
+}
+
+.form-username {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-username .title-form-username {
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.form-username .title-form-username h1 {
+  font-size: 2.5rem;
+  color: #1A1A1A;
+  font-weight: 400;
+}
+
+.form-username .form-login-username form  {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.form-username .form-login-username input {
+  padding: 1rem;
+  border: 1px solid #CECECE;
+  width: 100%;
+}
+
+.form-username .form-login-username p  {
+  font-size: 1rem;
+  color: #D25B5B;
+  cursor: pointer;
+  user-select: none;
+}
+
+.form-username .form-login-username .radio .input label {
+  font-size: .8rem;
+  font-weight: 400;
+  color: #4A4141;
+}
+
+.form-username .btn-username {
+  padding-top: 1rem;
+}
+
+.form-username .btn-username button  {
+  border: none;
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+  padding: .5rem 2rem;
+  width: 100%;
+  }
+
+  .form-username .btn-username button:active {
+  position: relative;
+  top: .2rem;
+}
+
+.loader-container {
+  /* position: fixed; */
+  top: 50%;
+  height: 15rem;
+  bottom: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.errmsg {
+  color: red;
+  text-align: center;
+}
+
+.spinner {
+  width: 45px;
+  height: 45px;
+  display: inline-block;
+  padding: 0px;
+  border-radius: 100%;
+  border: 5px solid;
+  border-top-color: #000000;
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+  border-left-color: #000000;
+  border-right-color: rgba(255, 255, 255, 0.3);
+  -webkit-animation: spinner 1s ease-in-out infinite;
+  animation: spinner 1s ease-in-out infinite;
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spinner {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+
 /* responsive */
 
 @media screen and (max-width:768px) {
@@ -134,7 +321,7 @@ padding: .5rem 2rem;
       justify-content: space-between;
   }
 
-  .form-container {
+  .form-container, .form-container-verify {
       padding: 2rem;
   }
 }
@@ -150,7 +337,7 @@ padding: .5rem 2rem;
     font-size: 2.5em;
   }
 
-  .form-container {
+  .form-container, .form-container-verify {
       padding: 2rem;
   }
 

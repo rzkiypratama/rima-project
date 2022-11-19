@@ -112,9 +112,6 @@ class ForgotPassword extends React.Component {
     const state = this.state;
     if (state.loading) {
       return (
-        // <div>
-        //   <h1>Loading.......</h1>
-        // </div>
         <div className={styles["loader-container"]}>
           <div className={styles.spinner}></div>
         </div>

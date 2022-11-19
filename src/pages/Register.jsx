@@ -14,13 +14,19 @@ function Regist() {
    const [body, setBody] = useState({});
    const [selected, setSelected] = useState("register");
 
+   const [register, setIsRegister] = useState(true)
+   const [verify, setIsVerify] = useState(false)
+   const [username, setIsUsername] = useState(false)
+   const [loading, setIsLoading] = useState(false)
+
    const changeHandler = (e) =>
       setBody({ ...body, [e.target.name]: e.target.value });
    console.log(body);
 
    const toLogin = () => navigate("/login");
 
-   const submitHandler = () => {
+   const submitHandler = (e) => {
+      e.preventDefault();
       if (!body.email || !body.password || !body.role)
          return toast.error("All input must be fulfilled", {
             position: "top-center",
@@ -45,21 +51,17 @@ function Regist() {
       });
    };
 
-   return (
-      <>
-         <Header />
-         <div className="container-fluid">
-            <div className="row">
-               <main className={`col-lg-12 ${styles["page-title"]}`}>
-                  <h1>My Account</h1>
-                  <p>
-                     Register and log in with your account to be able to shop at
-                     will
-                  </p>
-               </main>
+  const showPage = () => {
+      if(loading) {
+         return (
+            <div className={styles["loader-container"]}>
+               <div className={styles.spinner}></div>
             </div>
-         </div>
-         <div className="container-fluid">
+         );
+      };
+
+      if (register && !verify && !username) {
+         return (
             <div className={`row ${styles["form-container"]}`}>
                <div className="col-lg-3 offset-lg-2">
                   <div className={styles["account"]}>
@@ -127,6 +129,98 @@ function Regist() {
                   </div>
                </div>
             </div>
+         )
+      }
+      if (!register && verify && !username) {
+         return (
+            <div className={`row ${styles["form-container-verify"]}`}>
+               <div className="">
+               </div>
+               <div className="col-lg-5 col-12 justify-content-center">
+                  <div className={styles["form-verify"]}>
+                     <div className={styles["title-form-verify"]}>
+                        <h1>Verify your email address</h1>
+                        <p>Thankyou for signup with us. To verify, we sent OTP to your email</p>
+                     </div>
+                     <div className={styles["form-login-verify"]}>
+                        <form action="">
+                           <input
+                              type="text"
+                              name="email"
+                              placeholder="Input OTP here*"
+                              onChange={changeHandler}
+                           />
+                        </form>
+                     </div>
+                     <div className={styles["btn-verify"]}>
+                        <button>Confirm</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         )
+      }
+      if (!register && !verify && username) {
+         return (
+            <div className={`row ${styles["form-container-username"]}`}>
+               <div className="">
+               </div>
+               <div className="col-lg-5 col-12 justify-content-center">
+                  <div className={styles["form-username"]}>
+                     <div className={styles["title-form-username"]}>
+                        <h1>Email verified!</h1>
+                        <p>Set username and start your journey at Rima Furniture</p>
+                     </div>
+                     <div className={styles["form-login-username"]}>
+                        <form action="">
+                           <input
+                              type="text"
+                              name="email"
+                              placeholder="Input username here *"
+                              onChange={changeHandler}
+                           />
+                        </form>
+                     </div>
+                     <div className={styles["btn-username"]}>
+                        <button>Confirm</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         )
+      }
+  }
+
+
+   return (
+      <>
+         <Header />
+         <div className="container-fluid">
+            <div className="row">
+               <main className={`col-lg-12 ${styles["page-title"]}`}>
+                  <h1>My Account</h1>
+                  <p>
+                     Register and log in with your account to be able to shop at
+                     will
+                  </p>
+               </main>
+            </div>
+         </div>
+         <div className="container-fluid">
+            <form action="register">{showPage()}</form>
+
+            {/* email verification form start */}
+
+            
+
+            {/* email verification end */}
+
+            {/* setup username start */}
+
+            
+
+            {/* setup username end */}
+
          </div>
          <ToastContainer />
          <Footer />
