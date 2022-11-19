@@ -19,6 +19,7 @@ class ForgotPassword extends React.Component {
     minutes: 0,
     seconds: 0,
     loading: false,
+    MsgErr: null,
   };
 
   componentDidMount() {}
@@ -50,67 +51,61 @@ class ForgotPassword extends React.Component {
   handlerButtonEmail = (e) => {
     e.preventDefault();
     const url = `${process.env.REACT_APP_BACKEND_HOST}/auth/forgot`;
-    if (!this.state.isEmail) return "ALLDATA MUST BE FIELD";
-
-    this.setState({ loading: true });
-    try {
-      Axios.patch(url, { email: this.state.isEmail }).then((response) => {
+    if (!this.state.isEmail)
+      return this.setState({ MsgErr: "*Alldata Must Be Filled*" });
+    this.setState({ loading: true, MsgErr: null });
+    Axios.patch(url, { email: this.state.isEmail })
+      .then((response) => {
         this.setState(
           {
             pin: response.data.data.code,
             sendEmail: false,
             sendOtp: true,
             minutes: 2,
+            loading: false,
           },
           () => {
             this.countDown();
           }
         );
-
-        this.setState({ loading: false });
+      })
+      .catch((error) => {
+        return this.setState({ loading: false, MsgErr: "*Email Not Found!*" });
       });
-    } catch (error) {
-      console.log(error);
-      this.setState({ loading: false });
-    }
   };
 
   handlerButtonCode = (e) => {
     e.preventDefault();
     const { isCode, pin } = this.state;
-    setInterval(() => {
-      this.setState({ loading: false });
-    }, 2000);
-    this.setState({ loading: true });
-      if (isCode === pin) {
-        return this.setState({
-          sendOtp: false,
-          sendPassword: true,
-        });
-      }
+    this.setState({ MsgErr: null });
+    if (isCode === pin) {
+      return this.setState({
+        sendOtp: false,
+        sendPassword: true,
+      });
+    }
+    this.setState({ MsgErr: "*Code Wrong*" });
   };
 
   handlerButtonPassword = (e) => {
     e.preventDefault();
     const url = `${process.env.REACT_APP_BACKEND_HOST}/auth/forgot`;
     const { isCode, isEmail, isConfirm, isPassword } = this.state;
-    if (isConfirm !== isPassword) return "PASSWORD DOEST'N MATCH";
+    if (isConfirm !== isPassword)
+      return this.setState({
+        loading: false,
+        MsgErr: "*Password Doesn't Match*",
+      });
     const body = {
       email: isEmail,
       code: isCode,
       new_password: isConfirm,
     };
-
-    this.setState({ loading: true });
-    try {
-      Axios.patch(url, body).then((result) => {
-        console.log(result);
-        this.setState({ loading: false });
-      });
-    } catch (error) {
-      console.log(error);
+    this.setState({ loading: true, MsgErr: null });
+    Axios.patch(url, body).then((result) => {
       this.setState({ loading: false });
-    }
+      this.props.navigate("/login");
+    });
   };
 
   showPage = () => {
@@ -145,6 +140,9 @@ class ForgotPassword extends React.Component {
               }}
             />
           </div>
+          {this.state.MsgErr && (
+            <p className={styles.errmsg}>{this.state.MsgErr}</p>
+          )}
           <div className={styles["forgot-btn"]}>
             <button
               onClick={(e) => {
@@ -173,6 +171,9 @@ class ForgotPassword extends React.Component {
               }}
             />
           </div>
+          {this.state.MsgErr && (
+            <p className={styles.errmsg}>{this.state.MsgErr}</p>
+          )}
           <div className={styles["forgot-btn"]}>
             <button
               onClick={(e) => {
@@ -210,13 +211,16 @@ class ForgotPassword extends React.Component {
           <h1>OTP Verified!</h1>
           <p>Enter your new password bellow!</p>
           <div className={styles["input-box-otp"]}>
-          <i class={`${this.iconShow()} ${styles.password}`} onClick={() => {
-             this.setState((prevState) => ({
-               pwdShown: prevState.pwdShown ? false : true,
-             }));
-         }}></i>
+            <i
+              class={`${this.iconShow()} ${styles.password}`}
+              onClick={() => {
+                this.setState((prevState) => ({
+                  pwdShown: prevState.pwdShown ? false : true,
+                }));
+              }}
+            ></i>
             <input
-              type={this.showPassword()} 
+              type={this.showPassword()}
               name="password"
               id="password"
               placeholder="Enter new password *"
@@ -226,13 +230,16 @@ class ForgotPassword extends React.Component {
             />
           </div>
           <div className={styles["input-box-otp"]}>
-          <i class={`${this.iconShowConfirm()} ${styles.password}`} onClick={() => {
-             this.setState((prevState) => ({
-               pwdShownConfirm: prevState.pwdShownConfirm ? false : true,
-             }));
-         }}></i>
+            <i
+              class={`${this.iconShowConfirm()} ${styles.password}`}
+              onClick={() => {
+                this.setState((prevState) => ({
+                  pwdShownConfirm: prevState.pwdShownConfirm ? false : true,
+                }));
+              }}
+            ></i>
             <input
-              type={this.showPasswordConfirm()} 
+              type={this.showPasswordConfirm()}
               name="confirm"
               id="confirm"
               placeholder="Confirm new password *"
@@ -240,8 +247,10 @@ class ForgotPassword extends React.Component {
                 this.setState({ isConfirm: e.target.value });
               }}
             />
-           
           </div>
+          {this.state.MsgErr && (
+            <p className={styles.errmsg}>{this.state.MsgErr}</p>
+          )}
           <div className={styles["forgot-btn"]}>
             <button
               onClick={(e) => {
@@ -257,24 +266,24 @@ class ForgotPassword extends React.Component {
   };
 
   showPassword = () => {
-    if (!this.state.pwdShown) return "password"
-    return "text" 
-  }
+    if (!this.state.pwdShown) return "password";
+    return "text";
+  };
 
   showPasswordConfirm = () => {
-    if (!this.state.pwdShownConfirm) return "password"
-    return "text" 
-  }
+    if (!this.state.pwdShownConfirm) return "password";
+    return "text";
+  };
 
   iconShow = () => {
-    if (this.state.pwdShown) return "fa fa-regular fa-eye"
-    return "fa fa-regular fa-eye-slash"
-  }
+    if (this.state.pwdShown) return "fa fa-regular fa-eye";
+    return "fa fa-regular fa-eye-slash";
+  };
 
   iconShowConfirm = () => {
-    if (this.state.pwdShownConfirm) return "fa fa-regular fa-eye"
-    return "fa fa-regular fa-eye-slash"
-  }
+    if (this.state.pwdShownConfirm) return "fa fa-regular fa-eye";
+    return "fa fa-regular fa-eye-slash";
+  };
 
   render() {
     return (
@@ -282,13 +291,12 @@ class ForgotPassword extends React.Component {
         <Navbar />
         <main className="container-fluid p-0">
           <div className={styles["title-container"]}>
-          <div className={`col-lg-12 ${styles["page-title"]}`}>
-                  <h1>My Account</h1>
-                  <p>
-                     Register and log in with your account to be able to shop at
-                     will
-                  </p>
-          </div>
+            <div className={`col-lg-12 ${styles["page-title"]}`}>
+              <h1>My Account</h1>
+              <p>
+                Register and log in with your account to be able to shop at will
+              </p>
+            </div>
           </div>
           <div className={`${styles["form-container"]} container`}>
             <form action="forgot">{this.showPage()}</form>

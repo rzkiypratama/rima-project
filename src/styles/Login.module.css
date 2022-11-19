@@ -37,7 +37,8 @@
   gap: 2rem;
 }
 
-.login-account h1, .regist-account h1 {
+.login-account h1,
+.regist-account h1 {
   color: #B4B4B4;
   font-size: 2.5rem;
   font-weight: 400;
@@ -46,7 +47,8 @@
   padding-bottom: .5rem;
 }
 
-.login-account h1:hover, .regist-account h1:hover {
+.login-account h1:hover,
+.regist-account h1:hover {
   color: #1A1A1A;
   border-bottom: 2px solid #B4B4B4;
 }
@@ -89,6 +91,7 @@
 
 .form .form-login p {
   font-size: 1rem;
+  font-weight: 600;
   color: #D25B5B;
   cursor: pointer;
   user-select: none;
@@ -114,20 +117,20 @@
 
 @media screen and (max-width:768px) {
   .account {
-      flex-direction: row;
-      justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .form-container {
-      padding: 2rem;
+    padding: 2rem;
   }
 }
 
 @media screen and (max-width:576px) {
   .page-title p {
-      font-size: .8rem;
-      padding: 1rem;
-      text-align: center;
+    font-size: .8rem;
+    padding: 1rem;
+    text-align: center;
   }
 
   .page-title h1 {
@@ -135,31 +138,32 @@
   }
 
   .form-container {
-      padding: 2rem;
+    padding: 2rem;
   }
 
   .account {
-      flex-direction: row;
-      justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
 
-  .login-account h1, .regist-account h1 {
-      font-size: 1rem;
+  .login-account h1,
+  .regist-account h1 {
+    font-size: 1rem;
   }
 
   .form .title-form {
-      padding: 1rem 0;
-      text-align: center;
+    padding: 1rem 0;
+    text-align: center;
   }
 
   .form .title-form h1 {
-      font-size: 1rem;
-      padding: 0;
+    font-size: 1rem;
+    padding: 0;
   }
 
   .form .form-login input {
-      max-width: 100%;
+    max-width: 100%;
   }
 
   .form .form-login p {
@@ -169,6 +173,6 @@
   }
 
   .form .btn-login button {
-      width: 100%;
-     }
+    width: 100%;
+  }
 }
