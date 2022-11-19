@@ -1,23 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Lato&display=swap");
 
 .cont-fluid {
-  background-color: #f3f3f3;
+  background-image: url("../assets/background/bg.png");
 }
 
 .floating-form {
   height: 80px !important;
   border-radius: 0px;
 }
+
 .floating-form-2 {
   height: 80px !important;
   border-radius: 0px;
   border-top: 0px;
 }
+
 .floating-form-3 {
   height: 80px !important;
   border-radius: 0px;
   border-top: 0px;
 }
+
 .profile {
   font-weight: 400;
 
@@ -29,6 +32,7 @@
   vertical-align: Top;
   fill: Solid #1a1a1a;
 }
+
 .profile-picture {
   width: 100px;
   height: 100px;
@@ -37,12 +41,26 @@
 
 .cursor {
   cursor: pointer;
+  transition: all 0.3s;
 }
+
 .svg {
-  width: 30px;
+  width: 21px;
+  height: 21px;
   position: relative;
-  top: -2rem;
+  top: 14px;
 }
+
+.buttons {
+  width: 100%;
+}
+
+.pencil {
+  width: 21px;
+  height: 21px;
+  position: relative;
+}
+
 .text-profile {
   font-weight: 400;
 
@@ -63,11 +81,25 @@
   font-size: 16px;
   line-height: 18.4px;
   fill: Solid #ffffff;
+  transition: all 0.3s;
 }
+
+.logout:hover {
+  transform: scale(1.050);
+}
+
+
+
+.cursor:hover {
+  transform: scale(1.2);
+
+}
+
 .logout-icon {
   width: 30px;
   color: #ffffff;
 }
+
 .edit-svg {
   width: 20px;
 }
@@ -85,4 +117,15 @@
   line-height: 18.4px;
   fill: Solid #1a1a1a;
   padding-top: 5px;
+}
+
+/*Any Mobile Device*/
+@media only screen and (max-width: 767px) {
+  .buttons {
+    margin: 25px 0;
+  }
+
+  .logout {
+    width: 100%;
+  }
 }
