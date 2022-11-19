@@ -1,5 +1,8 @@
 import React from "react";
 import styles from "../styles/Profile.module.css";
+import { useDispatch } from "react-redux";
+import authActions from "../redux/actions/auths";
+import { useNavigate } from "react-router-dom";
 
 //component
 import Navbar from "../component/navbar/Navbar";
@@ -9,6 +12,19 @@ import Footer from "../component/footer/Footer";
 import Parker from "../assets/profile/parker.jpeg";
 
 function Profile() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const userInfo = JSON.parse(localStorage["userInfo"] || "{}")
+
+  const toLogout = () => navigate("/login")
+  const logoutHandler = (e) => {
+    e.preventDefault()
+    dispatch(authActions.logoutThunk(userInfo.token, toLogout))
+    localStorage.removeItem("userInfo");
+  }
+
+
   return (
     <>
       <Navbar />
@@ -62,7 +78,7 @@ function Profile() {
           </div>
         </form>
 
-        <button type="submit" className={`btn btn-danger my-5 fa-xs ${styles["logout"]} `}>
+        <button type="submit" className={`btn btn-danger my-5 fa-xs ${styles["logout"]} `} onClick={logoutHandler}>
           <div className="d-flex justify-content-center">
             {/* <svg className={`${styles["logout-icon"]}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
               <path d="M534.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L434.7 224 224 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM192 96c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-53 0-96 43-96 96l0 256c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z" />
