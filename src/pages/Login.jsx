@@ -25,7 +25,7 @@ function Login() {
       e.preventDefault();
       console.log(body);
       dispacth(authActions.loginThunk(body, goHome));
-      return toast.success(`Hi! ${body.emailOrusername} thanks for login!`, {
+      return toast.success(`Hi! ${body.emailOrusername}, welcome back!`, {
          position: "top-center",
          autoClose: 2000,
          hideProgressBar: false,

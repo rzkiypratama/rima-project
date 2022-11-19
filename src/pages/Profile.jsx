@@ -223,15 +223,15 @@ function Profile() {
          <Footer />
          <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-               {/* <Modal.Title>Monlight</Modal.Title> */}
+               <Modal.Title>RIMA Furniture</Modal.Title>
             </Modal.Header>
             <Modal.Body>Are you sure to logout?</Modal.Body>
             <Modal.Footer>
-               <Button variant="secondary" onClick={handleClose}>
-                  Close
-               </Button>
                <Button variant="danger" onClick={logoutHandler}>
                   Yes
+               </Button>
+               <Button variant="secondary" onClick={handleClose}>
+                  Close
                </Button>
             </Modal.Footer>
          </Modal>
