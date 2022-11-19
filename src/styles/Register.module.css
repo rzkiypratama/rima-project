@@ -37,7 +37,8 @@
   gap: 2rem;
 }
 
-.login-account h1, .regist-account h1 {
+.login-account h1,
+.regist-account h1 {
   color: #B4B4B4;
   font-size: 2.5rem;
   font-weight: 400;
@@ -46,7 +47,8 @@
   padding-bottom: .5rem;
 }
 
-.login-account h1:hover, .regist-account h1:hover {
+.login-account h1:hover,
+.regist-account h1:hover {
   color: #1A1A1A;
   border-bottom: 2px solid #B4B4B4;
 }
@@ -115,10 +117,10 @@
 }
 
 .form .btn-login button {
-border: none;
-background-color: #1A1A1A;
-color: #FFFFFF;
-padding: .5rem 2rem;
+  border: none;
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+  padding: .5rem 2rem;
 }
 
 .form .btn-login button:active {
@@ -151,7 +153,7 @@ padding: .5rem 2rem;
   font-weight: 400;
 }
 
-.form-verify .form-login-verify form  {
+.form-verify .form-login-verify form {
   display: flex;
   flex-direction: column;
   gap: .5rem;
@@ -163,7 +165,7 @@ padding: .5rem 2rem;
   width: 100%;
 }
 
-.form-verify .form-login-verify p  {
+.form-verify .form-login-verify p {
   font-size: 1rem;
   color: #D25B5B;
   cursor: pointer;
@@ -181,15 +183,15 @@ padding: .5rem 2rem;
   padding-top: 1rem;
 }
 
-.form-verify .btn-verify button  {
+.form-verify .btn-verify button {
   border: none;
   background-color: #1A1A1A;
   color: #FFFFFF;
   padding: .5rem 2rem;
   width: 100%;
-  }
+}
 
-  .form-verify .btn-verify button:active {
+.form-verify .btn-verify button:active {
   position: relative;
   top: .2rem;
 }
@@ -218,7 +220,7 @@ padding: .5rem 2rem;
   font-weight: 400;
 }
 
-.form-username .form-login-username form  {
+.form-username .form-login-username form {
   display: flex;
   flex-direction: column;
   gap: .5rem;
@@ -230,7 +232,7 @@ padding: .5rem 2rem;
   width: 100%;
 }
 
-.form-username .form-login-username p  {
+.form-username .form-login-username p {
   font-size: 1rem;
   color: #D25B5B;
   cursor: pointer;
@@ -247,15 +249,15 @@ padding: .5rem 2rem;
   padding-top: 1rem;
 }
 
-.form-username .btn-username button  {
+.form-username .btn-username button {
   border: none;
   background-color: #1A1A1A;
   color: #FFFFFF;
   padding: .5rem 2rem;
   width: 100%;
-  }
+}
 
-  .form-username .btn-username button:active {
+.form-username .btn-username button:active {
   position: relative;
   top: .2rem;
 }
@@ -273,6 +275,11 @@ padding: .5rem 2rem;
 }
 
 .errmsg {
+  color: red;
+  text-align: left;
+}
+
+.errmsg2 {
   color: red;
   text-align: center;
 }
@@ -317,54 +324,57 @@ padding: .5rem 2rem;
 
 @media screen and (max-width:768px) {
   .account {
-      flex-direction: row;
-      justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
-  .form-container, .form-container-verify {
-      padding: 2rem;
+  .form-container,
+  .form-container-verify {
+    padding: 2rem;
   }
 }
 
 @media screen and (max-width:576px) {
   .page-title p {
-      font-size: .8rem;
-      padding: 1rem;
-      text-align: center;
+    font-size: .8rem;
+    padding: 1rem;
+    text-align: center;
   }
 
-    .page-title h1 {
+  .page-title h1 {
     font-size: 2.5em;
   }
 
-  .form-container, .form-container-verify {
-      padding: 2rem;
+  .form-container,
+  .form-container-verify {
+    padding: 2rem;
   }
 
   .account {
-      flex-direction: row;
-      justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
-  .login-account h1, .regist-account h1 {
-      font-size: 1rem;
+  .login-account h1,
+  .regist-account h1 {
+    font-size: 1rem;
   }
 
   .form .title-form {
-      padding: 1rem 0;
-      text-align: center;
+    padding: 1rem 0;
+    text-align: center;
   }
 
   .form .title-form h1 {
-      font-size: 1rem;
-      padding: 0;
+    font-size: 1rem;
+    padding: 0;
   }
 
   .form .form-login input {
-      max-width: 100%;
+    max-width: 100%;
   }
 
   .form .btn-login button {
-      width: 100%;
-     }
+    width: 100%;
+  }
 }

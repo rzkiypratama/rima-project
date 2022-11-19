@@ -15,6 +15,14 @@ export const login = (data) => {
   return axiosRequest("POST", "/auth/login", data);
 };
 
+export const dologin = (data) => {
+  const sendData = {
+    emailOrusername: data.email,
+    password: data.password,
+  };
+  return axiosRequest("POST", "/auth/login", sendData);
+};
+
 export const logout = (token) => {
   return axios({
     method: "DELETE",
