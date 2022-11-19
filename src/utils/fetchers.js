@@ -11,6 +11,10 @@ const axiosRequest = (method, url, data, params) => {
   });
 };
 
+export const productAdmin = (data) => {
+  return axiosRequest("GET", `${baseUrl}/product`, data);
+};
+
 export const login = (data) => {
   return axiosRequest("POST", "/auth/login", data);
 };
