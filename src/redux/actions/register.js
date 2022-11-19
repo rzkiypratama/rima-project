@@ -16,19 +16,19 @@ const registerFulfilled = (data) => ({
    payload: { data },
 });
 
-const registerThunk = (body, navigate) => {
-   return async (dispacth) => {
-      try {
-         dispacth(registerPending());
-         const result = await register(body);
-         dispacth(registerFulfilled(result.data));
-         console.log(result.data);
-         if (typeof navigate === "function") navigate();
-      } catch (error) {
-         dispacth(registerRejected(error));
-      }
-   };
+const registerThunk = (body) => {
+  return async (dispacth) => {
+    try {
+      dispacth(registerPending());
+      const result = await register(body);
+      dispacth(registerFulfilled(result.data));
+      console.log(result.data);
+    } catch (error) {
+      dispacth(registerRejected(error));
+    }
+  };
 };
 
 const registerActions = { registerThunk };
+
 export default registerActions;
