@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Lato&display=swap");
 
 .cont-fluid {
-  background-image: url(../assets/background/background.png);
+  background-image: url("../assets/background/bg.png");
 }
 
 .floating-form {
@@ -41,12 +41,24 @@
 
 .cursor {
   cursor: pointer;
+  transition: all 0.3s;
 }
 
 .svg {
-  width: 30px;
+  width: 21px;
+  height: 21px;
   position: relative;
-  top: -2rem;
+  top: 14px;
+}
+
+.buttons {
+  width: 100%;
+}
+
+.pencil {
+  width: 21px;
+  height: 21px;
+  position: relative;
 }
 
 .text-profile {
@@ -61,12 +73,59 @@
   fill: Solid #1a1a1a;
 }
 
-.logout-btn {
-  height: 4rem;
+.logout {
+  width: 210px;
+  height: 70px;
+  font: Arimo;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18.4px;
+  fill: Solid #ffffff;
+  transition: all 0.3s;
 }
 
-@media only screen and (max-width: 425px) {
-  .logout-btn {
-    height: 3rem;
+.logout:hover {
+  transform: scale(1.050);
+}
+
+
+
+.cursor:hover {
+  transform: scale(1.2);
+
+}
+
+.logout-icon {
+  width: 30px;
+  color: #ffffff;
+}
+
+.edit-svg {
+  width: 20px;
+}
+
+.cont-edit {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+}
+
+.edit-text {
+  font: Arimo;
+  font-weight: 700;
+  font-size: 16px !important;
+  line-height: 18.4px;
+  fill: Solid #1a1a1a;
+  padding-top: 5px;
+}
+
+/*Any Mobile Device*/
+@media only screen and (max-width: 767px) {
+  .buttons {
+    margin: 25px 0;
+  }
+
+  .logout {
+    width: 100%;
   }
 }
