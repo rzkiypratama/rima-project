@@ -93,7 +93,7 @@ class ForgotPassword extends React.Component {
 
   showPage = () => {
     const state = this.state;
-    if (state.sendEmail && !state.sendOtp && !state.sendPassword) {
+    if (!state.sendEmail && !state.sendOtp && state.sendPassword) {
       return (
         <div className={styles["form-forgot"]}>
           <h1>Forgot your Password?</h1>
@@ -171,14 +171,19 @@ class ForgotPassword extends React.Component {
         </div>
       );
     }
-    if (!state.sendEmail && !state.sendOtp && state.sendPassword) {
+    if (state.sendEmail && !state.sendOtp && !state.sendPassword) {
       return (
         <div className={styles["form-forgot"]}>
           <h1>OTP Verified!</h1>
           <p>Enter your new password bellow!</p>
-          <div className={styles["input-box"]}>
+          <div className={styles["input-box-otp"]}>
+          <i class={`${this.iconShow()} ${styles.password}`} onClick={() => {
+             this.setState((prevState) => ({
+               pwdShown: prevState.pwdShown ? false : true,
+             }));
+         }}></i>
             <input
-              type="password"
+              type={this.showPassword()} 
               name="password"
               id="password"
               placeholder="Enter new password *"
@@ -187,9 +192,14 @@ class ForgotPassword extends React.Component {
               }}
             />
           </div>
-          <div className={styles["input-box"]}>
+          <div className={styles["input-box-otp"]}>
+          <i class={`${this.iconShowConfirm()} ${styles.password}`} onClick={() => {
+             this.setState((prevState) => ({
+               pwdShownConfirm: prevState.pwdShownConfirm ? false : true,
+             }));
+         }}></i>
             <input
-              type="password"
+              type={this.showPasswordConfirm()} 
               name="confirm"
               id="confirm"
               placeholder="Confirm new password *"
@@ -197,6 +207,7 @@ class ForgotPassword extends React.Component {
                 this.setState({ isConfirm: e.target.value });
               }}
             />
+           
           </div>
           <div className={styles["forgot-btn"]}>
             <button
@@ -212,18 +223,39 @@ class ForgotPassword extends React.Component {
     }
   };
 
+  showPassword = () => {
+    if (!this.state.pwdShown) return "password"
+    return "text" 
+  }
+
+  showPasswordConfirm = () => {
+    if (!this.state.pwdShownConfirm) return "password"
+    return "text" 
+  }
+
+  iconShow = () => {
+    if (this.state.pwdShown) return "fa fa-regular fa-eye"
+    return "fa fa-regular fa-eye-slash"
+  }
+
+  iconShowConfirm = () => {
+    if (this.state.pwdShownConfirm) return "fa fa-regular fa-eye"
+    return "fa fa-regular fa-eye-slash"
+  }
+
   render() {
     return (
       <>
         <Navbar />
         <main className="container-fluid p-0">
           <div className={styles["title-container"]}>
-            <div className={styles.title}>
-              <h1>My Account</h1>
-              <p>
-                Register and log in with your account to be able to shop at will
-              </p>
-            </div>
+          <div className={`col-lg-12 ${styles["page-title"]}`}>
+                  <h1>My Account</h1>
+                  <p>
+                     Register and log in with your account to be able to shop at
+                     will
+                  </p>
+          </div>
           </div>
           <div className={`${styles["form-container"]} container`}>
             <form action="forgot">{this.showPage()}</form>
