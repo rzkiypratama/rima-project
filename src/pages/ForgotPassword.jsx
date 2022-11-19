@@ -18,6 +18,7 @@ class ForgotPassword extends React.Component {
     pin: null,
     minutes: 0,
     seconds: 0,
+    loading: false,
   };
 
   componentDidMount() {}
@@ -50,30 +51,43 @@ class ForgotPassword extends React.Component {
     e.preventDefault();
     const url = `${process.env.REACT_APP_BACKEND_HOST}/auth/forgot`;
     if (!this.state.isEmail) return "ALLDATA MUST BE FIELD";
-    Axios.patch(url, { email: this.state.isEmail }).then((response) => {
-      this.setState(
-        {
-          pin: response.data.data.code,
-          sendEmail: false,
-          sendOtp: true,
-          minutes: 2,
-        },
-        () => {
-          this.countDown();
-        }
-      );
-    });
+
+    this.setState({ loading: true });
+    try {
+      Axios.patch(url, { email: this.state.isEmail }).then((response) => {
+        this.setState(
+          {
+            pin: response.data.data.code,
+            sendEmail: false,
+            sendOtp: true,
+            minutes: 2,
+          },
+          () => {
+            this.countDown();
+          }
+        );
+
+        this.setState({ loading: false });
+      });
+    } catch (error) {
+      console.log(error);
+      this.setState({ loading: false });
+    }
   };
 
   handlerButtonCode = (e) => {
     e.preventDefault();
     const { isCode, pin } = this.state;
-    if (isCode === pin) {
-      return this.setState({
-        sendOtp: false,
-        sendPassword: true,
-      });
-    }
+    setInterval(() => {
+      this.setState({ loading: false });
+    }, 2000);
+    this.setState({ loading: true });
+      if (isCode === pin) {
+        return this.setState({
+          sendOtp: false,
+          sendPassword: true,
+        });
+      }
   };
 
   handlerButtonPassword = (e) => {
@@ -86,13 +100,32 @@ class ForgotPassword extends React.Component {
       code: isCode,
       new_password: isConfirm,
     };
-    Axios.patch(url, body).then((result) => {
-      console.log(result);
-    });
+
+    this.setState({ loading: true });
+    try {
+      Axios.patch(url, body).then((result) => {
+        console.log(result);
+        this.setState({ loading: false });
+      });
+    } catch (error) {
+      console.log(error);
+      this.setState({ loading: false });
+    }
   };
 
   showPage = () => {
     const state = this.state;
+    if (state.loading) {
+      return (
+        // <div>
+        //   <h1>Loading.......</h1>
+        // </div>
+        <div className={styles["loader-container"]}>
+          <div className={styles.spinner}></div>
+        </div>
+      );
+    }
+
     if (state.sendEmail && !state.sendOtp && !state.sendPassword) {
       return (
         <div className={styles["form-forgot"]}>
