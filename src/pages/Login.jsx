@@ -25,7 +25,7 @@ function Login() {
       e.preventDefault();
       console.log(body);
       dispacth(authActions.loginThunk(body, goHome));
-      return toast.success(`Congrats! ${body.emailOrusername} login success`, {
+      return toast.success(`Hi! ${body.emailOrusername} thanks for login!`, {
          position: "top-center",
          autoClose: 2000,
          hideProgressBar: false,
@@ -90,7 +90,9 @@ function Login() {
                               name="password"
                               placeholder="Password *"
                            />
-                           <p>Forget your password?</p>
+                           <p onClick={() =>{
+                              navigate('/forgot')
+                           }}>Forget your password?</p>
                         </form>
                      </div>
                      <div className={styles["btn-login"]}>
