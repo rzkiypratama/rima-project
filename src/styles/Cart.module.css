@@ -189,3 +189,32 @@
 .apply_coupon {
     cursor: pointer;
 }
+
+/* empty */
+.empty__bar {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty_text {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 37px;
+    text-align: center;
+    color: #4D4D4D;
+}
+
+.empty_title {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 37px;
+    text-align: center;
+    color: #1A1A1A;
+}

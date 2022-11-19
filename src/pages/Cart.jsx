@@ -8,6 +8,7 @@ import CardCart from "../component/cart/CardCart";
 import title from "../helper/title";
 // styles
 import styles from "../styles/Cart.module.css";
+import img_empty from "../assets/cart/img_empty.png";
 
 function Cart() {
    title("Cart");
@@ -19,17 +20,19 @@ function Cart() {
             <section className={styles.breadcrumb__bar}>
                <nav className={`${styles.breadcrumb}`}>
                   <Link to={"#"}>Your Cart</Link>
-                  <i className="bi bi-chevron-right ms-3"></i>
+                  <i className="bi bi-chevron-right mx-3"></i>
                </nav>
                <div className="text-center">
-                  <h1 className="py-3">Your Cart</h1>
-                  <p>Buy everything in your cart now!</p>
+                  <span>
+                     <h1 className="py-3">Your Cart</h1>
+                     <p>Buy everything in your cart now!</p>
+                  </span>
+                  {/* kondisi jika ada checkout */}
                </div>
             </section>
             {/* cart */}
             <section className="row container py-5 mx-auto d-flex flex-lg-row justify-content-between flex-md-column">
-               {/* card cart */}
-               <section
+               {/* <section
                   className={`${styles.cart_product} col-12 col-sm-12 col-md-12 col-lg-8`}
                >
                   <table
@@ -66,13 +69,11 @@ function Cart() {
                         </tr>
                      </thead>
                      <tbody className={`${styles.product__bar}`}>
-                        {/* card 1 */}
                         <CardCart />
                         <CardCart />
                         <CardCart />
                         <CardCart />
                      </tbody>
-                     {/* coupun */}
                      <section className={`${styles.coupon} row d-flex `}>
                         <section
                            className={`${styles.input__bar} col-12 col-sm-12 col-md-7`}
@@ -99,7 +100,6 @@ function Cart() {
                      </section>
                   </table>
                </section>
-               {/* cart total */}
                <section
                   className={`${styles.cart_total} col-12 col-sm-12 col-md-12 col-lg-4 `}
                >
@@ -151,7 +151,20 @@ function Cart() {
                   <button className={`${styles.btn_process}`}>
                      Procced To Check Out
                   </button>
-               </section>
+               </section> */}
+
+               {/* kondisi belom ada cart */}
+               <div className={`${styles.empty__bar} text-center`}>
+                  <img src={img_empty} alt="img_empty" />
+                  <h3 className={`${styles.empty_title}`}>
+                     Your Cart is Empty
+                  </h3>
+                  <p className={styles.empty_text}>
+                     Donec nunc nunc, gravida vitae diam vel, varius interdum
+                     erat. Quisque a nunc vel <br /> diam auctor commodo.
+                     urabitur blandit ultri
+                  </p>
+               </div>
             </section>
          </main>
          <Footer />
