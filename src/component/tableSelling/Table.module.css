@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Lato&display=swap");
+.stock {
+  height: 11rem;
+  gap: 1rem;
+  justify-content: center;
+}
+.price {
+  height: 11rem;
+  /* gap: 1rem; */
+  justify-content: space-evenly;
+}
+
+.table {
+  margin-bottom: 5rem;
+}
+
+.product {
+  width: 30rem;
+}
+
+.price-title {
+  text-align: center;
+}

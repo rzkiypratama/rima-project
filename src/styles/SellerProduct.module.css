@@ -26,22 +26,3 @@
   vertical-align: Top;
   fill: Solid #1a1a1a;
 }
-.table {
-  margin-bottom: 5rem;
-}
-.product {
-  width: 30rem;
-}
-.stock {
-  height: 11rem;
-  gap: 1rem;
-  justify-content: center;
-}
-.price {
-  height: 11rem;
-  /* gap: 1rem; */
-  justify-content: space-evenly;
-}
-.price-title {
-  text-align: center;
-}

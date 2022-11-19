@@ -3,10 +3,7 @@ import Navbar from "../component/navbar/Navbar";
 import Footer from "../component/footer/Footer";
 import styles from "../styles/SellerProduct.module.css";
 import NavDropdown from "react-bootstrap/NavDropdown";
-
-// Import Image
-import chair from "../assets/sellerProduct/chair.png";
-import check from "../assets/sellerProduct/checklist.png";
+// import Table from "../component/tableSelling/Table";
 
 function SellerProduct() {
   return (
@@ -52,86 +49,7 @@ function SellerProduct() {
           </ul>
         </div>
       </div>
-      <section className="container mt-5">
-        <hr className="my-0" />
-        <table className={`${styles["table"]} table `}>
-          <thead>
-            <tr>
-              <th className={`${styles["product"]}`} scope="col">
-                Product
-              </th>
-              <th className="d-flex justify-content-center " scope="col">
-                Stock Status
-              </th>
-              <th className={`${styles["price-title"]}`} scope="col">
-                Price
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">
-                <div className="d-flex gap-3 align-items-center">
-                  <img src={chair} alt="/" />
-                  <p />
-                  Dining Side Chair in Beige
-                </div>
-              </th>
-              <td>
-                <div className={` ${styles["stock"]} d-flex align-items-center `}>
-                  <img src={check} alt="/" />
-                  10 Stock
-                </div>
-              </td>
-              <td>
-                <div className={` ${styles["price"]} d-flex align-items-center `}>
-                  $765.99 <button className="btn btn-danger"> Delete</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <div className="d-flex gap-3 align-items-center">
-                  <img src={chair} alt="/" />
-                  <p />
-                  Eugene Accent Table 18.9 inches Espresso
-                </div>
-              </th>
-              <td>
-                <div className={` ${styles["stock"]} d-flex align-items-center `}>
-                  <img src={check} alt="/" />
-                  10 Stock
-                </div>
-              </td>
-              <td>
-                <div className={` ${styles["price"]} d-flex align-items-center `}>
-                  $765.99 <button className="btn btn-danger"> Delete</button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <div className="d-flex gap-3 align-items-center">
-                  <img src={chair} alt="/" />
-                  <p />
-                  Dining Side Chair in Beige
-                </div>
-              </th>
-              <td>
-                <div className={` ${styles["stock"]} d-flex align-items-center `}>
-                  <img src={check} alt="/" />
-                  10 Stock
-                </div>
-              </td>
-              <td>
-                <div className={` ${styles["price"]} d-flex align-items-center `}>
-                  $765.99 <button className="btn btn-danger"> Delete</button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+      {/* <Table /> */}
       <Footer />
     </div>
   );
