@@ -4,6 +4,9 @@
   gap: 1rem;
   justify-content: center;
 }
+.cursor {
+  cursor: pointer;
+}
 .price {
   height: 11rem;
   /* gap: 1rem; */

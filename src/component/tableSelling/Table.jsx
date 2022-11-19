@@ -1,57 +1,40 @@
 import React from "react";
+// import { useState } from "react";
 import styles from "../tableSelling/Table.module.css";
+// import axios from "axios";
+
+// import { useNavigate } from "react-router-dom";
+// import { useDispatch } from "react-redux";
+// import authActions from "../redux/actions/auths";
 
 // Import Image
-import chair from "../../assets/sellerProduct/chair.png";
+// import chair from "../../assets/sellerProduct/chair.png";
 import check from "../../assets/sellerProduct/checklist.png";
 
-function Table() {
+function table(props) {
   return (
-    <div>
-      <section className="container mt-5">
-        <hr className="my-0" />
-        <table className={`${styles["table"]} table `}>
-          <thead>
-            <tr>
-              <th className={`${styles["product"]}`} scope="col">
-                Product
-              </th>
-              <th className="d-flex justify-content-center " scope="col">
-                Stock Status
-              </th>
-              <th className={`${styles["price-title"]}`} scope="col">
-                Price
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <Table />
-          </tbody>
-        </table>
+    <div className="d-flex px-0 justify-content-between">
+      {/* <div className="d-flex justify-content-between"> */}
+      <div className="d-flex align-items-center col-3 justify-content-center">
+        <img src={props.image} alt="/" />
+        <p />
+        {props.description}
+      </div>
 
-        <tr>
-          <th scope="row">
-            <div className="d-flex gap-3 align-items-center">
-              <img src={chair} alt="/" />
-              <p />
-              Dining Side Chair in Beige
-            </div>
-          </th>
-          <td>
-            <div className={` ${styles["stock"]} d-flex align-items-center `}>
-              <img src={check} alt="/" />
-              10 Stock
-            </div>
-          </td>
-          <td>
-            <div className={` ${styles["price"]} d-flex align-items-center `}>
-              $765.99 <button className="btn btn-danger"> Delete</button>
-            </div>
-          </td>
-        </tr>
-      </section>
+      <div className={` d-flex align-items-center col-3 justify-content-center gap-3`}>
+        {/* <div className={` ${styles["stock"]} col-4 justify-content-center `}> */}
+        <img src={check} alt="/" />
+        {props.stock} Stock
+      </div>
+
+      <div className={` ${styles["price"]} d-flex align-items-center col-3 justify-content-center gap-5`}>
+        <p className=" " /> {props.price}
+      </div>
+      <div className={` ${styles["price"]} d-flex align-items-center col-lg-1 justify-content-center gap-5`}>
+        <button className="btn btn-danger "> Delete</button>
+      </div>
     </div>
   );
 }
 
-export default Table;
+export default table;

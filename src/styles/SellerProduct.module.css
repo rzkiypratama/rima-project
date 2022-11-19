@@ -26,3 +26,34 @@
   vertical-align: Top;
   fill: Solid #1a1a1a;
 }
+
+.stock {
+  height: 11rem;
+  gap: 1rem;
+  justify-content: center;
+}
+.cursor {
+  cursor: pointer;
+}
+.price {
+  height: 11rem;
+  /* gap: 1rem; */
+  justify-content: space-evenly;
+}
+
+.table {
+  margin-bottom: 5rem;
+}
+
+.product {
+  width: 30rem;
+}
+
+.price-title {
+  text-align: center;
+}
+
+.title {
+  font-family: arimo;
+  font-size: 20px;
+}

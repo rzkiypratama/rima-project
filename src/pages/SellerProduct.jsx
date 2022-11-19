@@ -1,11 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../component/navbar/Navbar";
 import Footer from "../component/footer/Footer";
+import axios from "axios";
 import styles from "../styles/SellerProduct.module.css";
 import NavDropdown from "react-bootstrap/NavDropdown";
-// import Table from "../component/tableSelling/Table";
+import Table from "../component/tableSelling/Table";
 
 function SellerProduct() {
+  const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
+
+  const [stock, setStock] = useState("");
+  const [desc, setDesc] = useState("");
+  const [price, setPrice] = useState("");
+  const [image, setImage] = useState("");
+  const [data, setData] = useState("");
+
+  const HandleProduct = () => {
+    return axios
+      .get(url)
+      .then((res) => {
+        setStock(res.data.data.data.stock);
+        setDesc(res.data.data.data.description);
+        setPrice(res.data.data.data.price);
+        setImage(res.data.data.data.image);
+        setData(res.data.data.data);
+        console.log("data : ", res.data.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const costing = (price) => {
+    return parseFloat(price)
+      .toFixed()
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+  };
+
   return (
     <div>
       <Navbar />
@@ -26,7 +57,7 @@ function SellerProduct() {
 
             <div>
               <NavDropdown className={`${styles["menu"]}`} title="My Product" id="basic-nav-dropdown">
-                <NavDropdown.Item>All</NavDropdown.Item>
+                <NavDropdown.Item onClick={HandleProduct}>All</NavDropdown.Item>
                 <NavDropdown.Item>Archive</NavDropdown.Item>
                 <NavDropdown.Item>Sold Out</NavDropdown.Item>
               </NavDropdown>
@@ -49,7 +80,31 @@ function SellerProduct() {
           </ul>
         </div>
       </div>
-      {/* <Table /> */}
+
+      <hr className="container" />
+      <section className="container d-flex px-5 justify-content-between ">
+        <p className={`${styles["title"]} col-4 d-flex justify-content-start ms-4 `}>Product</p>
+        <p className={`${styles["title"]} col-4 d-flex justify-content-start ms-4 `}> Stock Status</p>
+        <p className={`${styles["title"]} col-4 d-flex justify-content-start ms-4 `}>Price</p>
+      </section>
+      <hr className="container" />
+      <div className="container">
+        {data.length > 0 ? (
+          data.map((data, index) => {
+            return <Table key={index} stock={data.stock} description={data.desc} image={data.image} price={`${"IDR"} ${costing(data.price)}`} />;
+          })
+        ) : (
+          <>
+            <div className={styles["lds-ring"]}>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <p className={styles["loading-text"]}>Loading</p>
+          </>
+        )}
+      </div>
       <Footer />
     </div>
   );
