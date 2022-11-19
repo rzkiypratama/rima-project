@@ -93,7 +93,7 @@ class ForgotPassword extends React.Component {
 
   showPage = () => {
     const state = this.state;
-    if (!state.sendEmail && !state.sendOtp && state.sendPassword) {
+    if (state.sendEmail && !state.sendOtp && !state.sendPassword) {
       return (
         <div className={styles["form-forgot"]}>
           <h1>Forgot your Password?</h1>
@@ -171,7 +171,7 @@ class ForgotPassword extends React.Component {
         </div>
       );
     }
-    if (state.sendEmail && !state.sendOtp && !state.sendPassword) {
+    if (!state.sendEmail && !state.sendOtp && state.sendPassword) {
       return (
         <div className={styles["form-forgot"]}>
           <h1>OTP Verified!</h1>
