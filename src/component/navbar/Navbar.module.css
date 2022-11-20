@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Lato&display=swap");
 
 .company {
-  font-family: arimo;
+  font-family: Arimo;
   font-weight: 700;
   font-style: bold;
   font-size: 45.12px;
@@ -10,12 +10,25 @@
   fill: Solid;
   color: #1a1a1a;
 }
+.rima {
+  font-family: Arimo;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 45.12px;
+  line-height: 52px;
+  line-height: 100%;
+  fill: Solid;
+  color: #1a1a1a !important;
+}
 .cursor {
   cursor: pointer;
 }
+.color-text {
+  color: black;
+}
 
 .title {
-  font-family: arimo;
+  font-family: Arimo;
   font-weight: 700;
   font-style: bold;
   font-size: 18px;
