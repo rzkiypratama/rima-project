@@ -26,6 +26,9 @@
 .color-text {
   color: black;
 }
+.color-text:hover {
+  color: black;
+}
 
 .title {
   font-family: Arimo;

@@ -29,7 +29,7 @@ function BasicExample() {
   const isLogin = JSON.parse(localStorage["userInfo"] || "{}");
 
   return (
-    <Navbar expand="lg">
+    <Navbar expand="lg mt-3">
       <Container>
         <Navbar.Brand className={`${styles["company"]}`}>
           <Link to={"/"} className={` ${styles["rima"]} text-decoration-none `}>
@@ -46,7 +46,7 @@ function BasicExample() {
               </Link>
             </Nav.Link>
             <div className="d-flex justify-content-center align-items-center">
-              <p className={styles["title"]}>PAGES</p>
+              <p className={`${styles["title"]} ${styles["cursor"]}`}>PAGES</p>
               <NavDropdown className={styles["title"]} id="basic-nav-dropdown">
                 <Link className={styles["no-underline"]} to={"/about"}>
                   <NavDropdown.Item href="#action/3.1">About Us </NavDropdown.Item>
@@ -61,7 +61,7 @@ function BasicExample() {
               </NavDropdown>
             </div>
             <div className="d-flex justify-content-center align-items-center">
-              <p className={styles["title"]}>SHOP</p>
+              <p className={`${styles["title"]} ${styles["cursor"]}`}>SHOP</p>
               <NavDropdown className={styles["title"]} id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Other Page </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.1">Shopping Cart </NavDropdown.Item>
