@@ -16,7 +16,7 @@ import pencil from "../assets/profile/img_pencil.png";
 // import { getProfile } from "../utils/fetchers";
 import profileActions from "../redux/actions/profile";
 // import Parker from "../assets/profile/parker.jpeg";
-// import axios from "axios";
+import axios from "axios";
 function Profile() {
    title("Profile");
    const navigate = useNavigate();
