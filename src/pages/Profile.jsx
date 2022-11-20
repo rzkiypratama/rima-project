@@ -19,6 +19,8 @@ import profileActions from "../redux/actions/profile";
 // import Parker from "../assets/profile/parker.jpeg";
 import axios from "axios";
 // import bs icon
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Profile() {
   title("Profile");
@@ -27,6 +29,16 @@ function Profile() {
   const [show, setShow] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showInput, setShowInput] = useState(true);
+  const successToastMessage = () => {
+    toast.success('Updating data success !', {
+        position: toast.POSITION.TOP_CENTER
+    });
+};
+  const failedMessage = () => {
+    toast.error('Password or Email Wrong !', {
+      position: toast.POSITION.TOP_CENTER
+  });
+  }
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -122,7 +134,13 @@ function Profile() {
           headers: { "x-access-token": userInfo.token },
         }
       )
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        toast.success(res.data, {
+          position: toast.POSITION.TOP_CENTER
+      });
+        console.log(res.data)
+      }
+     )
       .catch((err) => console.log(err));
   };
 
@@ -143,6 +161,7 @@ function Profile() {
       }
       // console.log(formData);
       if (formData) {
+        successToastMessage ();
         await dispatch(profileActions.updateProfileThunk(formData));
         await dispatch(profileActions.profileThunk(datas));
       }
@@ -459,6 +478,7 @@ function Profile() {
           </Button>
         </Modal.Footer>
       </Modal>
+      <ToastContainer />
     </>
   );
 }
