@@ -60,6 +60,8 @@
   width: 21px;
   height: 21px;
   position: relative;
+  top: -50px;
+  right: -30px;
 }
 
 .text-profile {
@@ -98,6 +100,10 @@
 
 }
 
+.floating-form:disabled {
+  background-color: #ffffff;
+}
+
 .logout-icon {
   width: 30px;
   color: #ffffff;
@@ -125,6 +131,13 @@
 .username {
   border: none;
   width: 100%;
+}
+
+
+/* modal password */
+.input__password {
+  height: 50px;
+
 }
 
 /*Any Mobile Device*/
