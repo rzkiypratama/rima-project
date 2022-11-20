@@ -6,6 +6,7 @@ import axios from "axios";
 import styles from "../styles/SellerProduct.module.css";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Table from "../component/tableSelling/Table";
+import Loader from '../component/loader/Loader'
 
 function SellerProduct() {
   const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
@@ -96,13 +97,7 @@ function SellerProduct() {
           })
         ) : (
           <>
-            <div className={styles["lds-ring"]}>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-            <p className={styles["loading-text"]}>Loading</p>
+            <Loader/>
           </>
         )}
       </div>

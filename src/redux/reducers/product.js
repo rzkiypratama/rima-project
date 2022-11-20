@@ -1,5 +1,4 @@
 import { ActionType } from "redux-promise-middleware";
-// import { ACTION_STRING } from "../actions/actionStrings";
 import { ACTION_STRING } from "../actions/actionStrings";
 
 const initialState = {
@@ -29,15 +28,17 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         error: payload.error.message,
       };
     case getProducts.concat("_", Fulfilled):
+      // console.log(products)
       return {
         ...prevState,
         isLoading: false,
         isError: false,
         isFulfilled: true,
+        products: payload.data.data.data,
       };
-    default:
-      return prevState;
-  }
+      default:
+        return prevState;
+      }
 };
 
 export default productReducer;

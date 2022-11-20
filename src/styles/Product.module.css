@@ -408,6 +408,14 @@
   color: #fff;
 }
 
+.product-box-main .product-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10em;
+  justify-content: center;
+    align-self: flex-start
+}
+
 /* media query */
 
 @media screen and (max-width: 768px) {
