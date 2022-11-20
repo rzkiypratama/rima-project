@@ -21,6 +21,13 @@ function Regist() {
   const [username, setIsUsername] = useState(false);
   const [loading, setIsLoading] = useState(false);
   const [errMsg, setErrMsg] = useState();
+  const [visible, setVisible] = useState(false);
+
+  const togglePassword = () => {
+    // When the handler is invoked
+    // inverse the boolean state of passwordShown
+    setVisible(!visible);
+  };
 
   const changeHandler = (e) =>
     setBody({ ...body, [e.target.name]: e.target.value });
@@ -136,11 +143,18 @@ function Regist() {
                     onChange={changeHandler}
                   />
                   <input
-                    type="password"
+                    type={visible ? "text" : "password"}
                     name="password"
                     placeholder="Password *"
                     onChange={changeHandler}
                   />
+                   <span className={styles["icon-eye"]}>
+                     {visible ? (
+                        <i className="fa-regular fa-eye" onClick={togglePassword}></i>
+                     ) : (
+                        <i className="fa fa-regular fa-eye-slash" onClick={togglePassword}></i>
+                     )}
+                     </span>
                   <div className={styles["radio"]}>
                     <div className={styles["input"]}>
                       <input
