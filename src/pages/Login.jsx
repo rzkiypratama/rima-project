@@ -19,7 +19,7 @@ function Login() {
       // When the handler is invoked
       // inverse the boolean state of passwordShown
       setVisible(!visible);
-    };
+   };
 
    const changeHandler = (e) =>
       setBody({ ...body, [e.target.name]: e.target.value });
@@ -84,29 +84,41 @@ function Login() {
                         <h1>Login</h1>
                      </div>
                      <div className={styles["form-login"]}>
-                        <form>
+                        <form className={styles.form__bar}>
                            <input
                               onChange={changeHandler}
                               type="text"
                               name="emailOrusername"
                               placeholder="User name or email address *"
+                              className={styles.input__}
                            />
                            <input
                               onChange={changeHandler}
                               type={visible ? "text" : "password"}
                               name="password"
                               placeholder="Password *"
+                              className={styles.input__}
                            />
-                        <span className={styles["icon-eye"]}>
-                     {visible ? (
-                        <i className="fa-regular fa-eye" onClick={togglePassword}></i>
-                     ) : (
-                        <i className="fa fa-regular fa-eye-slash" onClick={togglePassword}></i>
-                     )}
-                     </span>
-                           <p onClick={() =>{
-                              navigate('/forgot')
-                           }}>Forget your password?</p>
+                           <span className={styles["icon-eye"]}>
+                              {visible ? (
+                                 <i
+                                    className="fa-regular fa-eye"
+                                    onClick={togglePassword}
+                                 ></i>
+                              ) : (
+                                 <i
+                                    className="fa fa-regular fa-eye-slash"
+                                    onClick={togglePassword}
+                                 ></i>
+                              )}
+                           </span>
+                           <p
+                              onClick={() => {
+                                 navigate("/forgot");
+                              }}
+                           >
+                              Forget your password?
+                           </p>
                         </form>
                      </div>
                      <div className={styles["btn-login"]}>

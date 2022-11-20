@@ -371,20 +371,37 @@ function Profile() {
                />
                <label htmlFor="floatingInputValue">Phone</label>
             </section>
-            <section className="form-floating">
-               <input
-                  type="text"
-                  className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`}
-                  id="floatingInputValue"
-                  placeholder="Address "
-                  value={address}
-                  onChange={(e) => {
-                     setAddress(e.target.value);
-                  }}
-                  disabled={showInput ? true : false}
-               />
-               <label htmlFor="floatingInputValue">address</label>
-            </section>
+            {role !== "seller" ? (
+               <section className="form-floating">
+                  <input
+                     type="text"
+                     className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`}
+                     id="floatingInputValue"
+                     placeholder="Address "
+                     value={address}
+                     onChange={(e) => {
+                        setAddress(e.target.value);
+                     }}
+                     disabled={showInput ? true : false}
+                  />
+                  <label htmlFor="floatingInputValue">address</label>
+               </section>
+            ) : (
+               <section className="form-floating">
+                  <input
+                     type="text"
+                     className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`}
+                     id="floatingInputValue"
+                     placeholder="Address "
+                     value={address}
+                     onChange={(e) => {
+                        setAddress(e.target.value);
+                     }}
+                     disabled={showInput ? true : false}
+                  />
+                  <label htmlFor="floatingInputValue">Store Description</label>
+               </section>
+            )}
 
             <div
                className={`${styles.buttons} d-flex flex-md-row flex-column justify-content-between align-items-center`}
