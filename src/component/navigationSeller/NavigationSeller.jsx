@@ -1,17 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import Navbar from "../component/navbar/Navbar";
-import Footer from "../component/footer/Footer";
-import axios from "axios";
-import styles from "../styles/SellerProduct.module.css";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Table from "../component/tableSelling/Table";
-import Loader from "../component/loader/Loader";
 import { Link } from "react-router-dom";
-// import Dropdown from "react-bootstrap/Dropdown";
-// import NavigationSeller from "../component/navigationSeller/NavigationSeller";
+import Dropdown from "react-bootstrap/Dropdown";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import axios from "axios";
 
-function SellerProduct() {
+import styles from "../navigationSeller/NavigationSeller.module.css";
+
+function NavigationSeller() {
   const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
 
   const [stock, setStock] = useState("");
@@ -41,19 +37,11 @@ function SellerProduct() {
       .toFixed()
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
   };
-
   return (
     <div>
-      <Navbar />
-      <div className={`container-fluid p-5 ${styles["cont-fluid"]}`}>
-        <div className="container justify-content-center">
-          <p className={`text-center  ${styles["profile"]}`}>My Product</p>
-          <p className={`text-center fs-6 ${styles["text-profile"]}`}>See your notifications for the latest updates</p>
-        </div>
-      </div>
       <div className=" container justify-content-evenly d-flex  my-5">
         <p className="nav-item">
-          <Link className={` text-decoration-none ${styles["no-underline"]}`} to={"/admin/profile"}>
+          <Link className={` text-decoration-none ${styles["no-underline"]}`} to={"/profile"}>
             <p className={`nav-link ${styles["color-text"]}`}>Profile</p>
           </Link>
         </p>
@@ -67,7 +55,7 @@ function SellerProduct() {
           </NavDropdown>
         </div>
         <p className="nav-item">
-          <Link className={` text-decoration-none ${styles["no-underline"]} `} to={"/admin/create-product"}>
+          <Link className={` text-decoration-none ${styles["no-underline"]} `} to={"/profile/admin/create-product"}>
             <p className={`nav-link ${styles["color-text"]}`}>Selling Product</p>
           </Link>
         </p>
@@ -80,28 +68,8 @@ function SellerProduct() {
           </NavDropdown>
         </div>
       </div>
-
-      <hr className="container" />
-      <section className="container d-flex px-5 justify-content-between ">
-        <p className={`${styles["title"]} col-4 d-flex justify-content-start ms-4 `}>Product</p>
-        <p className={`${styles["title"]} col-4 d-flex justify-content-start ms-4 `}> Stock Status</p>
-        <p className={`${styles["title"]} col-4 d-flex justify-content-start ms-4 `}>Price</p>
-      </section>
-      <hr className="container" />
-      <div className="container">
-        {data.length > 0 ? (
-          data.map((data, index) => {
-            return <Table key={index} stock={data.stock} description={data.desc} image={data.image} price={`${"IDR"} ${costing(data.price)}`} />;
-          })
-        ) : (
-          <>
-            <Loader />
-          </>
-        )}
-      </div>
-      <Footer />
     </div>
   );
 }
 
-export default SellerProduct;
+export default NavigationSeller;
