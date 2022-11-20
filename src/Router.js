@@ -19,6 +19,8 @@ import Cart from "./pages/Cart";
 import Otp from "./pages/Otp";
 import OtpVerified from "./pages/OtpVerified";
 import Error404 from "./component/error/Error404";
+import ComingSoon from "./component/error/ComingSoon";
+
 const router = createBrowserRouter([
    { path: "/", element: <Homepage /> },
    { path: "/login", element: <Login /> },
@@ -38,6 +40,7 @@ const router = createBrowserRouter([
    { path: "/forgot/otp", element: <Otp /> },
    { path: "/forgot/otp/verify", element: <OtpVerified /> },
    { path: "/error404", element: <Error404 /> },
+   { path: "/comingsoon", element: <ComingSoon /> },
 ]);
 
 export default router;
