@@ -1,16 +1,28 @@
 import React from 'react'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from '../styles/Product.module.css'
 import Navbar from '../component/navbar/Navbar'
 import Footer from '../component/footer/Footer'
 import leftproduct from '../assets/product/left-product.png'
-import mainproduct from '../assets/product/main-product.png'
+// import mainproduct from '../assets/product/main-product.png'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import Card from '../component/productcard/ProductCard'
+import { useDispatch, useSelector } from "react-redux";
+import productActions from "../redux/actions/product";
+
 
 function Product() {
   const [linkActive, setLinkActive] = useState("one")
   const [linkPage, setPageActive] = useState("one")
+  const product = useSelector((state) => state.products.products);
+  const dispacth = useDispatch();
+
+  console.log(product);
+
+  useEffect(() => {
+    dispacth(productActions.getProductThunk());
+  }, [dispacth]);
 
   return (
     <>
@@ -191,29 +203,18 @@ function Product() {
     </DropdownButton>
       </div>
       <div className={styles["product-box-main"]}>
-        <div className={styles["product-box"]}>
-          <img src={mainproduct} alt="" />
-          <div className={styles["product-title"]}>
-            <p className={styles.title}>Coaster 506222-CO Loveseat</p>
-            <p className={styles.price}>$765.99</p>
-          </div>
-        </div>
-        <div className={styles["product-box"]}>
-          <img src={mainproduct} alt="" />
-          <div className={styles["product-title"]}>
-            <p className={styles.title}>Coaster 506222-CO Loveseat</p>
-            <p className={styles.price}>$765.99</p>
-          </div>
-        </div>
-        <div className={styles["product-box"]}>
-          <img src={mainproduct} alt="" />
-          <div className={styles["product-title"]}>
-            <p className={styles.title}>Coaster 506222-CO Loveseat</p>
-            <p className={styles.price}>$765.99</p>
-          </div>
+        <div>
+        {product?.map((e) => (
+                  <Card
+                    productTitle={e.name}
+                    price={e.price}
+                    image={e.image}
+                    key={e.id}
+                  />
+                ))}
         </div>
       </div>
-      <div className={styles["product-box-main-two"]}>
+      {/* <div className={styles["product-box-main-two"]}>
         <div className={styles["product-box"]}>
           <img src={mainproduct} alt="" />
           <div className={styles["product-title"]}>
@@ -281,7 +282,7 @@ function Product() {
             <p className={styles.price}>$765.99</p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <section>
       <div className={styles.pagination}>
