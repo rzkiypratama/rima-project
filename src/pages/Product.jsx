@@ -203,86 +203,18 @@ function Product() {
     </DropdownButton>
       </div>
       <div className={styles["product-box-main"]}>
-        <div>
+        <div className={styles['product-item']}>
         {product?.map((e) => (
                   <Card
                     productTitle={e.name}
                     price={e.price}
-                    image={e.image}
+                    image={e.images}
                     key={e.id}
+                    id={e.id}
                   />
                 ))}
         </div>
       </div>
-      {/* <div className={styles["product-box-main-two"]}>
-        <div className={styles["product-box"]}>
-          <img src={mainproduct} alt="" />
-          <div className={styles["product-title"]}>
-            <p className={styles.title}>Coaster 506222-CO Loveseat</p>
-            <p className={styles.price}>$765.99</p>
-          </div>
-        </div>
-        <div className={styles["product-box"]}>
-          <img src={mainproduct} alt="" />
-          <div className={styles["product-title"]}>
-            <p className={styles.title}>Coaster 506222-CO Loveseat</p>
-            <p className={styles.price}>$765.99</p>
-          </div>
-        </div>
-        <div className={styles["product-box"]}>
-          <img src={mainproduct} alt="" />
-          <div className={styles["product-title"]}>
-            <p className={styles.title}>Coaster 506222-CO Loveseat</p>
-            <p className={styles.price}>$765.99</p>
-          </div>
-        </div>
-      </div>
-      <div className={styles["product-box-main-three"]}>
-        <div className={styles["product-box"]}>
-          <img src={mainproduct} alt="" />
-          <div className={styles["product-title"]}>
-            <p className={styles.title}>Coaster 506222-CO Loveseat</p>
-            <p className={styles.price}>$765.99</p>
-          </div>
-        </div>
-        <div className={styles["product-box"]}>
-          <img src={mainproduct} alt="" />
-          <div className={styles["product-title"]}>
-            <p className={styles.title}>Coaster 506222-CO Loveseat</p>
-            <p className={styles.price}>$765.99</p>
-          </div>
-        </div>
-        <div className={styles["product-box"]}>
-          <img src={mainproduct} alt="" />
-          <div className={styles["product-title"]}>
-            <p className={styles.title}>Coaster 506222-CO Loveseat</p>
-            <p className={styles.price}>$765.99</p>
-          </div>
-        </div>
-      </div>
-      <div className={styles["product-box-main-four"]}>
-        <div className={styles["product-box"]}>
-          <img src={mainproduct} alt="" />
-          <div className={styles["product-title"]}>
-            <p className={styles.title}>Coaster 506222-CO Loveseat</p>
-            <p className={styles.price}>$765.99</p>
-          </div>
-        </div>
-        <div className={styles["product-box"]}>
-          <img src={mainproduct} alt="" />
-          <div className={styles["product-title"]}>
-            <p className={styles.title}>Coaster 506222-CO Loveseat</p>
-            <p className={styles.price}>$765.99</p>
-          </div>
-        </div>
-        <div className={styles["product-box"]}>
-          <img src={mainproduct} alt="" />
-          <div className={styles["product-title"]}>
-            <p className={styles.title}>Coaster 506222-CO Loveseat</p>
-            <p className={styles.price}>$765.99</p>
-          </div>
-        </div>
-      </div> */}
 
       <section>
       <div className={styles.pagination}>

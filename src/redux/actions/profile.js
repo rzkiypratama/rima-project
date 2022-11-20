@@ -48,8 +48,8 @@ const updateProfileThunk = (body) => {
          dispacth(updateProfilePending());
          console.log(body);
          const result = await patchProfile(body);
-         console.log(result.data);
          dispacth(updateProfileFulfilled(result.body));
+         console.log(result.data);
       } catch (error) {
          dispacth(updateProfileRejected(error));
       }
