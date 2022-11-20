@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styles from "../styles/Profile.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import authActions from "../redux/actions/auths";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -10,6 +10,7 @@ import title from "../helper/title";
 //component
 import Navbar from "../component/navbar/Navbar";
 import Footer from "../component/footer/Footer";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 // Import Image
 import pencil from "../assets/profile/img_pencil.png";
@@ -177,6 +178,79 @@ function Profile() {
                </p>
             </div>
          </div>
+         {/* navbar admin */}
+         {role !== "seller" ? null : (
+            <div className=" container justify-content-evenly d-flex  my-5">
+               <p className="nav-item">
+                  <Link
+                     className={` text-decoration-none ${styles["no-underline"]}`}
+                     to={"/profile"}
+                  >
+                     <p className={`nav-link ${styles["color-text"]}`}>
+                        Profile
+                     </p>
+                  </Link>
+               </p>
+
+               <div
+                  className={`d-flex gap-2 align-items-center ${styles["cursor"]} ${styles["color"]}`}
+               >
+                  <Link
+                     to={"/admin/my-product"}
+                     className={` text-decoration-none ${styles["no-underline"]}`}
+                  >
+                     <p
+                        className={`${styles["cursor"]} ${styles["color-text"]}`}
+                     >
+                        My Product
+                     </p>
+                  </Link>
+                  <NavDropdown
+                     className={` ${styles["menu"]} ${styles["color-text"]}`}
+                     id="basic-nav-dropdown"
+                  >
+                     <NavDropdown.Item>All</NavDropdown.Item>
+                     <NavDropdown.Item>Archive</NavDropdown.Item>
+                     <NavDropdown.Item>Sold Out</NavDropdown.Item>
+                  </NavDropdown>
+               </div>
+               <p className="nav-item">
+                  <Link
+                     className={` text-decoration-none ${styles["no-underline"]} `}
+                     to={"/admin/create-product"}
+                  >
+                     <p className={`nav-link ${styles["color-text"]}`}>
+                        Selling Product
+                     </p>
+                  </Link>
+               </p>
+               <div
+                  className={`d-flex gap-2 align-items-center ${styles["cursor"]} ${styles["color"]}`}
+               >
+                  <Link
+                     to={"/admin/my-order"}
+                     className={` text-decoration-none ${styles["no-underline"]} `}
+                  >
+                     <p
+                        className={`${styles["cursor"]} ${styles["color-text"]}`}
+                     >
+                        My Order
+                     </p>
+                  </Link>
+                  <NavDropdown
+                     className={` ${styles["menu"]} ${styles["color-text"]}`}
+                     id="basic-nav-dropdown"
+                  >
+                     <NavDropdown.Item>All</NavDropdown.Item>
+                     <NavDropdown.Item>Archive</NavDropdown.Item>
+                     <NavDropdown.Item>Sold Out</NavDropdown.Item>
+                  </NavDropdown>
+               </div>
+            </div>
+         )}
+
+         {/* navbar admin */}
+
          <div className={`container d-flex mt-5 ${styles["cont-profile"]}`}>
             <span>
                <label htmlFor="images">
