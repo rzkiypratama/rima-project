@@ -15,6 +15,7 @@ import Admin from "./pages/SellerProduct";
 import Product from "./pages/Product";
 import About from "./pages/About";
 import ProductDetail from "./pages/ProductDetail";
+import CreateProduct from "./pages/CreateProduct";
 import Cart from "./pages/Cart";
 import Otp from "./pages/Otp";
 import OtpVerified from "./pages/OtpVerified";
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
   { path: "/faq", element: <FAQ /> },
   { path: "/profile", element: <Profile /> },
   { path: "/profile/admin", element: <Admin /> },
+  { path: "/profile/admin/create-product", element: <CreateProduct /> },
   { path: "/product", element: <Product /> },
   { path: "/order/tracking", element: <OrderTracking /> },
   { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
