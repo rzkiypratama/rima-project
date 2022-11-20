@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Lato&display=swap");
 
 .cont-fluid {
-  background-color: #f3f3f3;
+  background-image: url("../assets/background/bg.png");
 }
+
 .faq {
   font-family: Arimo;
   font-style: Regular;
@@ -29,16 +30,20 @@
   line-height: 100%;
   vertical-align: Top;
 }
+
 .cont-icon {
   margin-top: 7rem !important;
 }
+
 .svg {
   width: 40px;
   /* border: 2px solid grey; */
 }
+
 .circle {
   padding: 5px;
 }
+
 .line {
   border-bottom: 1px solid #cccccc;
   width: 100px;
@@ -46,9 +51,11 @@
   top: -10px;
   /* left: 10px; */
 }
+
 .cont-contact-us {
   margin-top: 10rem !important;
 }
+
 .btn-text {
   font-family: Arimo;
   font-style: Bold;
@@ -61,6 +68,7 @@
   height: 50px;
   margin-bottom: 8rem !important;
 }
+
 .font {
   font-family: arimo;
   font-style: regular;

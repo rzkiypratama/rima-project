@@ -96,7 +96,6 @@
 
 .text-profile {
   font-weight: 400;
-
   font-family: Arimo;
   font-style: Regular;
   font-size: 16px;
@@ -104,6 +103,7 @@
   line-height: 100%;
   vertical-align: Top;
   fill: Solid #1a1a1a;
+  padding-top: 25px;
 }
 
 .logout {
@@ -125,10 +125,10 @@
   color: salmon;
 }
 
-.cursor:hover {
+/* .cursor:hover {
   transform: scale(1.2);
 
-}
+} */
 
 .floating-form:disabled {
   background-color: #ffffff;
@@ -162,6 +162,42 @@
   border: none;
   width: 100%;
 }
+
+
+
+/* navbar admin */
+.color-text {
+  color: #1a1a1a;
+  font-family: arimo;
+  font-size: 20px;
+  font-style: bold;
+  font-weight: 500;
+}
+
+.color-text:hover {
+  color: #1a1a1a;
+}
+
+.menu {
+  color: #1a1a1a !important;
+}
+
+.nav-link {
+  display: block;
+  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+  font-size: var(--bs-nav-link-font-size);
+  font-weight: var(--bs-nav-link-font-weight);
+  color: #000000 !important;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.color {
+  color: #000000 !important;
+}
+
+/* navbar admin */
+
 
 
 /* modal password */
