@@ -22,10 +22,14 @@ function Profile() {
    const navigate = useNavigate();
    const dispatch = useDispatch();
    const [show, setShow] = useState(false);
+   const [showPassword, setShowPassword] = useState(false);
    const [showInput, setShowInput] = useState(true);
 
    const handleClose = () => setShow(false);
    const handleShow = () => setShow(true);
+
+   const handleClosePassword = () => setShowPassword(false);
+   const handleShowPassword = () => setShowPassword(true);
 
    const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
 
@@ -40,9 +44,16 @@ function Profile() {
    const [role, setRole] = useState("");
    // eslint-disable-next-line no-unused-vars
    const [display, setDisplay] = useState("");
+   // eslint-disable-next-line no-unused-vars
    const [datas, setDatas] = useState([]);
    const profiles = useSelector((state) => state.profile.profileUser);
    const data = useSelector((state) => state.profile.profileData);
+
+   const [gender, setGender] = useState(profiles.gender);
+   const [phone, setPhone] = useState(profiles.phone);
+   const [username, setUsername] = useState(profiles.name);
+   const [image, setImage] = useState(profiles.image);
+   const [address, setAddress] = useState(profiles.address);
    //  console.log(profiles);
    //  handle input image
 
@@ -50,21 +61,14 @@ function Profile() {
    //   const [phone, setPhone] = useState(profiles.phone);
    //   const [username, setUsername] = useState(profiles.name);
 
-   const inputImage = (event) => {
-      console.log(image);
-      if (event.target.files && event.target.files[0]) {
-         setDisplay(URL.createObjectURL(event.target.files[0]));
-         setImage(event.target.files[0]);
-      }
-   };
-
    //  didmount
    useEffect(() => {
       // console.log(profiles);
       // console.log(userInfo.id);
-      // console.log("Data :", datas);
-      dispatch(profileActions.profileThunk(setDatas));
+      dispatch(profileActions.profileThunk(datas));
+      console.log("Data :");
       setDisplay(profiles.image);
+      setImage(profiles.image);
       setEmail(data.email);
       setRole(userInfo.role);
       // const urlGetProfile = `${process.env.REACT_APP_BACKEND_HOST}/profile/:${userInfo.id}`;
@@ -92,31 +96,57 @@ function Profile() {
    }, [dispatch]);
 
    //  patch
-   const [gender, setGender] = useState(profiles.gender);
-   const [phone, setPhone] = useState(profiles.phone);
-   const [username, setUsername] = useState(profiles.name);
-   const [image, setImage] = useState(profiles.image);
-   const [address, setAddress] = useState(profiles.address);
-
-   const SendRequest = (e) => {
-      e.preventDefault();
+   const inputImage = (event) => {
       // console.log(image);
-      // console.log(address);
-      // console.log(phone);
-      // console.log(username);
-      // console.log(gender);
-      let formData = new FormData();
-      // let bodyFromDataUser = null;
-      if (address) formData.append("address", address);
-      if (image) formData.append("image", image);
-      if (phone) formData.append("phone", phone);
-      if (username) formData.append("name", username);
-      if (gender) formData.append("gender", gender);
-      for (var pair of formData.entries()) {
-         console.log(pair[0] + " - " + pair[1]);
+      if (event.target.files && event.target.files[0]) {
+         setDisplay(URL.createObjectURL(event.target.files[0]));
+         setImage(event.target.files[0]);
+         console.log("check setimage:", image);
       }
-      console.log(formData);
-      if (formData) dispatch(profileActions.updateProfileThunk(formData));
+   };
+
+   const [password, setPassword] = useState("");
+   const [new_password, setNew_password] = useState("");
+   // edit password
+   const sendRequestEditPwd = (event) => {
+      const url = `${process.env.REACT_APP_BACKEND_HOST}/profile/change-password`;
+      event.preventDefault();
+      axios
+         .patch(
+            url,
+            { password, new_password },
+            {
+               headers: { "x-access-token": userInfo.token },
+            }
+         )
+         .then((res) => console.log(res.data))
+         .catch((err) => console.log(err));
+   };
+
+   const SendRequest = async (e) => {
+      try {
+         e.preventDefault();
+         let formData = new FormData();
+         // let bodyFromDataUser = null;
+         if (address) formData.append("address", address);
+         // console.log("check imagedata:", image === profiles.image);
+         // console.log("check image:", image);
+         if (image !== display) formData.append("image", image);
+         if (phone) formData.append("phone", phone);
+         if (username) formData.append("name", username);
+         if (gender) formData.append("gender", gender);
+         for (var pair of formData.entries()) {
+            console.log(pair[0] + " - " + pair[1]);
+         }
+         // console.log(formData);
+         if (formData) {
+            await dispatch(profileActions.updateProfileThunk(formData));
+            await dispatch(profileActions.profileThunk(datas));
+         }
+      } catch (error) {
+         console.log(error);
+      }
+
       // const url = `${process.env.REACT_APP_BACKEND_HOST}/profile/edit`;
       // console.log(userInfo.token);
       // axios
@@ -151,22 +181,19 @@ function Profile() {
             <span>
                <label htmlFor="images">
                   <img
-                     className={`${styles["profile-picture"]} ${styles["cursor"]}`}
+                     className={`${styles["profile-picture"]} `}
                      src={display}
                      alt="/"
                   />
-                  {/* <img
-                     src={pencil}
-                     alt="pencil"
-                     className={` ${styles["svg"]} ${styles["cursor"]}`}
-                  /> */}
                </label>
-               <input
-                  type="file"
-                  id={"images"}
-                  className="d-none"
-                  onChange={inputImage}
-               />
+               {showInput ? null : (
+                  <input
+                     type="file"
+                     id={"images"}
+                     className="d-none"
+                     onChange={inputImage}
+                  />
+               )}
             </span>
 
             <span className={`fs-3 ms-3 mt-2 ${styles["name"]}`}>
@@ -188,15 +215,11 @@ function Profile() {
                   as <span className="fw-bold">{role}</span>
                </p>
             </span>
-            <img
+            {/* <img
                src={pencil}
                alt="pencil"
                className={` ${styles["svg"]} ${styles["cursor"]}`}
-               onClick={() => {
-                  showInput ? setShowInput(false) : setShowInput(true);
-                  console.log("click");
-               }}
-            />
+            /> */}
          </div>
          <div className="container mt-5">
             <form className={`form-floating `}>
@@ -206,6 +229,7 @@ function Profile() {
                   id="floatingInputValue"
                   placeholder="Male / Female "
                   value={gender}
+                  disabled={showInput ? true : false}
                   onChange={(e) => {
                      setGender(e.target.value);
                      console.log(e.target.value);
@@ -216,13 +240,14 @@ function Profile() {
                <div
                   className={`d-flex justify-content-end ${styles["cont-edit"]}`}
                >
-                  <p className={`my-auto me-3 fs-5 ${styles["edit-text"]}`}>
-                     EDIT
-                  </p>
                   <img
                      src={pencil}
                      alt="pencil"
                      className={` ${styles["pencil"]} ${styles["cursor"]}`}
+                     onClick={() => {
+                        showInput ? setShowInput(false) : setShowInput(true);
+                        console.log("click");
+                     }}
                   />
                </div>
             </form>
@@ -233,76 +258,41 @@ function Profile() {
                   id="floatingInputValue"
                   placeholder="name@example.com"
                   defaultValue={email}
+                  disabled={showInput ? true : false}
                   // onChange={(e) => {
                   //    setEmail(e.target.value);
                   //    console.log(e.target.value);
                   // }}
                />
                <label htmlFor="floatingInputValue">Your Email</label>
-               <div
-                  className={`d-flex justify-content-end ${styles["cont-edit"]}`}
-               >
-                  <p className={`my-auto me-3 fs-5 ${styles["edit-text"]}`}>
-                     EDIT
-                  </p>
-                  <img
-                     src={pencil}
-                     alt="pencil"
-                     className={` ${styles["pencil"]} ${styles["cursor"]}`}
-                  />
-               </div>
             </section>
             <section className="form-floating">
                <input
                   type="tel"
                   className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`}
                   id="floatingInputValue"
-                  placeholder=" "
+                  placeholder="Phone Number "
                   value={phone}
+                  disabled={showInput ? true : false}
                   onChange={(e) => {
                      setPhone(e.target.value);
-                     console.log(e.target.value);
                   }}
                />
                <label htmlFor="floatingInputValue">Phone</label>
-               <div
-                  className={`d-flex justify-content-end ${styles["cont-edit"]}`}
-               >
-                  <p className={`my-auto me-3 fs-5 ${styles["edit-text"]}`}>
-                     EDIT
-                  </p>
-                  <img
-                     src={pencil}
-                     alt="pencil"
-                     className={` ${styles["pencil"]} ${styles["cursor"]}`}
-                  />
-               </div>
             </section>
             <section className="form-floating">
                <input
-                  type="tel"
+                  type="text"
                   className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`}
                   id="floatingInputValue"
-                  placeholder=" "
+                  placeholder="Address "
                   value={address}
                   onChange={(e) => {
                      setAddress(e.target.value);
-                     console.log(address);
                   }}
+                  disabled={showInput ? true : false}
                />
                <label htmlFor="floatingInputValue">address</label>
-               <div
-                  className={`d-flex justify-content-end ${styles["cont-edit"]}`}
-               >
-                  <p className={`my-auto me-3 fs-5 ${styles["edit-text"]}`}>
-                     EDIT
-                  </p>
-                  <img
-                     src={pencil}
-                     alt="pencil"
-                     className={` ${styles["pencil"]} ${styles["cursor"]}`}
-                  />
-               </div>
             </section>
 
             <div
@@ -327,6 +317,10 @@ function Profile() {
                   <button
                      type="submit"
                      className={`btn btn-warning my-3 fa-xs ${styles["logout"]} `}
+                     onClick={(e) => {
+                        e.preventDefault();
+                        handleShowPassword();
+                     }}
                   >
                      <div className="d-flex justify-content-center">
                         <i className="bi bi-credit-card-2-front fa-2x"></i>
@@ -335,16 +329,18 @@ function Profile() {
                   </button>
                </section>
                {/* button saved data buat kondisi jika edit pada form diklik kan muncul button */}
-               <button
-                  onClick={SendRequest}
-                  type="submit"
-                  className={`btn btn-success my-3 fa-xs ${styles["logout"]} d-flex justify-content-center align-items-center`}
-               >
-                  <div className="d-flex justify-content-center">
-                     <i className="bi bi-person-check fa-2x"></i>
-                     <p className="my-auto ms-3 fs-5">Save</p>
-                  </div>
-               </button>
+               {showInput ? null : (
+                  <button
+                     onClick={SendRequest}
+                     type="submit"
+                     className={`btn btn-success my-3 fa-xs ${styles["logout"]} d-flex justify-content-center align-items-center`}
+                  >
+                     <div className="d-flex justify-content-center">
+                        <i className="bi bi-person-check fa-2x"></i>
+                        <p className="my-auto ms-3 fs-5">Save</p>
+                     </div>
+                  </button>
+               )}
             </div>
          </div>
          <Footer />
@@ -359,6 +355,52 @@ function Profile() {
                </Button>
                <Button variant="danger" onClick={logoutHandler}>
                   Yes
+               </Button>
+            </Modal.Footer>
+         </Modal>
+
+         {/* edit password */}
+         <Modal show={showPassword} onHide={handleClosePassword}>
+            <Modal.Header closeButton>
+               <Modal.Title>Edit Password</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+               <div className="w-100">
+                  <span>
+                     <label htmlFor="old_password">Password</label>
+                     <br />
+                     <input
+                        old_password
+                        type="password"
+                        className={`${styles.input__password} w-100 ps-2 mb-3`}
+                        name="password"
+                        onChange={(event) => {
+                           setPassword(event.target.value);
+                        }}
+                     />
+                  </span>
+                  <br />
+                  <span>
+                     <label htmlFor="newPassowrd">New Password</label>
+                     <br />
+                     <input
+                        id="newPassowrd"
+                        type="password"
+                        className={`${styles.input__password} w-100 ps-2 `}
+                        name="old_password"
+                        onChange={(event) => {
+                           setNew_password(event.target.value);
+                        }}
+                     />
+                  </span>
+               </div>
+            </Modal.Body>
+            <Modal.Footer>
+               <Button variant="secondary" onClick={handleClosePassword}>
+                  Close
+               </Button>
+               <Button variant="success " onClick={sendRequestEditPwd}>
+                  Yes 😊
                </Button>
             </Modal.Footer>
          </Modal>
