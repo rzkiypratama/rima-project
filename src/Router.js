@@ -18,25 +18,26 @@ import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Otp from "./pages/Otp";
 import OtpVerified from "./pages/OtpVerified";
-
+import Error404 from "./component/error/Error404";
 const router = createBrowserRouter([
-  { path: "/", element: <Homepage /> },
-  { path: "/login", element: <Login /> },
-  { path: "/register", element: <Register /> },
-  { path: "/forgot", element: <ForgotPassword /> },
-  { path: "/notification", element: <Notification /> },
-  { path: "/chat", element: <Chat /> },
-  { path: "/faq", element: <FAQ /> },
-  { path: "/profile", element: <Profile /> },
-  { path: "/profile/admin", element: <Admin /> },
-  { path: "/product", element: <Product /> },
-  { path: "/order/tracking", element: <OrderTracking /> },
-  { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
-  { path: "/product/detail", element: <ProductDetail /> },
-  { path: "/about", element: <About /> },
-  { path: "/cart", element: <Cart /> },
-  { path: "/forgot/otp", element: <Otp /> },
-  { path: "/forgot/otp/verify", element: <OtpVerified /> },
+   { path: "/", element: <Homepage /> },
+   { path: "/login", element: <Login /> },
+   { path: "/register", element: <Register /> },
+   { path: "/forgot", element: <ForgotPassword /> },
+   { path: "/notification", element: <Notification /> },
+   { path: "/chat", element: <Chat /> },
+   { path: "/faq", element: <FAQ /> },
+   { path: "/profile", element: <Profile /> },
+   { path: "/profile/admin", element: <Admin /> },
+   { path: "/product", element: <Product /> },
+   { path: "/order/tracking", element: <OrderTracking /> },
+   { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
+   { path: "/product/detail", element: <ProductDetail /> },
+   { path: "/about", element: <About /> },
+   { path: "/cart", element: <Cart /> },
+   { path: "/forgot/otp", element: <Otp /> },
+   { path: "/forgot/otp/verify", element: <OtpVerified /> },
+   { path: "/error404", element: <Error404 /> },
 ]);
 
 export default router;
