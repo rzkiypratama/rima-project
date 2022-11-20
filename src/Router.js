@@ -18,6 +18,7 @@ import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Otp from "./pages/Otp";
 import OtpVerified from "./pages/OtpVerified";
+import Blog from "./pages/Blog";
 
 const router = createBrowserRouter([
   { path: "/", element: <Homepage /> },
@@ -37,6 +38,8 @@ const router = createBrowserRouter([
   { path: "/cart", element: <Cart /> },
   { path: "/forgot/otp", element: <Otp /> },
   { path: "/forgot/otp/verify", element: <OtpVerified /> },
+  { path: "/blog", element: <Blog /> },
+
 ]);
 
 export default router;
