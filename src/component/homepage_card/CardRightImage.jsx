@@ -1,8 +1,8 @@
 import React from "react";
 import content_first from "../../assets/homepage/img_content_first.png";
 import styles from "./CardRightImage.module.css";
-
-function CardRightImage() {
+import { Link } from "react-router-dom";
+function CardRightImage(props) {
    return (
       <>
          <section className="row d-flex flex-lg-row flex-md-row flex-sm-column-reverse flex-column-reverse align-content-center">
@@ -11,27 +11,24 @@ function CardRightImage() {
                   className={`${styles.content_article_left} d-flex justify-content-center align-items-center p-4`}
                >
                   <div>
-                     <h1>
-                        Mid-Century 1929 <br /> Sofa with Pilow
-                     </h1>
-                     <p>
-                        Donec nunc nunc, gravida vitae diam vel, varius interdum
-                        erat. Quisque a nunc vel diam auctor commodo. Curabitur
-                        blandit ultrices ex. Curabitur ut magna dignissim,
-                        dignissim neque et, placerat risus. Morbi dictum lectus
-                        quam
-                     </p>
-                     <div className="d-flex justify-content-start align-items-center ">
-                        <div className={`${styles.line} me-4`}></div>
-                        <span className="fw-bold">SHOP NOW</span>
-                     </div>
+                     <h1>{props.title}</h1>
+                     <p>{props.desc}</p>
+                     <Link
+                        to={`/product/detail/${props.id}`}
+                        className={styles.links}
+                     >
+                        <div className="d-flex justify-content-start align-items-center ">
+                           <div className={`${styles.line} me-4`}></div>
+                           <span className="fw-bold">SHOP NOW</span>
+                        </div>
+                     </Link>
                   </div>
                </article>
             </section>
             <section className="col-12 col-10 col-sm-12 col-md-5 col-lg-5 px-0 ">
                <img
                   className={`${styles.images} `}
-                  src={content_first}
+                  src={props.images}
                   alt="content_first"
                />
             </section>
