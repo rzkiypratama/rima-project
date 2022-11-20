@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-
+import PrivateElement from "./component/PrivateElement";
 // Pages
 import Homepage from "./pages/HomePage";
 import Login from "./pages/Login";
@@ -20,9 +20,11 @@ import CreateProduct from "./pages/CreateProduct";
 import Cart from "./pages/Cart";
 import Otp from "./pages/Otp";
 import OtpVerified from "./pages/OtpVerified";
+import Blog from "./pages/Blog";
+import Error from './component/error/Error404'
 
 const router = createBrowserRouter([
-  { path: "/", element: <Homepage /> },
+  { path: "/", element: <Homepage />, errorElement: <Error/> },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },
   { path: "/forgot", element: <ForgotPassword /> },
@@ -41,6 +43,7 @@ const router = createBrowserRouter([
   { path: "/cart", element: <Cart /> },
   { path: "/forgot/otp", element: <Otp /> },
   { path: "/forgot/otp/verify", element: <OtpVerified /> },
+  { path: "/blog", element: <Blog /> },
 ]);
 
 export default router;

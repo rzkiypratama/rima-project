@@ -123,6 +123,11 @@
     padding-bottom: 100px;
 }
 
+.links {
+    text-decoration: none;
+    color: #161616;
+}
+
 @media only screen and (max-width: 992px) {
 
     /*Tablets [601px -> 1200px]*/

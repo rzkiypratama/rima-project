@@ -19,6 +19,8 @@ import profileActions from "../redux/actions/profile";
 // import Parker from "../assets/profile/parker.jpeg";
 import axios from "axios";
 // import bs icon
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Profile() {
   title("Profile");
@@ -27,6 +29,16 @@ function Profile() {
   const [show, setShow] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showInput, setShowInput] = useState(true);
+  const successToastMessage = () => {
+    toast.success('Updating data success !', {
+        position: toast.POSITION.TOP_CENTER
+    });
+};
+  const failedMessage = () => {
+    toast.error('Password or Email Wrong !', {
+      position: toast.POSITION.TOP_CENTER
+  });
+  }
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -122,7 +134,13 @@ function Profile() {
           headers: { "x-access-token": userInfo.token },
         }
       )
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        toast.success(res.data, {
+          position: toast.POSITION.TOP_CENTER
+      });
+        console.log(res.data)
+      }
+     )
       .catch((err) => console.log(err));
   };
 
@@ -143,6 +161,7 @@ function Profile() {
       }
       // console.log(formData);
       if (formData) {
+        successToastMessage ();
         await dispatch(profileActions.updateProfileThunk(formData));
         await dispatch(profileActions.profileThunk(datas));
       }
@@ -280,62 +299,81 @@ function Profile() {
             }}
           />
 
-          <label htmlFor="floatingInputValue">Gender</label>
-          <div className={`d-flex justify-content-end ${styles["cont-edit"]}`}>
-            <img
-              src={pencil}
-              alt="pencil"
-              className={` ${styles["pencil"]} ${styles["cursor"]}`}
-              onClick={() => {
-                showInput ? setShowInput(false) : setShowInput(true);
-                console.log("click");
-              }}
-            />
-          </div>
-        </form>
-        <section className="form-floating ">
-          <input
-            type="email"
-            className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-2"]}`}
-            id="floatingInputValue"
-            placeholder="name@example.com"
-            defaultValue={email}
-            disabled={showInput ? true : false}
-            // onChange={(e) => {
-            //    setEmail(e.target.value);
-            //    console.log(e.target.value);
-            // }}
-          />
-          <label htmlFor="floatingInputValue">Your Email</label>
-        </section>
-        <section className="form-floating">
-          <input
-            type="tel"
-            className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`}
-            id="floatingInputValue"
-            placeholder="Phone Number "
-            value={phone}
-            disabled={showInput ? true : false}
-            onChange={(e) => {
-              setPhone(e.target.value);
-            }}
-          />
-          <label htmlFor="floatingInputValue">Phone</label>
-        </section>
-        <section className="form-floating">
-          <input
-            type="text"
-            className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`}
-            id="floatingInputValue"
-            placeholder="Address "
-            value={address}
-            onChange={(e) => {
-              setAddress(e.target.value);
-            }}
-            disabled={showInput ? true : false}
-          />
-          <label htmlFor="floatingInputValue">address</label>
-        </section>
+               <label htmlFor="floatingInputValue">Gender</label>
+               <div
+                  className={`d-flex justify-content-end ${styles["cont-edit"]}`}
+               >
+                  <img
+                     src={pencil}
+                     alt="pencil"
+                     className={` ${styles["pencil"]} ${styles["cursor"]}`}
+                     onClick={() => {
+                        showInput ? setShowInput(false) : setShowInput(true);
+                        console.log("click");
+                     }}
+                  />
+               </div>
+            </form>
+            <section className="form-floating ">
+               <input
+                  type="email"
+                  className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-2"]}`}
+                  id="floatingInputValue"
+                  placeholder="name@example.com"
+                  defaultValue={email}
+                  disabled={showInput ? true : false}
+                  // onChange={(e) => {
+                  //    setEmail(e.target.value);
+                  //    console.log(e.target.value);
+                  // }}
+               />
+               <label htmlFor="floatingInputValue">Your Email</label>
+            </section>
+            <section className="form-floating">
+               <input
+                  type="tel"
+                  className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`}
+                  id="floatingInputValue"
+                  placeholder="Phone Number "
+                  value={phone}
+                  disabled={showInput ? true : false}
+                  onChange={(e) => {
+                     setPhone(e.target.value);
+                  }}
+               />
+               <label htmlFor="floatingInputValue">Phone</label>
+            </section>
+            {role !== "seller" ? (
+               <section className="form-floating">
+                  <input
+                     type="text"
+                     className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`}
+                     id="floatingInputValue"
+                     placeholder="Address "
+                     value={address}
+                     onChange={(e) => {
+                        setAddress(e.target.value);
+                     }}
+                     disabled={showInput ? true : false}
+                  />
+                  <label htmlFor="floatingInputValue">address</label>
+               </section>
+            ) : (
+               <section className="form-floating">
+                  <input
+                     type="text"
+                     className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`}
+                     id="floatingInputValue"
+                     placeholder="Address "
+                     value={address}
+                     onChange={(e) => {
+                        setAddress(e.target.value);
+                     }}
+                     disabled={showInput ? true : false}
+                  />
+                  <label htmlFor="floatingInputValue">Store Description</label>
+               </section>
+            )}
 
         <div className={`${styles.buttons} d-flex flex-md-row flex-column justify-content-between align-items-center`}>
           <section className="d-flex flex-md-row flex-column w-100">
@@ -440,6 +478,7 @@ function Profile() {
           </Button>
         </Modal.Footer>
       </Modal>
+      <ToastContainer />
     </>
   );
 }
