@@ -9,6 +9,18 @@
   padding: 3rem 0;
 }
 
+.icon-eye {
+  position: absolute;
+  right: 27em;
+  top: 35px;
+  display: flex;
+  width: 2rem;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
 .page-title::after {
   content: "";
   position: absolute;
@@ -376,5 +388,16 @@
 
   .form .btn-login button {
     width: 100%;
+  }
+  .icon-eye {
+    position: absolute;
+    right: 50px;
+    top: 70px;
+    display: flex;
+    width: 2rem;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
   }
 }
