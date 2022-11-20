@@ -16,7 +16,9 @@ import pencil from "../assets/profile/img_pencil.png";
 // import { getProfile } from "../utils/fetchers";
 import profileActions from "../redux/actions/profile";
 // import Parker from "../assets/profile/parker.jpeg";
-// import axios from "axios";
+import axios from "axios";
+// import bs icon
+
 function Profile() {
    title("Profile");
    const navigate = useNavigate();
@@ -165,6 +167,22 @@ function Profile() {
       //    })
       //    .catch((err) => console.log(err));
    };
+
+   const [visible, setVisible] = useState(false);
+   const [invisible, setInvisible] = useState(false);
+
+   const togglePassword = () => {
+      // When the handler is invoked
+      // inverse the boolean state of passwordShown
+      setVisible(!visible);
+    };
+
+   const togglePwd = () => {
+      // When the handler is invoked
+      // inverse the boolean state of passwordShown
+      setInvisible(!invisible);
+    };
+   
 
    return (
       <>
@@ -369,9 +387,16 @@ function Profile() {
                   <span>
                      <label htmlFor="old_password">Password</label>
                      <br />
+                     <div className={styles["icon-eye"]}>
+                     {visible ? (
+                        <i className="fa-regular fa-eye" onClick={togglePassword}></i>
+                     ) : (
+                        <i className="fa fa-regular fa-eye-slash" onClick={togglePassword}></i>
+                     )}
+                     </div>
                      <input
                         old_password
-                        type="password"
+                        type={invisible ? "text" : "password"}
                         className={`${styles.input__password} w-100 ps-2 mb-3`}
                         name="password"
                         onChange={(event) => {
@@ -383,9 +408,16 @@ function Profile() {
                   <span>
                      <label htmlFor="newPassowrd">New Password</label>
                      <br />
+                     <div className={styles["icon-eye-invisible"]}>
+                     {invisible ? (
+                        <i className="fa-regular fa-eye" onClick={togglePwd}></i>
+                     ) : (
+                        <i className="fa fa-regular fa-eye-slash" onClick={togglePwd}></i>
+                     )}
+                     </div>
                      <input
                         id="newPassowrd"
-                        type="password"
+                        type={visible ? "text" : "password"}
                         className={`${styles.input__password} w-100 ps-2 `}
                         name="old_password"
                         onChange={(event) => {

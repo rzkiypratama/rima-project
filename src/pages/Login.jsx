@@ -13,6 +13,13 @@ function Login() {
    const dispacth = useDispatch();
    const [body, setBody] = useState({});
    const [selected, setSelected] = useState("login");
+   const [visible, setVisible] = useState(false);
+
+   const togglePassword = () => {
+      // When the handler is invoked
+      // inverse the boolean state of passwordShown
+      setVisible(!visible);
+    };
 
    const changeHandler = (e) =>
       setBody({ ...body, [e.target.name]: e.target.value });
@@ -86,10 +93,17 @@ function Login() {
                            />
                            <input
                               onChange={changeHandler}
-                              type="password"
+                              type={visible ? "text" : "password"}
                               name="password"
                               placeholder="Password *"
                            />
+                        <span className={styles["icon-eye"]}>
+                     {visible ? (
+                        <i className="fa-regular fa-eye" onClick={togglePassword}></i>
+                     ) : (
+                        <i className="fa fa-regular fa-eye-slash" onClick={togglePassword}></i>
+                     )}
+                     </span>
                            <p onClick={() =>{
                               navigate('/forgot')
                            }}>Forget your password?</p>
