@@ -1,17 +1,17 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import styles from "../styles/CreateProduct.module.css";
 import Navbar from "../component/navbar/Navbar";
 import Footer from "../component/footer/Footer";
-import axios from "axios";
-import styles from "../styles/SellerProduct.module.css";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import Table from "../component/tableSelling/Table";
-import Loader from "../component/loader/Loader";
+import axios from "axios";
+import Dropdown from "react-bootstrap/Dropdown";
 import { Link } from "react-router-dom";
-// import Dropdown from "react-bootstrap/Dropdown";
-// import NavigationSeller from "../component/navigationSeller/NavigationSeller";
 
-function SellerProduct() {
+import sofa1 from "../assets/productDetail/Sofa2.png";
+// import { useNavigate } from "react-router-dom";
+
+function CreateProduct() {
    const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
 
    const [stock, setStock] = useState("");
@@ -19,22 +19,7 @@ function SellerProduct() {
    const [price, setPrice] = useState("");
    const [image, setImage] = useState("");
    const [data, setData] = useState("");
-   useEffect(() => {
-      const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
-      axios
-         .get(url)
-         .then((res) => {
-            setStock(res.data.data.data.stock);
-            setDesc(res.data.data.data.description);
-            setPrice(res.data.data.data.price);
-            setImage(res.data.data.data.image);
-            setData(res.data.data.data);
-            console.log("data : ", res.data.data.data);
-         })
-         .catch((err) => {
-            console.log(err);
-         });
-   }, []);
+
    const HandleProduct = () => {
       return axios
          .get(url)
@@ -50,19 +35,14 @@ function SellerProduct() {
             console.log(err);
          });
    };
-
-   const costing = (price) => {
-      return parseFloat(price)
-         .toFixed()
-         .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
-   };
-
    return (
       <div>
          <Navbar />
          <div className={`container-fluid p-5 ${styles["cont-fluid"]}`}>
             <div className="container justify-content-center">
-               <p className={`text-center  ${styles["profile"]}`}>My Product</p>
+               <p className={`text-center  ${styles["profile"]}`}>
+                  Selling Product
+               </p>
                <p className={`text-center fs-6 ${styles["text-profile"]}`}>
                   See your notifications for the latest updates
                </p>
@@ -81,12 +61,15 @@ function SellerProduct() {
             <div
                className={`d-flex gap-2 align-items-center ${styles["cursor"]} ${styles["color"]}`}
             >
-               <p
-                  className={`${styles["cursor"]} ${styles["color-text"]}`}
-                  onClick={HandleProduct}
+               <Link
+                  className={` text-decoration-none ${styles["no-underline"]} `}
+                  to={"/admin/my-product"}
                >
-                  My Product
-               </p>
+                  <p className={`${styles["cursor"]} ${styles["color-text"]}`}>
+                     {" "}
+                     My Product{" "}
+                  </p>
+               </Link>
                <NavDropdown
                   className={` ${styles["menu"]} ${styles["color-text"]}`}
                   id="basic-nav-dropdown"
@@ -112,11 +95,12 @@ function SellerProduct() {
                className={`d-flex gap-2 align-items-center ${styles["cursor"]} ${styles["color"]}`}
             >
                <Link
-                  to={"/admin/my-order"}
                   className={` text-decoration-none ${styles["no-underline"]} `}
+                  to={"/admin/my-order"}
                >
                   <p className={`${styles["cursor"]} ${styles["color-text"]}`}>
-                     My Order
+                     {" "}
+                     My Order{" "}
                   </p>
                </Link>
                <NavDropdown
@@ -132,48 +116,70 @@ function SellerProduct() {
             </div>
          </div>
 
-         <hr className="container" />
-         <section className="container d-flex px-5 justify-content-between ">
-            <p
-               className={`${styles["title"]} col-4 d-flex justify-content-start ms-4 `}
-            >
-               Product
-            </p>
-            <p
-               className={`${styles["title"]} col-4 d-flex justify-content-start ms-4 `}
-            >
-               {" "}
-               Stock Status
-            </p>
-            <p
-               className={`${styles["title"]} col-4 d-flex justify-content-start ms-4 `}
-            >
-               Price
-            </p>
-         </section>
-         <hr className="container" />
-         <div className="container">
-            {data.length > 0 ? (
-               data.map((data, index) => {
-                  return (
-                     <Table
-                        key={index}
-                        stock={data.stock}
-                        description={data.desc}
-                        image={data.image}
-                        price={`${"IDR"} ${costing(data.price)}`}
+         <form className={`container ${styles["cont-form"]} `}>
+            <div className="form-group">
+               <p className={`${styles["inventory"]}`}>Inventory</p>
+               <input
+                  type="text"
+                  className="form-control mb-5"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Name of goods *"
+               />
+               <textarea
+                  className="form-control"
+                  id="exampleFormControlTextarea1"
+                  placeholder="Description Product *"
+                  rows="3"
+               ></textarea>
+            </div>
+            <div className="form-group mt-5">
+               <p className={`${styles["inventory"]} ${styles["item-detail"]}`}>
+                  Item Details
+               </p>
+               <input
+                  type="text"
+                  className="form-control mb-5"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Unit price *"
+               />
+               <input
+                  type="text"
+                  className="form-control mb-5"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Unit Stock *"
+               />
+
+               <div>
+                  <div className="d-flex row">
+                     <p
+                        className={`${styles["inventory"]} ${styles["item-detail"]}`}
+                     >
+                        {" "}
+                        Photo of Goods
+                     </p>
+                     <img
+                        className={`${styles["image"]}`}
+                        src={sofa1}
+                        alt="/"
                      />
-                  );
-               })
-            ) : (
-               <>
-                  <Loader />
-               </>
-            )}
-         </div>
+                     <img
+                        className={`${styles["image"]}`}
+                        src={sofa1}
+                        alt="/"
+                     />
+                  </div>
+                  <button className={`${styles["btn"]} btn btn-dark`}>
+                     Sell Product
+                  </button>
+               </div>
+            </div>
+         </form>
          <Footer />
       </div>
    );
 }
 
-export default SellerProduct;
+export default CreateProduct;

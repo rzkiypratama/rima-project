@@ -27,37 +27,30 @@
   fill: Solid #1a1a1a;
 }
 
-.stock {
-  height: 11rem;
-  gap: 1rem;
-  justify-content: center;
+.cont-form {
+  width: 40%;
+  margin-top: 5rem;
+}
+
+.input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.checkbox {
+  margin-top: 2px;
+}
+
+.inventory {
+  font-family: arimo;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 24px;
+  margin-bottom: 1rem !important;
 }
 
 .cursor {
   cursor: pointer;
-}
-
-.price {
-  height: 11rem;
-  /* gap: 1rem; */
-  justify-content: space-evenly;
-}
-
-.table {
-  margin-bottom: 5rem;
-}
-
-.product {
-  width: 30rem;
-}
-
-.price-title {
-  text-align: center;
-}
-
-.title {
-  font-family: arimo;
-  font-size: 20px;
 }
 
 .color-text {
@@ -70,22 +63,24 @@
 
 .color-text:hover {
   color: #1a1a1a;
+  margin-bottom: 2px solid black;
 }
 
-.menu {
-  color: #1a1a1a !important;
+#dropdown-basic {
+  border: none;
 }
 
-.nav-link {
-  display: block;
-  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
-  font-size: var(--bs-nav-link-font-size);
-  font-weight: var(--bs-nav-link-font-weight);
-  color: #000000 !important;
-  text-decoration: none;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+.image {
+  width: 40%;
 }
 
-.color {
-  color: #000000 !important;
+.btn {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  width: 40%;
+  height: 3rem;
+  font-family: arimo;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: bold;
 }
