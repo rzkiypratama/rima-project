@@ -1,5 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Lato&display=swap");
 
+.cont-faq {
+  margin-top: 2rem;
+  border-top: 2px solid grey;
+}
+.title-faq {
+  font-family: Arimo !important;
+  font-size: 16px !important;
+  font-family: Regular;
+  color: #1a1a1a;
+  font-weight: 400;
+}
+.stock {
+  position: relative;
+  left: -55px;
+}
 .img-left {
   width: 150px;
   margin-bottom: 2rem;
@@ -108,7 +123,12 @@
   line-height: 100%;
   fill: Solid #1a1a1a;
 }
-
+.love {
+  background-color: #1a1a1a;
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
 .title-desc {
   font-family: Arimo;
   font-style: bold;
@@ -225,6 +245,9 @@
   .price {
     margin-right: 2rem !important;
   }
+  .Sku {
+    margin-top: 2rem !important;
+  }
   /* .card-title {
     font-family: Arimo;
     font-style: Regular;
@@ -283,5 +306,21 @@
     width: 100px;
     position: relative;
     top: -17px;
+  }
+  .price {
+    font-size: 18px;
+  }
+  .stock {
+    font-size: 13px;
+    margin-right: -80px;
+  }
+  .sold-out {
+    width: 15px;
+    height: 15px;
+  }
+  .love {
+    position: relative;
+    top: -3rem;
+    left: 280px;
   }
 }
