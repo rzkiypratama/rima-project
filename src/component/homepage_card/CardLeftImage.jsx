@@ -1,7 +1,7 @@
 import React from "react";
 
 // assets
-import content_first from "../../assets/homepage/img_content_first.png";
+// import content_first from "../../assets/homepage/img_content_first.png";
 import styles from "./CardLeftImage.module.css";
 import { Link } from "react-router-dom";
 

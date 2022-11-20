@@ -40,6 +40,7 @@ function Profile() {
    const [role, setRole] = useState("");
    // eslint-disable-next-line no-unused-vars
    const [display, setDisplay] = useState("");
+   // eslint-disable-next-line no-unused-vars
    const [datas, setDatas] = useState([]);
    const profiles = useSelector((state) => state.profile.profileUser);
    const data = useSelector((state) => state.profile.profileData);
