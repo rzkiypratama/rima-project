@@ -32,7 +32,7 @@ export const reset = (data) => {
    return axiosRequest("POST", "/profile/change-password", data);
 };
 
-export const getProfile = (data, token) => {
+export const getProfile = (data) => {
    //  return axiosRequest("GET", ``, data);
    return axios({
       method: "GET",
@@ -42,11 +42,14 @@ export const getProfile = (data, token) => {
    });
 };
 
-export const patchProfile = (body, token) => {
+export const patchProfile = (data) => {
    return axios({
       method: "PATCH",
       url: `${baseUrl}/profile/edit`,
-      headers: { "x-access-token": userInfo.token },
-      body,
+      headers: {
+         "x-access-token": userInfo.token,
+         "Content-Type": "multipart/form-data",
+      },
+      data,
    });
 };
