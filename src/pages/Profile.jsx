@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
 import styles from "../styles/Profile.module.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,127 +23,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Profile() {
-<<<<<<< HEAD
-  title("Profile");
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [show, setShow] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [showInput, setShowInput] = useState(true);
-  const successToastMessage = () => {
-    toast.success("Updating data success !", {
-      position: toast.POSITION.TOP_CENTER,
-    });
-  };
-  const failedMessage = () => {
-    toast.error("Password or Email Wrong !", {
-      position: toast.POSITION.TOP_CENTER,
-    });
-  };
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  const handleClosePassword = () => setShowPassword(false);
-  const handleShowPassword = () => setShowPassword(true);
-
-  const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
-
-  const toLogout = () => navigate("/login");
-  const logoutHandler = (e) => {
-    e.preventDefault();
-    dispatch(authActions.logoutThunk(userInfo.token, toLogout));
-    localStorage.removeItem("userInfo");
-  };
-  // get profile
-  const [email, setEmail] = useState("");
-  const [role, setRole] = useState("");
-  // eslint-disable-next-line no-unused-vars
-  const [display, setDisplay] = useState("");
-  // eslint-disable-next-line no-unused-vars
-  const [datas, setDatas] = useState([]);
-  const profiles = useSelector((state) => state.profile.profileUser);
-  const data = useSelector((state) => state.profile.profileData);
-
-  const [gender, setGender] = useState(profiles.gender);
-  const [phone, setPhone] = useState(profiles.phone);
-  const [username, setUsername] = useState(profiles.name);
-  const [image, setImage] = useState(profiles.image);
-  const [address, setAddress] = useState(profiles.address);
-  //  console.log(profiles);
-  //  handle input image
-
-  //   const [gender, setGender] = useState(profiles.gender);
-  //   const [phone, setPhone] = useState(profiles.phone);
-  //   const [username, setUsername] = useState(profiles.name);
-
-  //  didmount
-  useEffect(() => {
-    // console.log(profiles);
-    // console.log(userInfo.id);
-    dispatch(profileActions.profileThunk(datas));
-    console.log("Data :");
-    setDisplay(profiles.image);
-    setImage(profiles.image);
-    setEmail(data.email);
-    setRole(userInfo.role);
-    // const urlGetProfile = `${process.env.REACT_APP_BACKEND_HOST}/profile/:${userInfo.id}`;
-    // axios
-    //    .get(urlGetProfile, {
-    //       headers: {
-    //          "x-access-token": userInfo.token,
-    //       },
-    //    })
-    //    .then((res) => {
-    //       console.log(res.data);
-    //       // console.log(res.data.data.profileUser[0]);
-    //       // console.log(res.data.data.profileData[0].email);
-    //       dispatch(profileActions.profileThunk(setDatas));
-    //       const data = res.data.data.profileUser[0];
-    //       setName(data.name);
-    //       setGender(data.gender);
-    //       setEmail(res.data.data.profileData[0].email);
-    //       setPhone(data.phone);
-    //       setImage(data.image);
-    //       setDisplay(data.image);
-    //    })
-    //    .catch((err) => console.log(err));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
-
-  //  patch
-  const inputImage = (event) => {
-    // console.log(image);
-    if (event.target.files && event.target.files[0]) {
-      setDisplay(URL.createObjectURL(event.target.files[0]));
-      setImage(event.target.files[0]);
-      console.log("check setimage:", image);
-    }
-  };
-
-  const [password, setPassword] = useState("");
-  const [new_password, setNew_password] = useState("");
-  // edit password
-  const sendRequestEditPwd = (event) => {
-    const url = `${process.env.REACT_APP_BACKEND_HOST}/profile/change-password`;
-    event.preventDefault();
-    axios
-      .patch(
-        url,
-        { password, new_password },
-        {
-          headers: { "x-access-token": userInfo.token },
-        }
-      )
-      .then((res) => {
-        toast.success(res.data, {
-          position: toast.POSITION.TOP_CENTER,
-        });
-        console.log(res.data);
-      })
-      .catch((err) => console.log(err));
-  };
-=======
    title("Profile");
    const navigate = useNavigate();
    const dispatch = useDispatch();
@@ -156,7 +34,6 @@ function Profile() {
          position: toast.POSITION.TOP_CENTER,
       });
    };
->>>>>>> 8de16551193415ad232585233a3e551e39d2f421
 
    const handleClose = () => setShow(false);
    const handleShow = () => setShow(true);
@@ -214,14 +91,8 @@ function Profile() {
          setImage(event.target.files[0]);
          console.log("check setimage:", image);
       }
-<<<<<<< HEAD
-      // console.log(formData);
-      if (formData) {
-        successToastMessage();
-        await dispatch(profileActions.updateProfileThunk(formData));
-        await dispatch(profileActions.profileThunk(datas));
-=======
    };
+
    const [password, setPassword] = useState(null);
    const [new_password, setNew_password] = useState(null);
    const [confirm_password, setConfirm_password] = useState(null);
@@ -232,7 +103,6 @@ function Profile() {
       setErrMsg(null);
       if (!password && !new_password && !confirm_password) {
          return setErrMsg("All input must be filled");
->>>>>>> 8de16551193415ad232585233a3e551e39d2f421
       }
       if (!password && new_password && confirm_password) {
          return setErrMsg("Password must be filled");
@@ -416,11 +286,9 @@ function Profile() {
             <span>
                <label htmlFor="images">
                   <img
-                     className={`${styles["profile-picture"]} ${
-                        showInput ? null : `${styles.cursorPoint}`
-                     } `}
+                     className={`${styles["profile-picture"]} `}
                      src={display}
-                     alt="img_profile"
+                     alt="/"
                   />
                </label>
                {showInput ? null : (
@@ -475,81 +343,6 @@ function Profile() {
                   }}
                />
 
-<<<<<<< HEAD
-          <label htmlFor="floatingInputValue">Gender</label>
-          <div className={`d-flex justify-content-end ${styles["cont-edit"]}`}>
-            <img
-              src={pencil}
-              alt="pencil"
-              className={` ${styles["pencil"]} ${styles["cursor"]}`}
-              onClick={() => {
-                showInput ? setShowInput(false) : setShowInput(true);
-                console.log("click");
-              }}
-            />
-          </div>
-        </form>
-        <section className="form-floating ">
-          <input
-            type="email"
-            className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-2"]}`}
-            id="floatingInputValue"
-            placeholder="name@example.com"
-            defaultValue={email}
-            disabled={showInput ? true : false}
-            // onChange={(e) => {
-            //    setEmail(e.target.value);
-            //    console.log(e.target.value);
-            // }}
-          />
-          <label htmlFor="floatingInputValue">Your Email</label>
-        </section>
-        <section className="form-floating">
-          <input
-            type="tel"
-            className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`}
-            id="floatingInputValue"
-            placeholder="Phone Number "
-            value={phone}
-            disabled={showInput ? true : false}
-            onChange={(e) => {
-              setPhone(e.target.value);
-            }}
-          />
-          <label htmlFor="floatingInputValue">Phone</label>
-        </section>
-        {role !== "seller" ? (
-          <section className="form-floating">
-            <input
-              type="text"
-              className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`}
-              id="floatingInputValue"
-              placeholder="Address "
-              value={address}
-              onChange={(e) => {
-                setAddress(e.target.value);
-              }}
-              disabled={showInput ? true : false}
-            />
-            <label htmlFor="floatingInputValue">address</label>
-          </section>
-        ) : (
-          <section className="form-floating">
-            <input
-              type="text"
-              className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-3"]}`}
-              id="floatingInputValue"
-              placeholder="Address "
-              value={address}
-              onChange={(e) => {
-                setAddress(e.target.value);
-              }}
-              disabled={showInput ? true : false}
-            />
-            <label htmlFor="floatingInputValue">Store Description</label>
-          </section>
-        )}
-=======
                <label htmlFor="floatingInputValue">Gender</label>
                <div
                   className={`d-flex justify-content-end ${styles["cont-edit"]}`}
@@ -628,7 +421,6 @@ function Profile() {
                   <label htmlFor="floatingInputValue">Store Name</label>
                </section>
             )}
->>>>>>> 8de16551193415ad232585233a3e551e39d2f421
 
             <section className="form-floating">
                <input
