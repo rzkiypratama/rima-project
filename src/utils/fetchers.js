@@ -65,6 +65,10 @@ export const patchProfile = (data, token) => {
    });
 };
 
-export const getProduct = (data) => {
-   return axiosRequest("GET", "/product", data);
+export const getProduct = (params, data) => {
+   return axiosRequest("GET", "/product", data, params);
 };
+
+export const getCategories = (data) => {
+   return axiosRequest("GET", "/categories", data);
+ };

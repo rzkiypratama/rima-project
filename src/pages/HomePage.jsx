@@ -32,8 +32,7 @@ function HomePage() {
       if (localStorage["userInfo"])
          userInfo = JSON.parse(localStorage["userInfo"]);
 
-      // const userInfoc:\Program Files\Microsoft VS Code\resources\app\out\vs\code\electron-sandbox\workbench\workbench.html = JSON.parse(localStorage["userInfo"] || "{}");
-      console.log(userInfo);
+      // console.log(userInfo);
       if (userInfo) {
          const tokenData = JSON.parse(localStorage["userInfo"]);
          dispatch(profileActions.profileThunk(tokenData.token));

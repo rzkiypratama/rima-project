@@ -15,4 +15,10 @@ export const ACTION_STRING = {
   getProfile: "GET_PROFILE",
   updateProfile: "UPDATE_PROFILE",
   getPromos: "GET_PROMOS",
+  counterUp: "COUNTER_UP",
+  counterDown: "COUNTER_DOWN",
+  counterReset: "COUNTER_RESET",
+  addCart: "ADD_CART",
+  deleteCart: "ADD_CART",
+  getCategories: "GET_CATEGORIES",
 };
