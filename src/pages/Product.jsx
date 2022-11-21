@@ -264,7 +264,7 @@ function Product() {
         <div
         onClick={() => {
           setQuery({
-            ...query,
+            query,
             size: "Pull Size",
           });
           setLinkActive("six")
