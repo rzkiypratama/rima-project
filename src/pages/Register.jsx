@@ -55,7 +55,8 @@ function Regist() {
             progress: undefined,
             theme: "light",
          });
-         await dispacth(authActions.loginThunk(send, toHome));
+         await dispacth(authActions.loginThunk(send, toHome))
+         navigate("/");
       } catch (error) {}
    };
    const sendVerifPin = (e) => {
@@ -92,7 +93,7 @@ function Regist() {
       Axios.post(
          `${process.env.REACT_APP_BACKEND_HOST}/auth/register`,
          sendBody
-      )
+         )
          .then((result) => {
             setBody({ ...body, pin: result.data.data.code });
             setIsLoading(false);
