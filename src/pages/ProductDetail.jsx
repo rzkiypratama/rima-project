@@ -88,7 +88,7 @@ function ProductDetail() {
       setResult(result + 1);
    };
    const counterDown = () => {
-      setResult(result > 0 ? result - 1 : (result = 1));
+      setResult(result <= 1 ? (result = 1) : result - 1);
    };
    //  console.log(image);
    //  console.log(product);
