@@ -32,7 +32,7 @@ function Cart() {
             </section>
             {/* cart */}
             <section className="row container py-5 mx-auto d-flex flex-lg-row justify-content-between flex-md-column">
-               {/* <section
+               <section
                   className={`${styles.cart_product} col-12 col-sm-12 col-md-12 col-lg-8`}
                >
                   <table
@@ -69,8 +69,7 @@ function Cart() {
                         </tr>
                      </thead>
                      <tbody className={`${styles.product__bar}`}>
-                        <CardCart />
-                        <CardCart />
+                        {/* addcart */}
                         <CardCart />
                         <CardCart />
                      </tbody>
@@ -151,10 +150,10 @@ function Cart() {
                   <button className={`${styles.btn_process}`}>
                      Procced To Check Out
                   </button>
-               </section> */}
+               </section>
 
                {/* kondisi belom ada cart */}
-               <div className={`${styles.empty__bar} text-center`}>
+               {/* <div className={`${styles.empty__bar} text-center`}>
                   <img src={img_empty} alt="img_empty" />
                   <h3 className={`${styles.empty_title}`}>
                      Your Cart is Empty
@@ -164,7 +163,7 @@ function Cart() {
                      erat. Quisque a nunc vel <br /> diam auctor commodo.
                      urabitur blandit ultri
                   </p>
-               </div>
+               </div> */}
             </section>
          </main>
          <Footer />
