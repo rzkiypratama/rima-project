@@ -14,7 +14,6 @@ function Login() {
    const [body, setBody] = useState({});
    const [selected, setSelected] = useState("login");
    const [visible, setVisible] = useState(false);
-  
 
    const togglePassword = () => {
       // When the handler is invoked

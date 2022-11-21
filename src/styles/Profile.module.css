@@ -4,7 +4,7 @@
 .icon-eye {
   position: absolute;
   right: 25px;
-  top: 147px;
+  top: 58px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,13 +14,28 @@
 .icon-eye-invisible {
   position: absolute;
   right: 20px;
-  top: 57px;
+  top: 147px;
   display: flex;
   width: 2rem;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 
+}
+
+.cursorPoint {
+  cursor: pointer;
+}
+
+.icon-eye-invisible_confirm {
+  position: absolute;
+  right: 20px;
+  top: 220px;
+  display: flex;
+  width: 2rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .input__password {
@@ -126,6 +141,7 @@
   transform: scale(1.2);
 
 } */
+
 
 .floating-form:disabled {
   background-color: #ffffff;

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Lato&display=swap");
 
 .cont-faq {
-  margin-top: 2rem;
+  margin-top: 1rem;
   border-top: 2px solid grey;
 }
 .title-faq {
@@ -248,28 +248,32 @@
   .Sku {
     margin-top: 2rem !important;
   }
-  /* .card-title {
+  .shipping {
+    padding-bottom: 0px;
+  }
+  .card-title {
     font-family: Arimo;
     font-style: Regular;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 10px;
     line-height: 28px;
-    line-height: 100%;
+    line-height: 150%;
     fill: Solid #1a1a1a;
   }
-  
+
   .cont-card-down {
-    margin-top: 8rem !important;
+    margin-top: 4rem !important;
   }
   .card-text {
     font-family: Arimo;
     font-style: bold;
-    font-size: 24px;
+    font-size: 12px;
     font-weight: 700;
     line-height: 28px;
     line-height: 100%;
     fill: Solid #1a1a1a;
   }
+  /*
   .card-title {
     font-family: Arimo;
     font-style: Regular;

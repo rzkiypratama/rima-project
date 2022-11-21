@@ -155,6 +155,10 @@
     padding-bottom: 100px;
 }
 
+.arrows {
+    cursor: pointer;
+}
+
 .arrow {
     /* transition: updown 3s ease-in-out infinite; */
     animation: 3s MoveUpDown ease-in-out infinite alternate;

@@ -114,12 +114,12 @@ function Product() {
         <div className={styles["color-box"]}>
         <h3>Colors</h3>
         <div className={styles["color-option"]}>
-        <input className={styles.blue} type='radio' name="color"/>
-        <input className={styles.green} type='radio' name="color"/>
-        <input className={styles.olive} type='radio' name="color"/>
-        <input className={styles.red} type='radio' name="color"/>
-        <input className={styles.grey} type='radio' name="color"/>
-        <input className={styles.purple} type='radio' name="color"/>
+        <input className={styles.one} type='radio' name="color"/>
+        <input className={styles.two} type='radio' name="color"/>
+        <input className={styles.three} type='radio' name="color"/>
+        <input className={styles.four} type='radio' name="color"/>
+        <input className={styles.five} type='radio' name="color"/>
+        <input className={styles.six} type='radio' name="color"/>
         </div>
         </div>
       </div>
@@ -197,9 +197,8 @@ function Product() {
     <div className={styles["detail-right"]}>
       <div className="sort-page">
       <DropdownButton id="dropdown-basic-button" title="Sort by" className={styles.dropdown}>
-      <Dropdown.Item href="#/action-1">Termahal</Dropdown.Item>
-      <Dropdown.Item href="#/action-2">Termurah</Dropdown.Item>
-      <Dropdown.Item href="#/action-3">Terpopuler</Dropdown.Item>
+      <Dropdown.Item href="#/action-1">Cheapest</Dropdown.Item>
+      <Dropdown.Item href="#/action-2">Expensive</Dropdown.Item>
     </DropdownButton>
       </div>
       <div className={styles["product-box-main"]}>
@@ -208,7 +207,7 @@ function Product() {
                   <Card
                     productTitle={e.name}
                     price={e.price}
-                    image={e.images}
+                    image={e.image}
                     key={e.id}
                     id={e.id}
                   />
