@@ -142,7 +142,7 @@ function ProductDetail() {
                 </a>
               </li>
               <li className="nav-item col-lg-2 col-md-1 text-align-center pb-3 mb-3 me-3">
-                <a className={`nav-link active ${styles["title-desc"]}`} href=" ">
+                <a className={`nav-link active ${styles["title-desc"]} ${styles["shipping"]}`} href=" ">
                   Shipping & Delivery
                 </a>
               </li>

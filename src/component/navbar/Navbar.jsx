@@ -13,86 +13,128 @@ import search from "../navbar/search.png";
 import cart from "../navbar/cart.png";
 
 function BasicExample() {
-  // const [navbar, setnavbar] = useState(NavbarLogin);
-  // navType = () => {
-  //   if (this.state.userInfo.token) {
-  //     if (this.state.userInfo.role === "user") {
-  //       return this.state.navLogin;
-  //     } else {
-  //       return this.state.navAdmin;
-  //     }
-  //   } else {
-  //     return this.state.navnotLogin;
-  //   }
-  // };
+   // const [navbar, setnavbar] = useState(NavbarLogin);
+   // navType = () => {
+   //   if (this.state.userInfo.token) {
+   //     if (this.state.userInfo.role === "user") {
+   //       return this.state.navLogin;
+   //     } else {
+   //       return this.state.navAdmin;
+   //     }
+   //   } else {
+   //     return this.state.navnotLogin;
+   //   }
+   // };
 
-  const isLogin = JSON.parse(localStorage["userInfo"] || "{}");
+   const isLogin = JSON.parse(localStorage["userInfo"] || "{}");
 
-  return (
-    <Navbar expand="lg ">
-      <Container>
-        <Navbar.Brand className={`${styles["company"]}`}>
-          <Link to={"/"} className={` ${styles["rima"]} text-decoration-none `}>
-            RIMA
-          </Link>
-          <div className="dropdown"></div>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className={`mx-auto gap-5 ${styles["navbar"]}`}>
-            <Nav.Link className={styles["title"]}>
-              <Link className={`${styles["color-text"]} ${styles["no-underline"]}`} to={"/"}>
-                HOME
-              </Link>
-            </Nav.Link>
-            <div className="d-flex justify-content-center align-items-center">
-              <p className={`${styles["title"]} ${styles["cursor"]}`}>PAGES</p>
-              <NavDropdown className={styles["title"]} id="basic-nav-dropdown">
-                <Link className={styles["no-underline"]} to={"/about"}>
-                  <NavDropdown.Item href="#action/3.1">About Us </NavDropdown.Item>
-                </Link>
+   return (
+      <Navbar expand="lg  pt-3">
+         <Container>
+            <Navbar.Brand className={`${styles["company"]}`}>
+               <Link
+                  to={"/"}
+                  className={` ${styles["rima"]} text-decoration-none `}
+               >
+                  RIMA
+               </Link>
+               <div className="dropdown"></div>
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+               <Nav className={`mx-auto gap-5 ${styles["navbar"]}`}>
+                  <Nav.Link className={styles["title"]}>
+                     <Link
+                        className={`${styles["color-text"]} ${styles["no-underline"]}`}
+                        to={"/"}
+                     >
+                        HOME
+                     </Link>
+                  </Nav.Link>
+                  <div className="d-flex justify-content-center align-items-center">
+                     <p className={`${styles["title"]} ${styles["cursor"]}`}>
+                        PAGES
+                     </p>
+                     <NavDropdown
+                        className={styles["title"]}
+                        id="basic-nav-dropdown"
+                     >
+                        <Link className={styles["no-underline"]} to={"/about"}>
+                           <NavDropdown.Item href="#action/3.1">
+                              About Us{" "}
+                           </NavDropdown.Item>
+                        </Link>
 
-                <NavDropdown.Item href="#action/3.2">Contact Us</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Coming Soon </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">404 Page </NavDropdown.Item>
-                <Link className={styles["no-underline"]} to={"/faq"}>
-                  <NavDropdown.Item href="#action/3.1">FAQ Page</NavDropdown.Item>
-                </Link>
-              </NavDropdown>
-            </div>
-            <div className="d-flex justify-content-center align-items-center">
-              <p className={`${styles["title"]} ${styles["cursor"]}`}>SHOP</p>
-              <NavDropdown className={styles["title"]} id="basic-nav-dropdown">
-                <Link className={styles["no-underline"]} to={"/product"}>
-                  <NavDropdown.Item href="#action/3.1">Product </NavDropdown.Item>
-                </Link>
-                <Link className={styles["no-underline"]} to={"/cart"}>
-                  <NavDropdown.Item href="#action/3.1">Shopping Cart </NavDropdown.Item>
-                </Link>
+                        <NavDropdown.Item href="#action/3.2">
+                           Contact Us
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">
+                           Coming Soon{" "}
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="/error">
+                           404 Page{" "}
+                        </NavDropdown.Item>
+                        <Link className={styles["no-underline"]} to={"/faq"}>
+                           <NavDropdown.Item href="#action/3.1">
+                              FAQ Page
+                           </NavDropdown.Item>
+                        </Link>
+                     </NavDropdown>
+                  </div>
+                  <div className="d-flex justify-content-center align-items-center">
+                     <p className={`${styles["title"]} ${styles["cursor"]}`}>
+                        SHOP
+                     </p>
+                     <NavDropdown
+                        className={styles["title"]}
+                        id="basic-nav-dropdown"
+                     >
+                        <NavDropdown.Item href="#action/3.1">
+                           Other Page{" "}
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.1">
+                           Shopping Cart{" "}
+                        </NavDropdown.Item>
 
-                <NavDropdown.Item href="#action/3.2">Check Out</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Coming Soon </NavDropdown.Item>
-                <Link className={styles["no-underline"]} to={"/profile"}>
-                  <NavDropdown.Item href="#action/3.3">My Account</NavDropdown.Item>
-                </Link>
-                <Link className={styles["no-underline"]} to={"/order/tracking"}>
-                  <NavDropdown.Item href="#action/3.1">Order Tracking</NavDropdown.Item>
-                </Link>
-              </NavDropdown>
-            </div>
+                        <NavDropdown.Item href="#action/3.2">
+                           Check Out
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">
+                           Coming Soon{" "}
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">
+                           My Account
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.1">
+                           Order Tracking
+                        </NavDropdown.Item>
+                     </NavDropdown>
+                  </div>
 
-            <Nav.Link className={styles["title"]}>BLOG</Nav.Link>
-          </Nav>
-          <div className={` d-flex gap-5 ${styles["icon"]}`}>
-            <img className={`  ${styles["icon-1"]} ${styles["cursor"]}`} src={search} alt="/" />
-            <img className={`   ${styles["cursor"]}`} src={wishlist} alt="/" />
-            <img className={`   ${styles["cursor"]}`} src={cart} alt="/" />
-            {isLogin.token ? <NavbarLogin /> : <NavbarRegister />}
-          </div>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+                  <Nav.Link className={styles["title"]}>BLOG</Nav.Link>
+               </Nav>
+               <div className={` d-flex gap-5 ${styles["icon"]}`}>
+                  <img
+                     className={`  ${styles["icon-1"]} ${styles["cursor"]}`}
+                     src={search}
+                     alt="/"
+                  />
+                  <img
+                     className={`   ${styles["cursor"]}`}
+                     src={wishlist}
+                     alt="/"
+                  />
+                  <img
+                     className={`   ${styles["cursor"]}`}
+                     src={cart}
+                     alt="/"
+                  />
+                  {isLogin.token ? <NavbarLogin /> : <NavbarRegister />}
+               </div>
+            </Navbar.Collapse>
+         </Container>
+      </Navbar>
+   );
 }
 
 export default BasicExample;

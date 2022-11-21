@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+// eslint-disable-next-line no-unused-vars
 import PrivateElement from "./component/PrivateElement";
 // Pages
 import Homepage from "./pages/HomePage";
@@ -21,29 +22,30 @@ import Cart from "./pages/Cart";
 import Otp from "./pages/Otp";
 import OtpVerified from "./pages/OtpVerified";
 import Blog from "./pages/Blog";
-import Error from './component/error/Error404'
+import Error from "./component/error/Error404";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Homepage />, errorElement: <Error/> },
-  { path: "/login", element: <Login /> },
-  { path: "/register", element: <Register /> },
-  { path: "/forgot", element: <ForgotPassword /> },
-  { path: "/notification", element: <Notification /> },
-  { path: "/chat", element: <Chat /> },
-  { path: "/faq", element: <FAQ /> },
-  { path: "/profile", element: <Profile /> },
-  { path: "/admin/my-product", element: <Admin /> },
-  { path: "/admin/create-product", element: <CreateProduct /> },
-  { path: "/admin/my-order", element: <MyOrder /> },
-  { path: "/product", element: <Product /> },
-  { path: "/order/tracking", element: <OrderTracking /> },
-  { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
-  { path: "/product/detail", element: <ProductDetail /> },
-  { path: "/about", element: <About /> },
-  { path: "/cart", element: <Cart /> },
-  { path: "/forgot/otp", element: <Otp /> },
-  { path: "/forgot/otp/verify", element: <OtpVerified /> },
-  { path: "/blog", element: <Blog /> },
+   { path: "/", element: <Homepage />, errorElement: <Error /> },
+   { path: "/login", element: <Login /> },
+   { path: "/register", element: <Register /> },
+   { path: "/forgot", element: <ForgotPassword /> },
+   { path: "/notification", element: <Notification /> },
+   { path: "/chat", element: <Chat /> },
+   { path: "/faq", element: <FAQ /> },
+   { path: "/profile", element: <Profile /> },
+   { path: "/admin/my-product", element: <Admin /> },
+   { path: "/admin/create-product", element: <CreateProduct /> },
+   { path: "/admin/my-order", element: <MyOrder /> },
+   { path: "/product", element: <Product /> },
+   { path: "/order/tracking", element: <OrderTracking /> },
+   { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
+   { path: "/product/detail", element: <ProductDetail /> },
+   { path: "/about", element: <About /> },
+   { path: "/cart", element: <Cart /> },
+   { path: "/forgot/otp", element: <Otp /> },
+   { path: "/forgot/otp/verify", element: <OtpVerified /> },
+   { path: "/blog", element: <Blog /> },
+   { path: "/error", element: <Error /> },
 ]);
 
 export default router;

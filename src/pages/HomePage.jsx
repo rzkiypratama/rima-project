@@ -15,30 +15,37 @@ import backtowork from "../assets/homepage/img_service_backtowork.png";
 import furniture from "../assets/homepage/img_service_furniture.png";
 import furnitureoffice from "../assets/homepage/img_service_furniture_office.png";
 import workspace from "../assets/homepage/img_service_workspace.png";
+import profileActions from "../redux/actions/profile";
+
 import axios from "axios";
 // helper
 import title from "../helper/title";
+import { useDispatch } from "react-redux";
 function HomePage() {
-  title("RIMA FURNITURE");
-  const [product, setProduct] = useState([]);
+   title("RIMA FURNITURE");
+   const [product, setProduct] = useState([]);
+   const dispatch = useDispatch();
+   useEffect(() => {
+      window.scrollTo(0, 0);
+      const urlProduct = `${process.env.REACT_APP_BACKEND_HOST}/product?limit=6&page=1&sortby=latest`;
+      const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
+      dispatch(profileActions.profileThunk(userInfo.token));
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    const urlProduct = `${process.env.REACT_APP_BACKEND_HOST}/product?limit=6&page=1&sortby=latest`;
-    console.log(product);
-    axios
-      .get(urlProduct)
-      .then((res) => {
-        // const images = res.data.data.data[0].image;
-        // console.log(images);
-        // const listImage = images.replace(/{/g, "").replace(/}/g, "");
-        // let imageLink = [];
-        // listImage.split(",").map((link) => imageLink.push(link));
-        setProduct(res.data.data.data);
-        console.log(res.data.data.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+      console.log(product);
+      axios
+         .get(urlProduct)
+         .then((res) => {
+            // const images = res.data.data.data[0].image;
+            // console.log(images);
+            // const listImage = images.replace(/{/g, "").replace(/}/g, "");
+            // let imageLink = [];
+            // listImage.split(",").map((link) => imageLink.push(link));
+            setProduct(res.data.data.data);
+            console.log(res.data.data.data);
+         })
+         .catch((err) => console.log(err));
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, []);
 
   return (
     <>
@@ -64,16 +71,26 @@ function HomePage() {
           </section>
         </section>
 
-        {/* content first */}
-        {product.map((e, index) => {
-          const listImage = e.image.replace(/{/g, "").replace(/}/g, "").replace(/"\"/g, "").replace(/}/g, "");
-
-          let imageLink = [];
-          listImage.split(",").map((link) => imageLink.push(link));
-          console.log(imageLink);
-
-          index % 2 === 1 ? <CardImageLeft images={imageLink[0]} title={e.name} desc={e.description} key={e.id} id={e.id} /> : <CardImageRight images={e.image} title={e.name} desc={e.description} id={e.id} key={e.id} />;
-        })}
+            {/* content first */}
+            {product.map((e, index) =>
+               index % 2 === 1 ? (
+                  <CardImageLeft
+                     images={e.image}
+                     title={e.name}
+                     desc={e.description}
+                     key={e.id}
+                     id={e.id}
+                  />
+               ) : (
+                  <CardImageRight
+                     images={e.image}
+                     title={e.name}
+                     desc={e.description}
+                     id={e.id}
+                     key={e.id}
+                  />
+               )
+            )}
 
         {/* services */}
         <section className={`${styles.services__bar} text-center d-flex flex-column justify-content-around align-items-center`}>
