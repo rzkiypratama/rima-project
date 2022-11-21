@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 function CardRightImage(props) {
    return (
       <>
-         <section className="row d-flex flex-lg-row flex-md-row flex-sm-column-reverse flex-column-reverse align-content-center">
-            <section className="col-12 col-sm-12 col-md-7 col-lg-7 d-flex justify-content-center align-items-center px-0 px-sm-0">
+         <section className="row d-flex flex-lg-row flex-md-row flex-sm-column-reverse flex-column-reverse align-content-center my-5 mx-auto">
+            <section className="col-12 col-sm-12 col-md-6 col-lg-7 d-flex justify-content-center align-items-center px-0 px-sm-0">
                <article
                   className={`${styles.content_article_left} d-flex justify-content-center align-items-center p-4`}
                >
@@ -25,7 +25,7 @@ function CardRightImage(props) {
                   </div>
                </article>
             </section>
-            <section className="col-12 col-10 col-sm-12 col-md-5 col-lg-5 px-0 ">
+            <section className="col-12 col-sm-12 col-md-6 col-lg-5 px-0 ">
                <img
                   className={`${styles.images} `}
                   src={props.images}
