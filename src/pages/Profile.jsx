@@ -37,12 +37,9 @@ function Profile() {
 
    const handleClose = () => setShow(false);
    const handleShow = () => setShow(true);
-
    const handleClosePassword = () => setShowPassword(false);
    const handleShowPassword = () => setShowPassword(true);
-
    const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
-
    const toLogout = () => navigate("/login");
    const logoutHandler = (e) => {
       e.preventDefault();
