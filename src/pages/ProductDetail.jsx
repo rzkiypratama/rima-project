@@ -82,7 +82,7 @@ function ProductDetail() {
    const [relaited, setRelaited] = useState([]);
    const [load, setLoad] = useState("load");
 
-   let [result, setResult] = useState(0);
+   let [result, setResult] = useState(1);
 
    const counterUp = () => {
       setResult(result + 1);
