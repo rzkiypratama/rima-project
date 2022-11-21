@@ -303,18 +303,6 @@ function Product() {
                           price: "expensive",
                         });
                       }}>Expensive</Dropdown.Item>
-                      <Dropdown.Item onClick={() => {
-                        setQuery({
-                          ...query,
-                          sortby: "newest",
-                        });
-                      }}>Newest</Dropdown.Item>
-                      <Dropdown.Item onClick={() => {
-                        setQuery({
-                          ...query,
-                          sortby: "latest",
-                        });
-                      }}>Latest</Dropdown.Item>
     </DropdownButton>
       </div>
       <div className={styles["product-box-main"]}>
