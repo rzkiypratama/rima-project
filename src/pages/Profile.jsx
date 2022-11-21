@@ -59,9 +59,16 @@ function Profile() {
    const [role, setRole] = useState("");
    // eslint-disable-next-line no-unused-vars
    const [display, setDisplay] = useState("");
+   // eslint-disable-next-line no-unused-vars
    const [datas, setDatas] = useState([]);
    const profiles = useSelector((state) => state.profile.profileUser);
    const data = useSelector((state) => state.profile.profileData);
+
+   const [gender, setGender] = useState(profiles.gender);
+   const [phone, setPhone] = useState(profiles.phone);
+   const [username, setUsername] = useState(profiles.name);
+   const [image, setImage] = useState(profiles.image);
+   const [address, setAddress] = useState(profiles.address);
    //  console.log(profiles);
    //  handle input image
 
@@ -353,14 +360,14 @@ function Profile() {
                   />
                </div>
             </form>
-            <section className="form-floating ">
+            <section className="form-floating">
                <input
                   type="email"
                   className={`form-control my-auto ${styles["floating-form"]} ${styles["floating-form-2"]}`}
                   id="floatingInputValue"
                   placeholder="name@example.com"
                   defaultValue={email}
-                  disabled={showInput ? true : false}
+                  disabled={showInput ? true : true}
                   // onChange={(e) => {
                   //    setEmail(e.target.value);
                   //    console.log(e.target.value);
@@ -368,6 +375,7 @@ function Profile() {
                />
                <label htmlFor="floatingInputValue">Your Email</label>
             </section>
+
             <section className="form-floating">
                <input
                   type="tel"
@@ -375,6 +383,7 @@ function Profile() {
                   id="floatingInputValue"
                   placeholder="Phone Number "
                   value={phone}
+                  maxLength={13}
                   disabled={showInput ? true : false}
                   onChange={(e) => {
                      setPhone(e.target.value);
@@ -382,6 +391,7 @@ function Profile() {
                />
                <label htmlFor="floatingInputValue">Phone</label>
             </section>
+
             {role !== "seller" ? (
                <section className="form-floating">
                   <input
@@ -410,7 +420,7 @@ function Profile() {
                      }}
                      disabled={showInput ? true : false}
                   />
-                  <label htmlFor="floatingInputValue">Store Description</label>
+                  <label htmlFor="floatingInputValue">Store Name</label>
                </section>
             )}
 

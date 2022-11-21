@@ -14,16 +14,22 @@ import backtowork from "../assets/homepage/img_service_backtowork.png";
 import furniture from "../assets/homepage/img_service_furniture.png";
 import furnitureoffice from "../assets/homepage/img_service_furniture_office.png";
 import workspace from "../assets/homepage/img_service_workspace.png";
+import profileActions from "../redux/actions/profile";
+
 import axios from "axios";
 // helper
 import title from "../helper/title";
+import { useDispatch } from "react-redux";
 function HomePage() {
    title("RIMA FURNITURE");
    const [product, setProduct] = useState([]);
-
+   const dispatch = useDispatch();
    useEffect(() => {
       window.scrollTo(0, 2);
       const urlProduct = `${process.env.REACT_APP_BACKEND_HOST}/product?limit=6&page=1&sortby=latest`;
+      const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
+      dispatch(profileActions.profileThunk(userInfo.token));
+
       console.log(product);
       axios
          .get(urlProduct)
@@ -75,7 +81,7 @@ function HomePage() {
             {product.map((e, index) =>
                index % 2 === 1 ? (
                   <CardImageLeft
-                     images={e.image.index}
+                     images={e.image}
                      title={e.name}
                      desc={e.description}
                      key={e.id}
