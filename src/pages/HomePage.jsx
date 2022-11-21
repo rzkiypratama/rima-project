@@ -23,10 +23,18 @@ function HomePage() {
    const [product, setProduct] = useState([]);
    const dispatch = useDispatch();
    useEffect(() => {
-      window.scrollTo(0, 0);
+      window.scrollTo(0, 5);
       const urlProduct = `${process.env.REACT_APP_BACKEND_HOST}/product?limit=6&page=1&sortby=latest`;
-      const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
-      dispatch(profileActions.profileThunk(userInfo.token));
+      let userInfo = null;
+      if (localStorage["userInfo"])
+         userInfo = JSON.parse(localStorage["userInfo"]);
+
+      // const userInfoc:\Program Files\Microsoft VS Code\resources\app\out\vs\code\electron-sandbox\workbench\workbench.html = JSON.parse(localStorage["userInfo"] || "{}");
+      console.log(userInfo);
+      if (userInfo) {
+         const tokenData = JSON.parse(localStorage["userInfo"]);
+         dispatch(profileActions.profileThunk(tokenData.token));
+      }
 
       console.log(product);
       axios
@@ -78,7 +86,7 @@ function HomePage() {
 
             {/* content first */}
             {product.map((e, index) =>
-               index % 2 === 1 ? (
+               e.id !== 78 && index % 2 === 1 ? (
                   <CardImageLeft
                      images={e.image}
                      title={e.name}
