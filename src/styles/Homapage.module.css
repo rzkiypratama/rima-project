@@ -38,7 +38,6 @@
 
 .explore {
     padding-top: 110px;
-    cursor: pointer;
 }
 
 .explore p {
@@ -154,6 +153,10 @@
     /* identical to box height */
     color: #ffffff;
     padding-bottom: 100px;
+}
+
+.arrows {
+    cursor: pointer;
 }
 
 .arrow {

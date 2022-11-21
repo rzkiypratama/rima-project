@@ -9,6 +9,7 @@ import Navbar from "../component/navbar/Navbar";
 import Footer from "../component/footer/Footer";
 import CardImageLeft from "../component/homepage_card/CardLeftImage";
 import CardImageRight from "../component/homepage_card/CardRightImage";
+import Loader from "../component/loader/Loader";
 // assets
 import backtowork from "../assets/homepage/img_service_backtowork.png";
 import furniture from "../assets/homepage/img_service_furniture.png";
@@ -58,19 +59,22 @@ function HomePage() {
                         <br /> Curabitur blandit ultrices ex. Curabitur ut magna
                         dignissim, dignissim
                      </p>
-                     <section
-                        className={`${styles.explore} text-center`}
-                        onClick={() => {
-                           window.scroll(0, 900);
-                        }}
-                     >
+                     <section className={`${styles.explore} text-center`}>
                         <p>Explore now</p>
-                        <div className={`${styles.arrow}`}>
-                           <i
-                              className={
-                                 "bi bi-arrow-down-short fs-1 fw-bolder"
-                              }
-                           ></i>
+                        <div
+                           className={`${styles.arrow}`}
+                           onClick={() => {
+                              window.scroll(0, 900);
+                           }}
+                        >
+                           <span className={styles.arrows}>
+                              {" "}
+                              <i
+                                 className={
+                                    "bi bi-arrow-down-short fs-1 fw-bolder"
+                                 }
+                              ></i>
+                           </span>
                         </div>
                      </section>
                   </article>
@@ -78,24 +82,30 @@ function HomePage() {
             </section>
             {/* content first */}
             <div id="#product"></div>
-            {product.map((e, index) =>
-               index % 2 === 1 ? (
-                  <CardImageLeft
-                     images={e.image}
-                     title={e.name}
-                     desc={e.description}
-                     key={e.id}
-                     id={e.id}
-                  />
-               ) : (
-                  <CardImageRight
-                     images={e.image}
-                     title={e.name}
-                     desc={e.description}
-                     id={e.id}
-                     key={e.id}
-                  />
+            {product.length > 0 ? (
+               product.map((e, index) =>
+                  index % 2 === 0 ? (
+                     <CardImageLeft
+                        images={e.image}
+                        title={e.name}
+                        desc={e.description}
+                        key={e.id}
+                        id={e.id}
+                     />
+                  ) : (
+                     <CardImageRight
+                        images={e.image}
+                        title={e.name}
+                        desc={e.description}
+                        id={e.id}
+                        key={e.id}
+                     />
+                  )
                )
+            ) : (
+               <div className="h-100 w-100">
+                  <Loader />
+               </div>
             )}
 
             {/* services */}
