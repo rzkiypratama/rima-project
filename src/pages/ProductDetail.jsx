@@ -19,16 +19,51 @@ import location from "../assets/productDetail/pin-check.png";
 import fb from "../assets/productDetail/fb.png";
 import twitter from "../assets/productDetail/twitter.png";
 import youtube from "../assets/productDetail/youtube.png";
-import related from "../assets/productDetail/related.png";
+// import related from "../assets/productDetail/related.png";
 import checklist from "../assets/productDetail/checklist.png";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import Slider from "react-slick";
+import axios from "axios";
+
 // import hot from "../assets/productDetail/hot.png";
 
-import axios from "axios";
 function ProductDetail() {
+   var settings = {
+      dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      initialSlide: 1,
+      responsive: [
+         {
+            breakpoint: 1024,
+            settings: {
+               slidesToShow: 3,
+               slidesToScroll: 3,
+               infinite: true,
+               dots: true,
+            },
+         },
+         {
+            breakpoint: 768,
+            settings: {
+               slidesToShow: 2,
+               slidesToScroll: 2,
+               initialSlide: 2,
+            },
+         },
+         {
+            breakpoint: 576,
+            settings: {
+               slidesToShow: 1,
+               slidesToScroll: 1,
+            },
+         },
+      ],
+   };
    const params = useParams();
-   console.log(params.id);
+   //  console.log(params.id);
    title("Product");
    // const settings = {
    //   dots: true,
@@ -45,32 +80,60 @@ function ProductDetail() {
    const [image, setImage] = useState([]);
    const [product, setProduct] = useState([]);
    const [relaited, setRelaited] = useState([]);
-
    const [load, setLoad] = useState("load");
-   console.log(image);
-   console.log(product);
+
+   let [result, setResult] = useState(0);
+
+   const counterUp = () => {
+      setResult(result + 1);
+   };
+   const counterDown = () => {
+      setResult(result <= 1 ? (result = 1) : result - 1);
+   };
+   //  console.log(image);
+   //  console.log(product);
    const urlProductId = `${process.env.REACT_APP_BACKEND_HOST}/product/${params.id}`;
    useEffect(() => {
       window.scrollTo(0, 1);
       axios
          .get(urlProductId)
          .then((res) => {
-            console.log(res.data);
+            // console.log(res.data.data.relaited);
             setImage(res.data.data.image);
             setLoad(res.data.data.image[0].image);
+            setRelaited(res.data.data.relaited);
             setProduct(res.data.data.product[0]);
          })
          .catch((err) => {
             console.log(err);
          });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
+   const handlerClickId = () => {
+      window.scrollTo(0, 10);
+      axios
+         .get(urlProductId)
+         .then((res) => {
+            // console.log(res.data.data.relaited);
+            setImage(res.data.data.image);
+            setLoad(res.data.data.image[0].image);
+            setRelaited(res.data.data.relaited);
+            setProduct(res.data.data.product[0]);
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   };
+   const handClickImg = (data) => {
+      setLoad(data.image);
+   };
    return (
       <div>
          <Navbar />
          <div className="container">
             <div className={`${styles["cont-faq"]}`}>
-               <p className={` d-flex  ${styles["title-faq"]} mt-4 `}>
+               <p className={` d-flex  ${styles["title-faq"]} mt-4`}>
                   <Link to={"/faq"}>
                      FAQ <i className="bi bi-chevron-right mx-3" />
                   </Link>
@@ -86,21 +149,24 @@ function ProductDetail() {
                <section className={`${styles["cont-1"]} py-5`}>
                   <div className="row d-flex justify-content-between flex-column-reverse flex-sm-column-reverse flex-md-column-reverse flex-lg-row ">
                      <div className=" col-12 col-md-12 col-lg-3 ps-lg-0 col-sm-12 d-flex flex-md-row flex-wrap flex-lg-column align-items-center pt-5">
-                        {load !== "load" ? (
+                        {load === "load" ? (
+                           <Loader />
+                        ) : (
                            image.map((data) => (
                               <img
-                                 className={`border-bottom  ${styles["img-left"]}`}
+                                 className={`border-bottom ${styles["img-left"]}`}
                                  src={data.image}
                                  key={data.id}
                                  alt="/"
+                                 onClick={() => {
+                                    handClickImg(data);
+                                 }}
                               />
                            ))
-                        ) : (
-                           <Loader />
                         )}
                         ;
                      </div>
-                     <div className=" col-12 col-md-12 col-sm-12 col-lg-8 ">
+                     <div className=" col-12 col-md-12 col-sm-12 col-lg-8">
                         {load === "load" ? (
                            <Loader />
                         ) : (
@@ -110,7 +176,6 @@ function ProductDetail() {
                               alt="/"
                            />
                         )}
-
                         {/* <img className={`${styles["hot"]} `} src={hot} alt="/" /> */}
                      </div>
                   </div>
@@ -148,13 +213,18 @@ function ProductDetail() {
                         <button
                            type="button"
                            className={`btn btn-outline-dark ${styles["height-btn"]}`}
+                           onClick={counterDown}
                         >
                            -
                         </button>
                         <button type="button" className="btn btn-outline-dark">
-                           0
+                           {result}
                         </button>
-                        <button type="button" className="btn btn-outline-dark">
+                        <button
+                           type="button"
+                           className="btn btn-outline-dark"
+                           onClick={counterUp}
+                        >
                            +
                         </button>
                      </div>
@@ -257,11 +327,7 @@ function ProductDetail() {
                      <section
                         className={`${styles.content_left} d-flex align-items-center col-12 col-sm-12 col-md-6 col-lg-6 mb-5 mb-md-0 mb-lg-0 pe-0`}
                      >
-                        {load === "load" ? (
-                           <Loader />
-                        ) : (
-                           <img className="w-100" src={load} alt="sofa" />
-                        )}
+                        <img className="w-100" src={load} alt="sofa" />
                      </section>
                      <div
                         className={`${styles.content_right} col-12 col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center`}
@@ -272,55 +338,32 @@ function ProductDetail() {
                   <div
                      className={`${styles["cont-card-down"]} container mb-5 mt-5`}
                   >
-                     <h1 className="text-center">Related Products</h1>
-                     <div className={`container mt-5 `}>
-                        <div className=" row">
-                           <div className={`col-4`}>
-                              <div className={`container `}>
-                                 <img
-                                    className={` ${styles["image"]}`}
-                                    src={related}
-                                    alt="Card"
-                                 />
-                                 <p className={` mt-3 ${styles["card-title"]}`}>
-                                    Coaster 506222-CO Loveseat
-                                 </p>
-                                 <p className={` mt-3 ${styles["card-text"]} `}>
-                                    $765.99
-                                 </p>
+                     <div className="">
+                        <h1 className="text-center">Related Products</h1>
+                        <Slider {...settings}>
+                           {relaited.map((related) => (
+                              <div key={relaited.id} onClick={handlerClickId}>
+                                 <Link
+                                    to={`/product/detail/${related.id}`}
+                                    className="text-decoration-none"
+                                 >
+                                    <div>
+                                       <img
+                                          className={` ${styles["image"]}`}
+                                          src={related.image}
+                                          alt="Card"
+                                       />
+                                       <p className="px-3 text-black text-decoration-none">
+                                          {related.name}
+                                       </p>
+                                       <p className="px-3 text-black text-decoration-none">
+                                          IDR.{costing(related.price)}
+                                       </p>
+                                    </div>
+                                 </Link>
                               </div>
-                           </div>
-                           <div className={`col-4`}>
-                              <div className={`container `}>
-                                 <img
-                                    className={` ${styles["image"]}`}
-                                    src={related}
-                                    alt="Card"
-                                 />
-                                 <p className={` mt-3 ${styles["card-title"]}`}>
-                                    Coaster 506222-CO Loveseat
-                                 </p>
-                                 <p className={` mt-3 ${styles["card-text"]} `}>
-                                    $765.99
-                                 </p>
-                              </div>
-                           </div>
-                           <div className={`col-4`}>
-                              <div className={`container `}>
-                                 <img
-                                    className={` ${styles["image"]}`}
-                                    src={related}
-                                    alt="Card"
-                                 />
-                                 <p className={` mt-3 ${styles["card-title"]}`}>
-                                    Coaster 506222-CO Loveseat
-                                 </p>
-                                 <p className={` mt-3 ${styles["card-text"]} `}>
-                                    $765.99
-                                 </p>
-                              </div>
-                           </div>
-                        </div>
+                           ))}
+                        </Slider>
                      </div>
                   </div>
                </section>
