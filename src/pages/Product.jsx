@@ -114,12 +114,12 @@ function Product() {
         <div className={styles["color-box"]}>
         <h3>Colors</h3>
         <div className={styles["color-option"]}>
-        <input className={styles.blue} type='radio' name="color"/>
-        <input className={styles.green} type='radio' name="color"/>
-        <input className={styles.olive} type='radio' name="color"/>
-        <input className={styles.red} type='radio' name="color"/>
-        <input className={styles.grey} type='radio' name="color"/>
-        <input className={styles.purple} type='radio' name="color"/>
+        <input className={styles.one} type='radio' name="color"/>
+        <input className={styles.two} type='radio' name="color"/>
+        <input className={styles.three} type='radio' name="color"/>
+        <input className={styles.four} type='radio' name="color"/>
+        <input className={styles.five} type='radio' name="color"/>
+        <input className={styles.six} type='radio' name="color"/>
         </div>
         </div>
       </div>

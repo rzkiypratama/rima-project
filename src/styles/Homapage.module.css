@@ -38,6 +38,7 @@
 
 .explore {
     padding-top: 110px;
+    cursor: pointer;
 }
 
 .explore p {

@@ -1,5 +1,5 @@
 import React from "react";
-import content_first from "../../assets/homepage/img_content_first.png";
+// import content_first from "../../assets/homepage/img_content_first.png";
 import styles from "./CardRightImage.module.css";
 import { Link } from "react-router-dom";
 function CardRightImage(props) {

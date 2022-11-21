@@ -34,6 +34,14 @@ function Profile() {
          position: toast.POSITION.TOP_CENTER,
       });
    };
+<<<<<<< HEAD
+=======
+   const failedMessage = () => {
+      toast.error("Password or Email Wrong !", {
+         position: toast.POSITION.TOP_CENTER,
+      });
+   };
+>>>>>>> origin/homepage
 
    const handleClose = () => setShow(false);
    const handleShow = () => setShow(true);
@@ -46,11 +54,15 @@ function Profile() {
    const toLogout = () => navigate("/login");
    const logoutHandler = (e) => {
       e.preventDefault();
+<<<<<<< HEAD
       toast.success("Logout Success !", {
          position: toast.POSITION.TOP_CENTER,
       });
       dispatch(authActions.logoutThunk(userInfo.token, toLogout));
 
+=======
+      dispatch(authActions.logoutThunk(userInfo.token, toLogout));
+>>>>>>> origin/homepage
       localStorage.removeItem("userInfo");
    };
    // get profile
@@ -58,6 +70,7 @@ function Profile() {
    const [role, setRole] = useState("");
    // eslint-disable-next-line no-unused-vars
    const [display, setDisplay] = useState("");
+<<<<<<< HEAD
    // eslint-disable-next-line no-unused-vars
    const [datas, setDatas] = useState([]);
    const profiles = useSelector((state) => state.profile.profileUser);
@@ -72,19 +85,62 @@ function Profile() {
    const [errMsg, setErrMsg] = useState(null);
    //  console.log(profiles);
    //  handle input image
+=======
+   const [datas, setDatas] = useState([]);
+   const profiles = useSelector((state) => state.profile.profileUser);
+   const data = useSelector((state) => state.profile.profileData);
+   //  console.log(profiles);
+   //  handle input image
+
+   //   const [gender, setGender] = useState(profiles.gender);
+   //   const [phone, setPhone] = useState(profiles.phone);
+   //   const [username, setUsername] = useState(profiles.name);
+
+>>>>>>> origin/homepage
    //  didmount
    useEffect(() => {
       // console.log(profiles);
       // console.log(userInfo.id);
+<<<<<<< HEAD
       console.log(userInfo.token);
       dispatch(profileActions.profileThunk(userInfo.token));
       console.log("Data : ", datas);
+=======
+      dispatch(profileActions.profileThunk(datas));
+      console.log("Data :");
+>>>>>>> origin/homepage
       setDisplay(profiles.image);
       setImage(profiles.image);
       setEmail(data.email);
       setRole(userInfo.role);
+<<<<<<< HEAD
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
+=======
+      // const urlGetProfile = `${process.env.REACT_APP_BACKEND_HOST}/profile/:${userInfo.id}`;
+      // axios
+      //    .get(urlGetProfile, {
+      //       headers: {
+      //          "x-access-token": userInfo.token,
+      //       },
+      //    })
+      //    .then((res) => {
+      //       console.log(res.data);
+      //       // console.log(res.data.data.profileUser[0]);
+      //       // console.log(res.data.data.profileData[0].email);
+      //       dispatch(profileActions.profileThunk(setDatas));
+      //       const data = res.data.data.profileUser[0];
+      //       setName(data.name);
+      //       setGender(data.gender);
+      //       setEmail(res.data.data.profileData[0].email);
+      //       setPhone(data.phone);
+      //       setImage(data.image);
+      //       setDisplay(data.image);
+      //    })
+      //    .catch((err) => console.log(err));
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [dispatch]);
+>>>>>>> origin/homepage
 
    //  patch
    const inputImage = (event) => {
@@ -96,13 +152,19 @@ function Profile() {
       }
    };
 
+<<<<<<< HEAD
    const [password, setPassword] = useState(null);
    const [new_password, setNew_password] = useState(null);
    const [confirm_password, setConfirm_password] = useState(null);
+=======
+   const [password, setPassword] = useState("");
+   const [new_password, setNew_password] = useState("");
+>>>>>>> origin/homepage
    // edit password
    const sendRequestEditPwd = (event) => {
       const url = `${process.env.REACT_APP_BACKEND_HOST}/profile/change-password`;
       event.preventDefault();
+<<<<<<< HEAD
       setErrMsg(null);
       if (!password && !new_password && !confirm_password) {
          return setErrMsg("All input must be filled");
@@ -175,22 +237,91 @@ function Profile() {
       } catch (error) {
          console.log(error);
       }
+=======
+      axios
+         .patch(
+            url,
+            { password, new_password },
+            {
+               headers: { "x-access-token": userInfo.token },
+            }
+         )
+         .then((res) => {
+            toast.success(res.data, {
+               position: toast.POSITION.TOP_CENTER,
+            });
+            console.log(res.data);
+         })
+         .catch((err) => console.log(err));
+   };
+
+   const SendRequest = async (e) => {
+      try {
+         e.preventDefault();
+         let formData = new FormData();
+         // let bodyFromDataUser = null;
+         if (address) formData.append("address", address);
+         // console.log("check imagedata:", image === profiles.image);
+         // console.log("check image:", image);
+         if (image !== display) formData.append("image", image);
+         if (phone) formData.append("phone", phone);
+         if (username) formData.append("name", username);
+         if (gender) formData.append("gender", gender);
+         for (var pair of formData.entries()) {
+            console.log(pair[0] + " - " + pair[1]);
+         }
+         // console.log(formData);
+         if (formData) {
+            successToastMessage();
+            await dispatch(profileActions.updateProfileThunk(formData));
+            await dispatch(profileActions.profileThunk(datas));
+         }
+      } catch (error) {
+         console.log(error);
+      }
+
+      // const url = `${process.env.REACT_APP_BACKEND_HOST}/profile/edit`;
+      // console.log(userInfo.token);
+      // axios
+      //    .patch(url, formData, {
+      //       headers: {
+      //          "x-access-token": userInfo.token,
+      //          "Content-Type": "multipart/form-data",
+      //       },
+      //    })
+      //    .then((res) => {
+      //       console.log(res.data);
+      //       // console.log(res.data.data.profileUser[0]);
+      //       // console.log(res.data.data.profileData[0].email);
+      //       // dispatch(profileActions.profileThunk(setDatas));
+      //       // const data = res.data.data.profileUser[0];
+      //    })
+      //    .catch((err) => console.log(err));
+>>>>>>> origin/homepage
    };
 
    const [visible, setVisible] = useState(false);
    const [invisible, setInvisible] = useState(false);
+<<<<<<< HEAD
    const [confirmPwd, setConfirmPwd] = useState(false);
+=======
+>>>>>>> origin/homepage
 
    const togglePassword = () => {
       // When the handler is invoked
       // inverse the boolean state of passwordShown
+<<<<<<< HEAD
       if (visible) setVisible(false);
       if (!visible) setVisible(true);
+=======
+      setVisible(!visible);
+>>>>>>> origin/homepage
    };
 
    const togglePwd = () => {
       // When the handler is invoked
       // inverse the boolean state of passwordShown
+<<<<<<< HEAD
       if (invisible) setInvisible(false);
       if (!invisible) setInvisible(true);
    };
@@ -199,6 +330,9 @@ function Profile() {
       // inverse the boolean state of passwordShown
       if (confirmPwd) setConfirmPwd(false);
       if (!confirmPwd) setConfirmPwd(true);
+=======
+      setInvisible(!invisible);
+>>>>>>> origin/homepage
    };
 
    return (
@@ -335,6 +469,7 @@ function Profile() {
                   type="text"
                   className={`form-control my-auto ${styles["floating-form"]}`}
                   id="floatingInputValue"
+<<<<<<< HEAD
                   placeholder="male / female"
                   value={gender}
                   minLength={4}
@@ -342,6 +477,13 @@ function Profile() {
                   disabled={showInput ? true : false}
                   onChange={(e) => {
                      setGender(e.target.value.toLowerCase());
+=======
+                  placeholder="Male / Female "
+                  value={gender}
+                  disabled={showInput ? true : false}
+                  onChange={(e) => {
+                     setGender(e.target.value);
+>>>>>>> origin/homepage
                      console.log(e.target.value);
                   }}
                />
@@ -425,6 +567,7 @@ function Profile() {
                </section>
             )}
 
+<<<<<<< HEAD
             <section className="form-floating">
                <input
                   type="text"
@@ -439,6 +582,8 @@ function Profile() {
                />
                <label htmlFor="floatingInputValue">Store Description</label>
             </section>
+=======
+>>>>>>> origin/homepage
             <div
                className={`${styles.buttons} d-flex flex-md-row flex-column justify-content-between align-items-center`}
             >
@@ -490,6 +635,7 @@ function Profile() {
          <Footer />
          <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
+<<<<<<< HEAD
                <Modal.Title>Rima Furniture</Modal.Title>
             </Modal.Header>
             <Modal.Body>Are you sure to logout?</Modal.Body>
@@ -500,6 +646,18 @@ function Profile() {
                <Button variant="secondary" onClick={handleClose}>
                   Close
                </Button>
+=======
+               {/* <Modal.Title>Monlight</Modal.Title> */}
+            </Modal.Header>
+            <Modal.Body>Are you sure to logout?</Modal.Body>
+            <Modal.Footer>
+               <Button variant="secondary" onClick={handleClose}>
+                  Close
+               </Button>
+               <Button variant="danger" onClick={logoutHandler}>
+                  Yes
+               </Button>
+>>>>>>> origin/homepage
             </Modal.Footer>
          </Modal>
 
@@ -527,8 +685,13 @@ function Profile() {
                         )}
                      </div>
                      <input
+<<<<<<< HEAD
                         id={"old_password"}
                         type={visible ? "text" : "password"}
+=======
+                        old_password
+                        type={invisible ? "text" : "password"}
+>>>>>>> origin/homepage
                         className={`${styles.input__password} w-100 ps-2 mb-3`}
                         name="password"
                         onChange={(event) => {
@@ -555,7 +718,11 @@ function Profile() {
                      </div>
                      <input
                         id="newPassowrd"
+<<<<<<< HEAD
                         type={invisible ? "text" : "password"}
+=======
+                        type={visible ? "text" : "password"}
+>>>>>>> origin/homepage
                         className={`${styles.input__password} w-100 ps-2 `}
                         name="old_password"
                         onChange={(event) => {
@@ -563,6 +730,7 @@ function Profile() {
                         }}
                      />
                   </span>
+<<<<<<< HEAD
                   <span>
                      <label htmlFor="newPassowrd">Confirm Password</label>
                      <br />
@@ -592,6 +760,10 @@ function Profile() {
                </div>
             </Modal.Body>
             {errMsg && <p className="text-center text-danger">{errMsg}</p>}
+=======
+               </div>
+            </Modal.Body>
+>>>>>>> origin/homepage
             <Modal.Footer>
                <Button variant="secondary" onClick={handleClosePassword}>
                   Close
