@@ -23,8 +23,10 @@ function SellerProduct() {
   const [id, setId] = useState("");
   useEffect(() => {
     const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
+    const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
+    const token = userInfo.token;
     axios
-      .get(url)
+      .get(url, { headers: { "x-access-token": token } })
       .then((res) => {
         setStock(res.data.data.data.stock);
         setDesc(res.data.data.data.description);
@@ -42,9 +44,10 @@ function SellerProduct() {
   const deleteProduct = (data) => {
     const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
     const token = userInfo.token;
+    const role = userInfo.role;
     // console.log(token);
     axios
-      .delete(`${url}/delete/${data}`, { headers: { "x-access-token": token } })
+      .delete(`${url}/delete/${data}`, { headers: { "x-access-token": token } }, role)
       .then((res) => {
         console.log(res);
       })
