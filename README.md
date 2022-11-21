@@ -1,4 +1,4 @@
-<h1 align="center">Monlight Cafe</h1>
+<h1 align="center">RIMA FURNITURE</h1>
 <p align="center">
   Built with React JS.
 </p>
@@ -17,7 +17,9 @@
 - [Contributors](#contributors)
 
 ## Introduction
-<b>Rima Furniture</b> one-stop solution for buying furniture. 
+<b>Rima Furniture</b> one-stop solution for buying furniture.
+<tr>You can test the web online here: https://rima-project.vercel.app</tr>
+
 ## Features
 * Order feature for customer
 * Admin feature
@@ -35,15 +37,14 @@
 
 ## Screenshots
 <div align="center">
-    <img width="250" src="./src/assets/images/screenshoot/ss-1.jpeg">   
-    <img width="250" src="./src/assets/images/screenshoot/ss-2.jpeg"> 
-    <img width="250" src="./src/assets/images/screenshoot/ss-3.jpeg"> 
-    <img width="250" src="./src/assets/images/screenshoot/ss-4.jpeg"> 
-    <img width="250" src="./src/assets/images/screenshoot/ss-5.jpeg"> 
-    <img width="250" src="./src/assets/images/screenshoot/ss-6.jpeg"> 
-    <img width="250" src="./src/assets/images/screenshoot/ss-7.jpeg"> 
-    <img width="250" src="./src/assets/images/screenshoot/ss-8.jpeg"> 
-    <img width="250" src="./src/assets/images/screenshoot/ss-9.jpeg"> 
+    <img width="250" src="./src/assets/screenshoot/1.jpeg">   
+    <img width="250" src="./src/assets/screenshoot/2.jpeg"> 
+    <img width="250" src="./src/assets/screenshoot/3.jpeg"> 
+    <img width="250" src="./src/assets/screenshoot/4.jpeg"> 
+    <img width="250" src="./src/assets/screenshoot/5.jpeg"> 
+    <img width="250" src="./src/assets/screenshoot/6.jpeg"> 
+    <img width="250" src="./src/assets/screenshoot/7.jpeg"> 
+    <img width="250" src="./src/assets/screenshoot/8.jpeg"> 
 </div>
 
 
@@ -53,25 +54,25 @@
     <tr>
       <td align="center">
         <a href="https://github.com/rzkiyprtm">
-          <img width="100" style="border-radius:50%;"; src="./src/assets/profile/parker.jpeg" alt="Falih Naufal"><br/>
+          <img width="100" style="border-radius:50%;"; src="./src/assets/profile/parker.jpeg" alt=""><br/>
           <sub><b>Rizky Putra Pratama</b></sub>
         </a>
         </td>
         <td align="center">
          <a href="https://github.com/rzkiyprtm">
-          <img width="100" style="border-radius:50%;"; src="./src/assets/profile/parker.jpeg" alt="Falih Naufal"><br/>
+          <img width="100" style="border-radius:50%;"; src="./src/assets/profile/aksal.jpg" alt=""><br/>
           <sub><b>Aksal Rizki Gandari</b></sub>
         </a>
         </td>
       <td align="center">
       <a href="https://github.com/rzkiyprtm">
-          <img width="100" style="border-radius:50%;"; src="./src/assets/profile/parker.jpeg" alt="Falih Naufal"><br/>
+          <img width="100" height="100" style="border-radius:50%;"; src="./src/assets/profile/basri.jpg" alt=""><br/>
           <sub><b>Imam Basri</b></sub>
         </a>
       </td>
       <td align="center">
       <a href="https://github.com/rzkiyprtm">
-          <img width="100" style="border-radius:50%;"; src="./src/assets/profile/parker.jpeg" alt="Falih Naufal"><br/>
+          <img width="100" style="border-radius:50%;"; src="./src/assets/profile/ikrom.jpg" alt=""><br/>
           <sub><b>Mo Ikrom</b></sub>
         </a>
       </td>

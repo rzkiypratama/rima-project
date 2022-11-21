@@ -402,9 +402,10 @@
 .product-box-main .product-item {
   display: flex;
   flex-wrap: wrap;
-  gap: 10em;
+  gap: 4em;
   /* justify-content: center;    */
-    align-self: flex-start
+    align-self: flex-start;
+    padding-left: 2em;
 }
 
 /* media query */
