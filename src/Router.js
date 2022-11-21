@@ -2,6 +2,7 @@
 import { createBrowserRouter } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
 import PrivateElement from "./component/PrivateElement";
+import PrivateElementLogin from "./component/PrivateElementLogin";
 // Pages
 import Homepage from "./pages/HomePage";
 import Login from "./pages/Login";
@@ -29,16 +30,16 @@ import Contact from "./pages/Contact";
 
 const router = createBrowserRouter([
   { path: "/", element: <Homepage />, errorElement: <Error /> },
-  { path: "/login", element: <Login /> },
-  { path: "/register", element: <Register /> },
+  { path: "/login", element: <PrivateElementLogin><Login /></PrivateElementLogin>, errorElement: <Error /> },
+  { path: "/register", element: <PrivateElementLogin><Register /></PrivateElementLogin> },
   { path: "/forgot", element: <ForgotPassword /> },
   { path: "/notification", element: <Notification /> },
   { path: "/chat", element: <Chat /> },
   { path: "/faq", element: <FAQ /> },
-  { path: "/profile", element: <Profile /> },
-  { path: "/admin/my-product", element: <Admin /> },
-  { path: "/admin/create-product", element: <CreateProduct /> },
-  { path: "/admin/my-order", element: <MyOrder /> },
+  { path: "/profile", element: <PrivateElement allowedRoles={['seller', 'customer']} ><Profile /></PrivateElement>, errorElement: <Error /> },
+  { path: "/admin/my-product", element: <PrivateElement allowedRoles={['seller']}><Admin /></PrivateElement>, errorElement: <Error /> },
+  { path: "/admin/create-product", element: <PrivateElement allowedRoles={['seller']}><CreateProduct /></PrivateElement> },
+  { path: "/admin/my-order", element: <PrivateElement allowedRoles={['seller']}><MyOrder /></PrivateElement> },
   { path: "/product", element: <Product /> },
   { path: "/order/tracking", element: <OrderTracking /> },
   { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
