@@ -14,19 +14,19 @@ function Order(props) {
         {props.description}
       </div>
       <div className={` ${styles["price"]} d-flex align-items-center col-lg-2 justify-content-center `}>
-        <p className=" " /> 10000
+        <p className=" " /> {props.price}
         {/* <p className=" " /> {props.price} */}
       </div>
       <div className={` ${styles["price"]} d-flex align-items-center col-lg-2 justify-content-center `}>
-        <p className=" " /> 10000
+        <p className=" " /> {props.quantity}
         {/* <p className=" " /> {props.price} */}
       </div>
       <div className={` ${styles["price"]} d-flex align-items-center col-lg-2 justify-content-center `}>
         <img src={check} alt="/" />
-        {props.stock} Stock
+        {props.status}
       </div>
       <div className={` ${styles["price"]} d-flex align-items-center col-lg-2 justify-content-center `}>
-        <p className=" " /> 10000
+        <p className=" " /> {props.total}
         {/* <p className=" " /> {props.price} */}
       </div>
     </div>

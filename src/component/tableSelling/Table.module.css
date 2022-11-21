@@ -12,6 +12,14 @@
   /* gap: 1rem; */
   justify-content: space-evenly;
 }
+.image-product {
+  width: 100px;
+  height: 100px;
+  margin-right: 2rem;
+}
+.name-product {
+  font-size: 12px !important;
+}
 
 .table {
   margin-bottom: 5rem;
@@ -23,4 +31,10 @@
 
 .price-title {
   text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .name-product {
+    font-size: 12px !important;
+  }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createBrowserRouter } from "react-router-dom";
 import PrivateElement from "./component/PrivateElement";
 // Pages
@@ -21,10 +22,10 @@ import Cart from "./pages/Cart";
 import Otp from "./pages/Otp";
 import OtpVerified from "./pages/OtpVerified";
 import Blog from "./pages/Blog";
-import Error from './component/error/Error404'
+import Error from "./component/error/Error404";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Homepage />, errorElement: <Error/> },
+  { path: "/", element: <Homepage />, errorElement: <Error /> },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },
   { path: "/forgot", element: <ForgotPassword /> },

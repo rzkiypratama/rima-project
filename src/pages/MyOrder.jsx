@@ -1,14 +1,58 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from "react";
 import styles from "../styles/CreateProduct.module.css";
 import Navbar from "../component/navbar/Navbar";
 import Footer from "../component/footer/Footer";
 import NavDropdown from "react-bootstrap/NavDropdown";
-// import axios from "axios";
+import axios from "axios";
+import Loader from "../component/loader/Loader";
 // import Dropdown from "react-bootstrap/Dropdown";
 import { Link } from "react-router-dom";
 import Order from "../component/tableOrder/Order";
 
 function MyOrder() {
+  const url = `${process.env.REACT_APP_BACKEND_HOST}/transaction/history-seller`;
+
+  const [product, setProduct] = useState("");
+  const [price, setPrice] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [status, setStatus] = useState("");
+  const [total, setTotal] = useState("");
+
+  useEffect(() => {
+    const url = `${process.env.REACT_APP_BACKEND_HOST}/transaction/history-seller`;
+    const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
+
+    axios
+      .get(url, userInfo.token)
+      .then((res) => {
+        // setStock(res.data.data.data.stock);
+        // setDesc(res.data.data.data.description);
+        // setPrice(res.data.data.data.price);
+        // setImage(res.data.data.data.image);
+        // setData(res.data.data.data);
+        console.log("data : ", res.data.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  const HandleProduct = () => {
+    return axios
+      .get(url)
+      .then((res) => {
+        // setStock(res.data.data.data.stock);
+        // setDesc(res.data.data.data.description);
+        // setPrice(res.data.data.data.price);
+        // setImage(res.data.data.data.image);
+        // setData(res.data.data.data);
+        console.log("data : ", res.data.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div>
       <div>

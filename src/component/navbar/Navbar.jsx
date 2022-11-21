@@ -45,8 +45,13 @@ function BasicExample() {
                 HOME
               </Link>
             </Nav.Link>
-            <div className="d-flex justify-content-center align-items-center">
-              <p className={`${styles["title"]} ${styles["cursor"]}`}>PAGES</p>
+            <div className={`d-flex justify-content-center align-items-center ${styles["pages-shop"]}`}>
+              <p
+                className={`${styles["title"]} 
+               ${styles["cursor"]}`}
+              >
+                PAGES
+              </p>
               <NavDropdown className={styles["title"]} id="basic-nav-dropdown">
                 <Link className={styles["no-underline"]} to={"/about"}>
                   <NavDropdown.Item href="#action/3.1">About Us </NavDropdown.Item>
@@ -60,7 +65,7 @@ function BasicExample() {
                 </Link>
               </NavDropdown>
             </div>
-            <div className="d-flex justify-content-center align-items-center">
+            <div className={`d-flex justify-content-center align-items-center ${styles["pages-shop"]}`}>
               <p className={`${styles["title"]} ${styles["cursor"]}`}>SHOP</p>
               <NavDropdown className={styles["title"]} id="basic-nav-dropdown">
                 <Link className={styles["no-underline"]} to={"/product"}>
@@ -80,8 +85,11 @@ function BasicExample() {
                 </Link>
               </NavDropdown>
             </div>
-
-            <Nav.Link className={styles["title"]}>BLOG</Nav.Link>
+            <Nav.Link className={styles["title"]}>
+              <Link className={`${styles["color-text"]} ${styles["no-underline"]}`} to={"/blog"}>
+                BLOG
+              </Link>
+            </Nav.Link>
           </Nav>
           <div className={` d-flex gap-5 ${styles["icon"]}`}>
             <img className={`  ${styles["icon-1"]} ${styles["cursor"]}`} src={search} alt="/" />
