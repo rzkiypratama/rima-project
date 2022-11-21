@@ -197,9 +197,8 @@ function Product() {
     <div className={styles["detail-right"]}>
       <div className="sort-page">
       <DropdownButton id="dropdown-basic-button" title="Sort by" className={styles.dropdown}>
-      <Dropdown.Item href="#/action-1">Termahal</Dropdown.Item>
-      <Dropdown.Item href="#/action-2">Termurah</Dropdown.Item>
-      <Dropdown.Item href="#/action-3">Terpopuler</Dropdown.Item>
+      <Dropdown.Item href="#/action-1">Cheapest</Dropdown.Item>
+      <Dropdown.Item href="#/action-2">Expensive</Dropdown.Item>
     </DropdownButton>
       </div>
       <div className={styles["product-box-main"]}>
@@ -208,7 +207,7 @@ function Product() {
                   <Card
                     productTitle={e.name}
                     price={e.price}
-                    image={e.images}
+                    image={e.image}
                     key={e.id}
                     id={e.id}
                   />
