@@ -29,7 +29,7 @@ function BasicExample() {
    const isLogin = JSON.parse(localStorage["userInfo"] || "{}");
 
    return (
-      <Navbar expand="lg  pt-3">
+      <Navbar expand="lg ">
          <Container>
             <Navbar.Brand className={`${styles["company"]}`}>
                <Link
@@ -71,7 +71,7 @@ function BasicExample() {
                         <NavDropdown.Item href="#action/3.3">
                            Coming Soon{" "}
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="/error">
+                        <NavDropdown.Item href="#action/3.3">
                            404 Page{" "}
                         </NavDropdown.Item>
                         <Link className={styles["no-underline"]} to={"/faq"}>
@@ -89,12 +89,19 @@ function BasicExample() {
                         className={styles["title"]}
                         id="basic-nav-dropdown"
                      >
-                        <NavDropdown.Item href="#action/3.1">
-                           Other Page{" "}
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.1">
-                           Shopping Cart{" "}
-                        </NavDropdown.Item>
+                        <Link
+                           className={styles["no-underline"]}
+                           to={"/product"}
+                        >
+                           <NavDropdown.Item href="#action/3.1">
+                              Product{" "}
+                           </NavDropdown.Item>
+                        </Link>
+                        <Link className={styles["no-underline"]} to={"/cart"}>
+                           <NavDropdown.Item href="#action/3.1">
+                              Shopping Cart{" "}
+                           </NavDropdown.Item>
+                        </Link>
 
                         <NavDropdown.Item href="#action/3.2">
                            Check Out
@@ -102,12 +109,22 @@ function BasicExample() {
                         <NavDropdown.Item href="#action/3.3">
                            Coming Soon{" "}
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">
-                           My Account
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.1">
-                           Order Tracking
-                        </NavDropdown.Item>
+                        <Link
+                           className={styles["no-underline"]}
+                           to={"/profile"}
+                        >
+                           <NavDropdown.Item href="#action/3.3">
+                              My Account
+                           </NavDropdown.Item>
+                        </Link>
+                        <Link
+                           className={styles["no-underline"]}
+                           to={"/order/tracking"}
+                        >
+                           <NavDropdown.Item href="#action/3.1">
+                              Order Tracking
+                           </NavDropdown.Item>
+                        </Link>
                      </NavDropdown>
                   </div>
 
