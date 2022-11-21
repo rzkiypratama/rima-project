@@ -93,7 +93,7 @@ function BasicExample() {
           </Nav>
           <div className={` d-flex gap-5 ${styles["icon"]}`}>
             <img className={`  ${styles["icon-1"]} ${styles["cursor"]}`} src={search} alt="/" />
-            <img className={`   ${styles["cursor"]}`} src={wishlist} alt="/" />
+            <Link to={"/favorite"}><img className={`   ${styles["cursor"]}`} src={wishlist} alt="/" /></Link>
             <Link to={"/cart"}><img className={`   ${styles["cursor"]}`} src={cart} alt="/" /></Link>
             {isLogin.token ? <NavbarLogin /> : <NavbarRegister />}
           </div>

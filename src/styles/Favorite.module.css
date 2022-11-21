@@ -1,6 +1,6 @@
 .content {
-  height: 230px;
-  /* background-color: gainsboro; */
+  height: 16em;
+  background: url('../assets//background/bg.png');
 }
 
 .favorite {

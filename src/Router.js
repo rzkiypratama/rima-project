@@ -27,6 +27,7 @@ import Blog from "./pages/Blog";
 import Error from "./component/error/Error404";
 import Checkout from "./pages/Checkout";
 import Contact from "./pages/Contact";
+import Favorite from "./pages/Favorite";
 
 const router = createBrowserRouter([
   { path: "/", element: <Homepage />, errorElement: <Error /> },
@@ -52,6 +53,8 @@ const router = createBrowserRouter([
   { path: "/error", element: <Error /> },
   { path: "/cart/checkout", element: <Checkout /> },
   { path: "/page/contact", element: <Contact /> },
+  { path: "/favorite", element: <Favorite /> },
+
 ]);
 
 export default router;
