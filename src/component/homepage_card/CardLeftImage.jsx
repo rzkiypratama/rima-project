@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 
 // assets
@@ -8,9 +9,9 @@ import { Link } from "react-router-dom";
 function CardLeftImage(props) {
    return (
       <>
-         <section className="row row-cols-sm-2 d-flex flex-lg-row flex-md-row flex-sm-column flex-column align-content-center">
+         <section className="row row-cols-sm-2 d-flex flex-lg-row flex-md-row flex-sm-column flex-column align-content-center mx-auto">
             <section
-               className={`${styles.content__left} col-12 col-sm-12 col-md-5 col-lg-5`}
+               className={`${styles.content__left} col-12 col-sm-12 col-md-6 col-lg-5`}
             >
                <img
                   className={`${styles.images}`}
@@ -18,7 +19,7 @@ function CardLeftImage(props) {
                   alt="content_first"
                />
             </section>
-            <section className="col-12 col-sm-12 col-md-7 col-lg-7 d-flex justify-content-center align-items-center px-0 px-sm-0">
+            <section className="col-12 col-sm-12 col-md-6 col-lg-7 d-flex justify-content-center align-items-center px-0 px-sm-0">
                <article
                   className={`${styles.content_article_right} d-flex justify-content-center align-items-center p-4`}
                >

@@ -29,7 +29,7 @@ function BasicExample() {
   const isLogin = JSON.parse(localStorage["userInfo"] || "{}");
 
   return (
-    <Navbar expand="lg mt-3">
+    <Navbar expand="lg ">
       <Container>
         <Navbar.Brand className={`${styles["company"]}`}>
           <Link to={"/"} className={` ${styles["rima"]} text-decoration-none `}>
@@ -60,20 +60,31 @@ function BasicExample() {
                 </Link>
               </NavDropdown>
             </div>
-            <div className="d-flex justify-content-center align-items-center">
+            <div className={`d-flex justify-content-center align-items-center ${styles["pages-shop"]}`}>
               <p className={`${styles["title"]} ${styles["cursor"]}`}>SHOP</p>
               <NavDropdown className={styles["title"]} id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Other Page </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.1">Shopping Cart </NavDropdown.Item>
+                <Link className={styles["no-underline"]} to={"/product"}>
+                  <NavDropdown.Item href="#action/3.1">Product </NavDropdown.Item>
+                </Link>
+                <Link className={styles["no-underline"]} to={"/cart"}>
+                  <NavDropdown.Item href="#action/3.1">Shopping Cart </NavDropdown.Item>
+                </Link>
 
                 <NavDropdown.Item href="#action/3.2">Check Out</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Coming Soon </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">My Account</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.1">Order Tracking</NavDropdown.Item>
+                <Link className={styles["no-underline"]} to={"/profile"}>
+                  <NavDropdown.Item href="#action/3.3">My Account</NavDropdown.Item>
+                </Link>
+                <Link className={styles["no-underline"]} to={"/order/tracking"}>
+                  <NavDropdown.Item href="#action/3.1">Order Tracking</NavDropdown.Item>
+                </Link>
               </NavDropdown>
             </div>
-
-            <Nav.Link className={styles["title"]}>BLOG</Nav.Link>
+            <Nav.Link className={styles["title"]}>
+              <Link className={`${styles["color-text"]} ${styles["no-underline"]}`} to={"/blog"}>
+                BLOG
+              </Link>
+            </Nav.Link>
           </Nav>
           <div className={` d-flex gap-5 ${styles["icon"]}`}>
             <img className={`  ${styles["icon-1"]} ${styles["cursor"]}`} src={search} alt="/" />

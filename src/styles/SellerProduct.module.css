@@ -89,3 +89,42 @@
 .color {
   color: #000000 !important;
 }
+
+@media only screen and (max-width: 768px) {
+  .title {
+    margin-left: 0px !important;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .color-text {
+    color: #1a1a1a;
+    font-family: arimo;
+    font-size: 14px;
+    font-style: bold;
+    font-weight: 500;
+  }
+
+  .color-text:hover {
+    color: #1a1a1a;
+  }
+  .title {
+    font-size: 14px;
+    margin-left: 0px !important;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .color-text {
+    display: flex;
+    align-items: center;
+    color: #1a1a1a;
+    font-family: arimo;
+    font-size: 12px;
+    font-style: bold;
+    font-weight: 500;
+  }
+
+  .color-text:hover {
+    color: #1a1a1a;
+  }
+}

@@ -15,9 +15,9 @@ function table(props) {
   return (
     <div className="d-flex px-0 justify-content-between">
       {/* <div className="d-flex justify-content-between"> */}
-      <div className="d-flex align-items-center col-3 justify-content-center">
-        <img src={props.image} alt="/" />
-        <p />
+      <div className="d-flex align-items-center col-3 justify-content-between">
+        <img className={`${styles["image-product"]}`} src={props.image} alt="/" />
+        <p className={`${styles["name-product"]}`} />
         {props.description}
       </div>
 

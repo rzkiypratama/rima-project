@@ -29,11 +29,11 @@ const updateProfileFulfilled = (data) => ({
    payload: { data },
 });
 
-const profileThunk = (data) => {
+const profileThunk = (token) => {
    return async (dispacth) => {
       try {
          dispacth(profilePending());
-         const result = await getProfile(data);
+         const result = await getProfile(token);
          //  console.log(result.data);
          dispacth(profileFulfilled(result.data));
       } catch (error) {
@@ -42,14 +42,14 @@ const profileThunk = (data) => {
    };
 };
 
-const updateProfileThunk = (body) => {
+const updateProfileThunk = (body, token) => {
    return async (dispacth) => {
       try {
          dispacth(updateProfilePending());
          console.log(body);
-         const result = await patchProfile(body);
+         const result = await patchProfile(body, token);
          dispacth(updateProfileFulfilled(result.body));
-         console.log(result.data);
+         // console.log(result.data);
       } catch (error) {
          dispacth(updateProfileRejected(error));
       }

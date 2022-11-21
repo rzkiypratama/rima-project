@@ -135,6 +135,12 @@
   top: .2rem;
 }
 
+/* .error {
+  color: red;
+  text-align: left;
+  padding-left: 8rem;
+} */
+
 /* responsive */
 
 @media screen and (max-width:768px) {

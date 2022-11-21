@@ -5,8 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import authActions from "../../../redux/actions/auths";
 import { useState } from "react";
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 // IMport Image
 import hamburger from "../../navbar/menu.png";
@@ -19,15 +19,13 @@ function NavbarProvile() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
 
-  const userInfo = JSON.parse(localStorage["userInfo"] || "{}")
-
-  const toLogout = () => navigate("/login")
+  const toLogout = () => navigate("/login");
   const logoutHandler = () => {
-    dispatch(authActions.logoutThunk(userInfo.token, toLogout))
+    dispatch(authActions.logoutThunk(userInfo.token, toLogout));
     localStorage.removeItem("userInfo");
-  }
-
+  };
 
   return (
     <div>
@@ -42,20 +40,18 @@ function NavbarProvile() {
           <NavDropdown.Item href="#action/3.1">Notification</NavDropdown.Item>
         </Link>
         <Link className={styles["no-underline"]} to={"/"}>
-          <NavDropdown.Item onClick={handleShow} >Logout</NavDropdown.Item>
+          <NavDropdown.Item onClick={handleShow}>Logout</NavDropdown.Item>
         </Link>
       </NavDropdown>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>RIMA Furniture</Modal.Title>
-        </Modal.Header>
+        <Modal.Header closeButton>{/* <Modal.Title>Monlight</Modal.Title> */}</Modal.Header>
         <Modal.Body>Are you sure to logout?</Modal.Body>
         <Modal.Footer>
-          <Button variant="danger" onClick={logoutHandler}>
-            Yes
-          </Button>
           <Button variant="secondary" onClick={handleClose}>
             Close
+          </Button>
+          <Button variant="danger" onClick={logoutHandler}>
+            Yes
           </Button>
         </Modal.Footer>
       </Modal>

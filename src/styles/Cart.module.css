@@ -71,13 +71,13 @@
 /* table */
 /* input */
 .product__bar {
-    border: 1px solid green !important;
-    height: 234px;
+    /* border: 1px solid green !important; */
+    height: auto;
 }
 
 .input__qty {
     border: none;
-    width: 80px;
+    width: 50px;
     text-align: center;
     margin: 0 10px;
 }
@@ -142,7 +142,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 
@@ -184,4 +183,38 @@
     color: #8D8D8D;
     padding: 25px 30px;
     margin: 0 10px;
+    cursor: pointer;
+}
+
+.apply_coupon {
+    cursor: pointer;
+}
+
+/* empty */
+.empty__bar {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty_text {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 37px;
+    text-align: center;
+    color: #4D4D4D;
+}
+
+.empty_title {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 37px;
+    text-align: center;
+    color: #1A1A1A;
 }

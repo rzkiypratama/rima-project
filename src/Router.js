@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { createBrowserRouter } from "react-router-dom";
+// eslint-disable-next-line no-unused-vars
 import PrivateElement from "./component/PrivateElement";
 // Pages
 import Homepage from "./pages/HomePage";
@@ -21,10 +23,12 @@ import Cart from "./pages/Cart";
 import Otp from "./pages/Otp";
 import OtpVerified from "./pages/OtpVerified";
 import Blog from "./pages/Blog";
-import Error from './component/error/Error404'
+import Error from "./component/error/Error404";
+import Checkout from "./pages/Checkout";
+import Contact from "./pages/Contact";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Homepage />, errorElement: <Error/> },
+  { path: "/", element: <Homepage />, errorElement: <Error /> },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },
   { path: "/forgot", element: <ForgotPassword /> },
@@ -38,12 +42,15 @@ const router = createBrowserRouter([
   { path: "/product", element: <Product /> },
   { path: "/order/tracking", element: <OrderTracking /> },
   { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
-  { path: "/product/detail", element: <ProductDetail /> },
+  { path: "/product/detail/:id", element: <ProductDetail /> },
   { path: "/about", element: <About /> },
   { path: "/cart", element: <Cart /> },
   { path: "/forgot/otp", element: <Otp /> },
   { path: "/forgot/otp/verify", element: <OtpVerified /> },
   { path: "/blog", element: <Blog /> },
+  { path: "/error", element: <Error /> },
+  { path: "/cart/checkout", element: <Checkout /> },
+  { path: "/page/contact", element: <Checkout /> },
 ]);
 
 export default router;

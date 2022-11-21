@@ -1,3 +1,6 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable array-callback-return */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 // styles
 import styles from "../styles/Homapage.module.css";
@@ -6,21 +9,36 @@ import Navbar from "../component/navbar/Navbar";
 import Footer from "../component/footer/Footer";
 import CardImageLeft from "../component/homepage_card/CardLeftImage";
 import CardImageRight from "../component/homepage_card/CardRightImage";
+import Loader from "../component/loader/Loader";
 // assets
 import backtowork from "../assets/homepage/img_service_backtowork.png";
 import furniture from "../assets/homepage/img_service_furniture.png";
 import furnitureoffice from "../assets/homepage/img_service_furniture_office.png";
 import workspace from "../assets/homepage/img_service_workspace.png";
+import profileActions from "../redux/actions/profile";
+
 import axios from "axios";
 // helper
 import title from "../helper/title";
+import { useDispatch } from "react-redux";
 function HomePage() {
    title("RIMA FURNITURE");
    const [product, setProduct] = useState([]);
-
+   const dispatch = useDispatch();
    useEffect(() => {
-      window.scrollTo(0, 2);
+      window.scrollTo(0, 5);
       const urlProduct = `${process.env.REACT_APP_BACKEND_HOST}/product?limit=6&page=1&sortby=latest`;
+      let userInfo = null;
+      if (localStorage["userInfo"])
+         userInfo = JSON.parse(localStorage["userInfo"]);
+
+      // const userInfoc:\Program Files\Microsoft VS Code\resources\app\out\vs\code\electron-sandbox\workbench\workbench.html = JSON.parse(localStorage["userInfo"] || "{}");
+      console.log(userInfo);
+      if (userInfo) {
+         const tokenData = JSON.parse(localStorage["userInfo"]);
+         dispatch(profileActions.profileThunk(tokenData.token));
+      }
+
       console.log(product);
       axios
          .get(urlProduct)
@@ -49,19 +67,22 @@ function HomePage() {
                         <br /> Curabitur blandit ultrices ex. Curabitur ut magna
                         dignissim, dignissim
                      </p>
-                     <section
-                        className={`${styles.explore} text-center`}
-                        onClick={() => {
-                           window.scroll(0, 900);
-                        }}
-                     >
+                     <section className={`${styles.explore} text-center`}>
                         <p>Explore now</p>
-                        <div className={`${styles.arrow}`}>
-                           <i
-                              className={
-                                 "bi bi-arrow-down-short fs-1 fw-bolder"
-                              }
-                           ></i>
+                        <div
+                           className={`${styles.arrow}`}
+                           onClick={() => {
+                              window.scroll(0, 900);
+                           }}
+                        >
+                           <span className={styles.arrows}>
+                              {" "}
+                              <i
+                                 className={
+                                    "bi bi-arrow-down-short fs-1 fw-bolder"
+                                 }
+                              ></i>
+                           </span>
                         </div>
                      </section>
                   </article>
@@ -69,24 +90,30 @@ function HomePage() {
             </section>
             {/* content first */}
             <div id="#product"></div>
-            {product.map((e, index) =>
-               index % 2 === 1 ? (
-                  <CardImageLeft
-                     images={e.image.index}
-                     title={e.name}
-                     desc={e.description}
-                     key={e.id}
-                     id={e.id}
-                  />
-               ) : (
-                  <CardImageRight
-                     images={e.image}
-                     title={e.name}
-                     desc={e.description}
-                     id={e.id}
-                     key={e.id}
-                  />
+            {product.length > 0 ? (
+               product.map((e, index) =>
+                  index % 2 === 0 ? (
+                     <CardImageLeft
+                        images={e.image}
+                        title={e.name}
+                        desc={e.description}
+                        key={e.id}
+                        id={e.id}
+                     />
+                  ) : (
+                     <CardImageRight
+                        images={e.image}
+                        title={e.name}
+                        desc={e.description}
+                        id={e.id}
+                        key={e.id}
+                     />
+                  )
                )
+            ) : (
+               <div className="h-100 w-100">
+                  <Loader />
+               </div>
             )}
 
             {/* services */}
