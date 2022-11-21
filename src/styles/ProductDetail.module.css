@@ -4,35 +4,47 @@
   margin-top: 1rem;
   border-top: 2px solid grey;
 }
+
 .title-faq {
   font-family: Arimo !important;
   font-size: 16px !important;
   font-family: Regular;
   color: #1a1a1a;
   font-weight: 400;
+
 }
-.stock {
-  position: relative;
-  left: -55px;
+
+.title-faq a {
+  text-decoration: none;
+  color: #1a1a1a;
+  cursor: pointer;
 }
+
+
+
 .img-left {
   width: 150px;
   margin-bottom: 2rem;
 }
+
 .img-left-5 {
   width: 151px;
 }
+
 .hot {
   position: relative;
   top: -44rem;
   right: -40rem;
 }
+
 .cont-2 {
   margin-top: 5rem;
 }
+
 .checklist {
   width: 20px;
 }
+
 .title-coast {
   font-family: Arimo;
   font-style: regular;
@@ -42,17 +54,21 @@
   line-height: 100%;
   fill: Solid #1a1a1a;
 }
+
 .cont-star {
   margin-top: 1rem;
   gap: 4rem;
 }
+
 .star {
   margin-right: 1rem;
 }
+
 .cont-price {
   margin-top: 2rem;
   gap: 4rem;
 }
+
 .price {
   font-family: Arimo;
   font-style: bold;
@@ -61,8 +77,9 @@
   line-height: 28px;
   line-height: 100%;
   fill: Solid #1a1a1a;
-  margin-right: 10rem;
+  padding-right: 25%;
 }
+
 .sold-out {
   font-family: Arimo;
   font-style: regular;
@@ -73,6 +90,16 @@
   fill: Solid #262626;
   width: 20px;
   height: 20px;
+}
+
+.img-left {
+  width: 140px;
+  height: 134px;
+}
+
+.img-right {
+  width: 100%;
+  height: 800px;
 }
 
 .donec {
@@ -88,9 +115,11 @@
 .cart-btn {
   width: 10rem;
 }
+
 .heart-btn {
   width: 4rem;
 }
+
 .whistlist-btn {
   width: 10rem;
   font-family: Arimo;
@@ -101,9 +130,11 @@
   line-height: 100%;
   fill: Solid #4d4d4d;
 }
+
 .height-btn {
   height: 3rem;
 }
+
 .SKU {
   width: 15rem;
   font-family: Arimo;
@@ -114,6 +145,7 @@
   line-height: 221%;
   fill: Solid #2f2f2f;
 }
+
 .spantext {
   font-family: Arimo;
   font-style: regular;
@@ -123,12 +155,14 @@
   line-height: 100%;
   fill: Solid #1a1a1a;
 }
+
 .love {
   background-color: #1a1a1a;
   position: relative;
   left: 0px;
   top: 0px;
 }
+
 .title-desc {
   font-family: Arimo;
   font-style: bold;
@@ -139,6 +173,7 @@
   fill: Solid;
   color: #1a1a1a;
 }
+
 .donec {
   font-family: Arimo;
   font-style: regular;
@@ -149,9 +184,11 @@
   fill: Solid;
   color: #777777;
 }
+
 .cont-image {
   width: 30rem;
 }
+
 .image {
   width: 100%;
   height: 100%;
@@ -166,6 +203,7 @@
   line-height: 100%;
   fill: Solid #1a1a1a;
 }
+
 .card-text {
   font-family: Arimo;
   font-style: bold;
@@ -175,6 +213,7 @@
   line-height: 100%;
   fill: Solid #1a1a1a;
 }
+
 @media screen and (max-width: 1024px) {
   .hot {
     position: relative;
@@ -187,9 +226,11 @@
   .cont-2 {
     margin-top: 0rem;
   }
+
   .cont-card-down {
     margin-top: 8rem !important;
   }
+
   .card-text {
     font-family: Arimo;
     font-style: bold;
@@ -199,6 +240,7 @@
     line-height: 100%;
     fill: Solid #1a1a1a;
   }
+
   .card-title {
     font-family: Arimo;
     font-style: Regular;
@@ -208,11 +250,13 @@
     line-height: 130%;
     fill: Solid #1a1a1a;
   }
+
   .hot {
     position: relative;
     top: -33rem;
     left: 37rem;
   }
+
   .title-desc {
     font-family: Arimo;
     font-style: bold;
@@ -224,6 +268,7 @@
     color: #1a1a1a;
   }
 }
+
 @media screen and (max-width: 425px) {
   .title-coast {
     font-family: Arimo;
@@ -234,23 +279,29 @@
     line-height: 100%;
     fill: Solid #1a1a1a;
   }
+
   .cont-1 {
     padding-top: 0px;
     padding-bottom: 0px;
   }
+
   .cont-2 {
     padding-left: 0rem !important;
     padding-right: 0rem !important;
   }
+
   .price {
     margin-right: 2rem !important;
   }
+
   .Sku {
     margin-top: 2rem !important;
   }
+
   .shipping {
     padding-bottom: 0px;
   }
+
   .card-title {
     font-family: Arimo;
     font-style: Regular;
@@ -264,6 +315,7 @@
   .cont-card-down {
     margin-top: 4rem !important;
   }
+
   .card-text {
     font-family: Arimo;
     font-style: bold;
@@ -273,6 +325,7 @@
     line-height: 100%;
     fill: Solid #1a1a1a;
   }
+
   /*
   .card-title {
     font-family: Arimo;
@@ -295,6 +348,7 @@
     color: #1a1a1a;
   } */
 }
+
 @media screen and (max-width: 375px) {
   .hot {
     position: relative;
@@ -302,29 +356,41 @@
     left: 18rem;
     width: 32px;
   }
+
   .img-left {
     width: 100px;
     margin-right: 0px;
   }
+
   .img-left-5 {
     width: 100px;
     position: relative;
     top: -17px;
   }
+
   .price {
     font-size: 18px;
   }
+
   .stock {
     font-size: 13px;
     margin-right: -80px;
   }
+
   .sold-out {
     width: 15px;
     height: 15px;
   }
+
   .love {
     position: relative;
     top: -3rem;
     left: 280px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .price {
+    padding-right: 2%;
   }
 }

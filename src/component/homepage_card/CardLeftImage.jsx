@@ -9,12 +9,12 @@ import { Link } from "react-router-dom";
 function CardLeftImage(props) {
    return (
       <>
-         <section className="row row-cols-sm-2 d-flex flex-lg-row flex-md-row flex-sm-column flex-column align-content-center mx-auto">
+         <section className="row  d-flex flex-lg-row flex-md-row flex-sm-column flex-column align-content-center mx-auto">
             <section
-               className={`${styles.content__left} col-12 col-sm-12 col-md-6 col-lg-5`}
+               className={`${styles.content__left} col-12 col-sm-12 col-md-6 col-lg-5 px-0`}
             >
                <img
-                  className={`${styles.images}`}
+                  className={`${styles.images} `}
                   src={props.images}
                   alt="content_first"
                />
