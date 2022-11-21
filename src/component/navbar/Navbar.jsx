@@ -52,9 +52,13 @@ function BasicExample() {
                   <NavDropdown.Item href="#action/3.1">About Us </NavDropdown.Item>
                 </Link>
 
+                <Link className={styles["no-underline"]} to={"/page/contact"}>
                 <NavDropdown.Item href="#action/3.2">Contact Us</NavDropdown.Item>
+                </Link>
                 <NavDropdown.Item href="#action/3.3">Coming Soon </NavDropdown.Item>
+                <Link className={styles["no-underline"]} to={"/error"}>
                 <NavDropdown.Item href="#action/3.3">404 Page </NavDropdown.Item>
+                </Link>
                 <Link className={styles["no-underline"]} to={"/faq"}>
                   <NavDropdown.Item href="#action/3.1">FAQ Page</NavDropdown.Item>
                 </Link>
@@ -69,8 +73,9 @@ function BasicExample() {
                 <Link className={styles["no-underline"]} to={"/cart"}>
                   <NavDropdown.Item href="#action/3.1">Shopping Cart </NavDropdown.Item>
                 </Link>
-
+                <Link className={styles["no-underline"]} to={"/cart/checkout"}>
                 <NavDropdown.Item href="#action/3.2">Check Out</NavDropdown.Item>
+                </Link>
                 <NavDropdown.Item href="#action/3.3">Coming Soon </NavDropdown.Item>
                 <Link className={styles["no-underline"]} to={"/profile"}>
                   <NavDropdown.Item href="#action/3.3">My Account</NavDropdown.Item>
@@ -88,8 +93,8 @@ function BasicExample() {
           </Nav>
           <div className={` d-flex gap-5 ${styles["icon"]}`}>
             <img className={`  ${styles["icon-1"]} ${styles["cursor"]}`} src={search} alt="/" />
-            <img className={`   ${styles["cursor"]}`} src={wishlist} alt="/" />
-            <img className={`   ${styles["cursor"]}`} src={cart} alt="/" />
+            <Link to={"/favorite"}><img className={`   ${styles["cursor"]}`} src={wishlist} alt="/" /></Link>
+            <Link to={"/cart"}><img className={`   ${styles["cursor"]}`} src={cart} alt="/" /></Link>
             {isLogin.token ? <NavbarLogin /> : <NavbarRegister />}
           </div>
         </Navbar.Collapse>

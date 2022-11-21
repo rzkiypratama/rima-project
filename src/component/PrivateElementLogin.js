@@ -2,19 +2,19 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 
 // props.children => mengakses komponen child
-class PrivateElement extends React.Component {
+class PrivateElementLogin extends React.Component {
   render() {
     // conditional, jika true semua maka return kan komponen child
     // jika false, maka redirect
     // kondisi 1 = apakah sudah login
     const { allowedRoles = [], children } = this.props;
     const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
-    if (!userInfo.token)
+    if (userInfo.token)
       return (
         <Navigate
           to="/"
           replace={true}
-          state={{ msg: "Silahkan Login Terlebih Dahulu", isRedirected: true }}
+          state={{ msg: "Forbiden", isRedirected: true }}
         />
       );
     // kondisi 2 = apakah sesuai dengan role
@@ -34,4 +34,4 @@ class PrivateElement extends React.Component {
   }
 }
 
-export default PrivateElement;
+export default PrivateElementLogin;

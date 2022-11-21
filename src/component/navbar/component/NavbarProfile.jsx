@@ -44,14 +44,14 @@ function NavbarProvile() {
         </Link>
       </NavDropdown>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>{/* <Modal.Title>Monlight</Modal.Title> */}</Modal.Header>
+        <Modal.Header closeButton><Modal.Title>Rima Furniture</Modal.Title></Modal.Header>
         <Modal.Body>Are you sure to logout?</Modal.Body>
         <Modal.Footer>
+          <Button variant="success" onClick={logoutHandler}>
+            Yes
+          </Button>
           <Button variant="secondary" onClick={handleClose}>
             Close
-          </Button>
-          <Button variant="danger" onClick={logoutHandler}>
-            Yes
           </Button>
         </Modal.Footer>
       </Modal>

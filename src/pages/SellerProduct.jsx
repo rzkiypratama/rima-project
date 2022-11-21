@@ -12,44 +12,43 @@ import { Link } from "react-router-dom";
 // import NavigationSeller from "../component/navigationSeller/NavigationSeller";
 
 function SellerProduct() {
-  const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
-
-  const [stock, setStock] = useState("");
-  const [desc, setDesc] = useState("");
-  const [price, setPrice] = useState("");
-  const [image, setImage] = useState("");
-  const [data, setData] = useState("");
-  useEffect(() => {
-    const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
-    axios
-      .get(url)
-      .then((res) => {
-        setStock(res.data.data.data.stock);
-        setDesc(res.data.data.data.description);
-        setPrice(res.data.data.data.price);
-        setImage(res.data.data.data.image);
-        setData(res.data.data.data);
-        console.log("data : ", res.data.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-  const HandleProduct = () => {
-    return axios
-      .get(url)
-      .then((res) => {
-        setStock(res.data.data.data.stock);
-        setDesc(res.data.data.data.description);
-        setPrice(res.data.data.data.price);
-        setImage(res.data.data.data.image);
-        setData(res.data.data.data);
-        console.log("data : ", res.data.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+   const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
+   const [stock, setStock] = useState("");
+   const [desc, setDesc] = useState("");
+   const [price, setPrice] = useState("");
+   const [image, setImage] = useState("");
+   const [data, setData] = useState("");
+   useEffect(() => {
+      const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
+      axios
+         .get(url)
+         .then((res) => {
+            setStock(res.data.data.data.stock);
+            setDesc(res.data.data.data.description);
+            setPrice(res.data.data.data.price);
+            setImage(res.data.data.data.image);
+            setData(res.data.data.data);
+            console.log("data : ", res.data.data.data);
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   }, []);
+   const HandleProduct = () => {
+      return axios
+         .get(url)
+         .then((res) => {
+            setStock(res.data.data.data.stock);
+            setDesc(res.data.data.data.description);
+            setPrice(res.data.data.data.price);
+            setImage(res.data.data.data.image);
+            setData(res.data.data.data);
+            console.log("data : ", res.data.data.data);
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   };
 
   const costing = (price) => {
     return parseFloat(price)
