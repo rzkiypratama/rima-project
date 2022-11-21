@@ -11,6 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import addPromo from "../assets/sellerProduct/add_image.png";
 import sofa1 from "../assets/productDetail/Sofa2.png";
+import NavsSeller from "../component/navigationSeller/navSeller/NavsSeller";
 // import { useNavigate } from "react-router-dom";
 
 function CreateProduct() {

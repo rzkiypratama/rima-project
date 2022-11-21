@@ -6,49 +6,75 @@ import axios from "axios";
 import styles from "../styles/SellerProduct.module.css";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Table from "../component/tableSelling/Table";
+
 import Loader from "../component/loader/Loader";
 import { Link } from "react-router-dom";
 // import Dropdown from "react-bootstrap/Dropdown";
 // import NavigationSeller from "../component/navigationSeller/NavigationSeller";
 
 function SellerProduct() {
-   const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
-   const [stock, setStock] = useState("");
-   const [desc, setDesc] = useState("");
-   const [price, setPrice] = useState("");
-   const [image, setImage] = useState("");
-   const [data, setData] = useState("");
-   useEffect(() => {
-      const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
-      axios
-         .get(url)
-         .then((res) => {
-            setStock(res.data.data.data.stock);
-            setDesc(res.data.data.data.description);
-            setPrice(res.data.data.data.price);
-            setImage(res.data.data.data.image);
-            setData(res.data.data.data);
-            console.log("data : ", res.data.data.data);
-         })
-         .catch((err) => {
-            console.log(err);
-         });
-   }, []);
-   const HandleProduct = () => {
-      return axios
-         .get(url)
-         .then((res) => {
-            setStock(res.data.data.data.stock);
-            setDesc(res.data.data.data.description);
-            setPrice(res.data.data.data.price);
-            setImage(res.data.data.data.image);
-            setData(res.data.data.data);
-            console.log("data : ", res.data.data.data);
-         })
-         .catch((err) => {
-            console.log(err);
-         });
-   };
+  const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
+
+  const [stock, setStock] = useState("");
+  const [desc, setDesc] = useState("");
+  const [price, setPrice] = useState("");
+  const [image, setImage] = useState("");
+  const [data, setData] = useState("");
+  const [id, setId] = useState("");
+  useEffect(() => {
+    const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
+    const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
+    const token = userInfo.token;
+    axios
+      .get(url, { headers: { "x-access-token": token } })
+      .then((res) => {
+        setStock(res.data.data.data.stock);
+        setDesc(res.data.data.data.description);
+        setPrice(res.data.data.data.price);
+        setImage(res.data.data.data.image);
+        setId(res.data.data.data.id);
+        setData(res.data.data.data);
+        console.log("data : ", res.data.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  const deleteProduct = (data) => {
+    const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
+    const token = userInfo.token;
+    const role = userInfo.role;
+    // console.log(token);
+    axios
+      .delete(
+        `${url}/delete/${data}`,
+        { headers: { "x-access-token": token } },
+        role
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const HandleProduct = () => {
+    return axios
+      .get(url)
+      .then((res) => {
+        setStock(res.data.data.data.stock);
+        setDesc(res.data.data.data.description);
+        setPrice(res.data.data.data.price);
+        setImage(res.data.data.data.image);
+        setData(res.data.data.data);
+        // console.log("data : ", res.data.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const costing = (price) => {
     return parseFloat(price)
