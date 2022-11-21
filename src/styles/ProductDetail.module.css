@@ -20,11 +20,10 @@
   cursor: pointer;
 }
 
-
-
 .img-left {
   width: 150px;
   margin-bottom: 2rem;
+  cursor: pointer;
 }
 
 .img-left-5 {
@@ -191,7 +190,8 @@
 
 .image {
   width: 100%;
-  height: 100%;
+  height: 460px;
+  padding: 10px;
 }
 
 .card-title {
