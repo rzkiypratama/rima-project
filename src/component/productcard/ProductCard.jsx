@@ -23,7 +23,7 @@ function ProductCard(props) {
         />
         <div className={styles["product-title"]}>
           <p className={styles.title}>{props.productTitle}</p>
-          <p className={styles.price}>${currency(props.price)}</p>
+          <p className={styles.price}>Rp.{currency(props.price)}</p>
         </div>
       </div>
     </>
