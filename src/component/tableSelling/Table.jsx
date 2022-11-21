@@ -16,24 +16,40 @@ function table(props) {
     <div className="d-flex px-0 justify-content-between">
       {/* <div className="d-flex justify-content-between"> */}
       <div className="d-flex align-items-center col-1 justify-content-between">
-        <img className={`${styles["image-product"]}`} src={props.image} alt="/" />
+        <img
+          className={`${styles["image-product"]}`}
+          src={props.image}
+          alt="/"
+        />
       </div>
-      <div className={`${styles["cont-product"]} d-flex align-items-center col-4 col-md-3`}>
+      <div
+        className={`${styles["cont-product"]} d-flex align-items-center col-4 col-md-3`}
+      >
+        <p className={styles["Name"]}>{props.title}</p>
         <p className={`${styles["name-product"]}`} />
         {props.description}
       </div>
 
-      <div className={` d-flex align-items-center col-2 justify-content-center gap-3 ${styles["text-stock"]}`}>
+      <div
+        className={` d-flex align-items-center col-2 justify-content-center gap-3 ${styles["text-stock"]}`}
+      >
         {/* <div className={` ${styles["stock"]} col-4 justify-content-center `}> */}
         <img className={`${styles["check"]}`} src={check} alt="/" />
         {props.stock} Stock
       </div>
 
-      <div className={` ${styles["price"]} d-flex align-items-center col-3 justify-content-center gap-5`}>
+      <div
+        className={` ${styles["price"]} d-flex align-items-center col-3 justify-content-center gap-5`}
+      >
         <p className=" " /> {props.price}
       </div>
-      <div className={` ${styles["price"]} d-flex align-items-center col-lg-1 justify-content-center gap-5`}>
-        <button onClick={() => props.remove(props.id)} className={`btn btn-danger ${styles["delete"]} `}>
+      <div
+        className={` ${styles["price"]} d-flex align-items-center col-lg-1 justify-content-center gap-5`}
+      >
+        <button
+          onClick={() => props.remove(props.id)}
+          className={`btn btn-danger ${styles["delete"]} `}
+        >
           Delete
         </button>
       </div>

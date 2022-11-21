@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 // import NavigationSeller from "../component/navigationSeller/NavigationSeller";
 
 function SellerProduct() {
-  const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
+  const url = `${process.env.REACT_APP_BACKEND_HOST}/product/my-product`;
 
   const [stock, setStock] = useState("");
   const [desc, setDesc] = useState("");
@@ -22,18 +22,19 @@ function SellerProduct() {
   const [data, setData] = useState("");
   const [id, setId] = useState("");
   useEffect(() => {
-    const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
+    const url = `${process.env.REACT_APP_BACKEND_HOST}/product/my-product`;
     const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
     const token = userInfo.token;
     axios
       .get(url, { headers: { "x-access-token": token } })
       .then((res) => {
-        setStock(res.data.data.data.stock);
-        setDesc(res.data.data.data.description);
-        setPrice(res.data.data.data.price);
-        setImage(res.data.data.data.image);
-        setId(res.data.data.data.id);
-        setData(res.data.data.data);
+        console.log(res);
+        // setStock(res.data.data.data.stock);
+        // setDesc(res.data.data.data.description);
+        // setPrice(res.data.data.data.price);
+        // setImage(res.data.data.data.image);
+        // setId(res.data.data.data.id);
+        setData(res.data.data);
         console.log("data : ", res.data.data.data);
       })
       .catch((err) => {
@@ -48,7 +49,7 @@ function SellerProduct() {
     // console.log(token);
     axios
       .delete(
-        `${url}/delete/${data}`,
+        `${process.env.REACT_APP_BACKEND_HOST}/product/delete/${data}`,
         { headers: { "x-access-token": token } },
         role
       )
@@ -179,10 +180,13 @@ function SellerProduct() {
             return (
               <Table
                 key={index}
+                title={data.name}
                 stock={data.stock}
                 description={data.desc}
                 image={data.image}
                 price={`${"IDR"} ${costing(data.price)}`}
+                remove={deleteProduct}
+                id={data.id}
               />
             );
           })
