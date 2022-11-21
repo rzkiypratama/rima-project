@@ -63,13 +63,24 @@
   color: #b4b4b4;
 }
 
-@media only screen and (max-width: 425px) {
-  .a {
-    margin-left: 20px;
+@media only screen and (max-width: 768px) {
+  .image-icon {
+    width: 25px;
+  }
+  .icon {
+    width: 25px;
+    margin-right: 0px;
   }
 
   .title-footer {
-    margin-top: 3rem;
+    margin-top: 0rem;
+    font-size: 12px;
+  }
+  .text-footer {
+    font-size: 12px;
+  }
+  .img-right {
+    width: 40px;
   }
 }
 @media only screen and (max-width: 425px) {

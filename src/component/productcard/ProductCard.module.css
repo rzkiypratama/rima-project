@@ -1,0 +1,12 @@
+.product-box img {
+  height: 20em;
+}
+
+.product-box .product-title {
+  padding-top: 19px;
+  text-align: center;
+}
+
+.product-box .product-title .price {
+  font-weight: 900;
+}

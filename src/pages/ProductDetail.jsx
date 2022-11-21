@@ -35,15 +35,19 @@ function ProductDetail() {
     <div>
       <Navbar />
       <div className="container">
-        <p>
-          FAQ <i className="bi bi-chevron-right mx-3" />
-          Shop Right Sidebar
-          <i className="bi bi-chevron-right mx-3" />
-          Product
-        </p>
+        <div className={`${styles["cont-faq"]}`}>
+          <p className={` d-flex  ${styles["title-faq"]} mt-4 `}>
+            FAQ <i className="bi bi-chevron-right mx-3" />
+            <p className={`d-flex ${styles["title-faq"]} `}>
+              Shop Right Sidebar
+              <i className="bi bi-chevron-right mx-3" />
+            </p>
+            <p className="d-flex ">Product</p>
+          </p>
+        </div>
 
         <div className="container mx-auto justify-content-between">
-          <section className=" py-5  d-flex mt-5 justify-content-between">
+          <section className={`${styles["cont-1"]}py-5  d-flex mt-5 justify-content-between`}>
             <div className="row ">
               <div className="container col-12 col-md-12 col-lg-3 ps-lg-0 col-sm-3 ">
                 <img className={`border-bottom me-3 ${styles["img-left"]}`} src={sofa1} alt="/" />
@@ -63,13 +67,10 @@ function ProductDetail() {
             <div className={`${styles["cont-star"]}`}>
               <img className={`${styles["star"]}`} src={star} alt="/" /> <span>2 (reviews)</span>
             </div>
-            <div className={`d-flex align-items-center ${styles["cont-price"]}`}>
+            <div className={`d-flex col-12 col-lg-12 col-md-12  align-items-center ${styles["cont-price"]}`}>
               <p className={` ${styles["price"]}`}>$765.99 </p>
-              <div className="d-flex gap-2">
-                <img className={` ${styles["sold-out"]}`} src={checklist} alt="/"></img>
-                <p />
-                19 Sold / 40 In Stock
-              </div>
+              <img className={` ${styles["sold-out"]}`} src={checklist} alt="/"></img>
+              <p className={` ${styles["stock"]}`}>19 Sold / 40 In Stock</p>
             </div>
             <p className={`mt-5 ${styles["donec"]}`}>
               Donec nunc nunc, gravida vitae diam vel, varius interdum erat. Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices exurabitur ut magna dignissim, dignissiNullam vitae venenatis elit. Proin dui lacus, viverra at
@@ -91,14 +92,11 @@ function ProductDetail() {
               <button type="button" className={`btn btn-dark rounded-0 mx-2 ${styles["cart-btn"]} ${styles["height-btn"]}`}>
                 Add to cart
               </button>
-              <button type="button" className={`btn btn-dark rounded-0 ${styles["height-btn"]} ${styles["heart-btn"]}`}>
+              <button type="button" className={`btn btn-dark rounded-0 ${styles["love"]} ${styles["height-btn"]} ${styles["heart-btn"]}`}>
                 <i className="bi bi-heart"></i>
               </button>
-              <button type="button" className={`btn btn-light border rounded-0 mx-2 ${styles["height-btn"]} ${styles["whistlist-btn"]}`}>
-                Add to wishlist
-              </button>
             </div>
-            <div className={`mt-5`}>
+            <div className={`mt-0 mt-md-5 mt-lg-5 ${styles["Sku"]} `}>
               <p className={`${styles["SKU"]}`}> SKU: N/A </p>
               <p className={`${styles["SKU"]}`}> Categories: Furniture, Interior, Chair </p>
               <p className={`${styles["SKU"]}`}> Tag: Furniture, Chair, Scandinavian, </p>
@@ -122,35 +120,35 @@ function ProductDetail() {
 
               <img src={youtube} alt="/" />
             </div>
-            <ul className="nav mt-5 d-flex justify-content-between">
-              <li className="nav-item  border-bottom mb-3 me-3">
+            <ul className="nav mt-5 mb-md-5d-flex justify-content-between">
+              <li className="nav-item col-lg-2 col-md-1  text-align-cente r mb-3 me-3">
                 <a className={`nav-link active ${styles["title-desc"]}`} href=" ">
                   Description
                 </a>
               </li>
-              <li className="nav-item  border-bottom mb-3 me-3">
+              <li className="nav-item col-lg-2 col-md-1  text-align-cente r mb-3 me-3">
                 <a className={`nav-link active ${styles["title-desc"]}`} href=" ">
                   Review
                 </a>
               </li>
-              <li className="nav-item  border-bottom mb-3 me-3">
+              <li className="nav-item col-lg-2 col-md-1 text-align-center  mb-3 me-3">
                 <a className={`nav-link active ${styles["title-desc"]}`} href=" ">
                   Additional Information
                 </a>
               </li>
-              <li className="nav-item  border-bottom mb-3 me-3">
+              <li className="nav-item col-lg-2 col-md-1 text-align-center  mb-3 me-3">
                 <a className={`nav-link active ${styles["title-desc"]}`} href=" ">
                   About Brand
                 </a>
               </li>
-              <li className="nav-item pb-3 border-bottom mb-3 me-3">
-                <a className={`nav-link active ${styles["title-desc"]}`} href=" ">
+              <li className="nav-item col-lg-2 col-md-1 text-align-center pb-3 mb-3 me-3">
+                <a className={`nav-link active ${styles["title-desc"]} ${styles["shipping"]}`} href=" ">
                   Shipping & Delivery
                 </a>
               </li>
             </ul>
-            <div className="row d-flex flex-sm-column flex-md-row flex-lg-row">
-              <section className={`${styles.content_left} col-12 col-sm-12 col-md-6 col-lg-6 mb-5 mb-md-0 mb-lg-0 pe-0`}>
+            <div className="row d-flex flex-sm-column mb-md-5 flex-md-row flex-lg-row">
+              <section className={`${styles.content_left} d-flex align-items-center col-12 col-sm-12 col-md-6 col-lg-6 mb-5 mb-md-0 mb-lg-0 pe-0`}>
                 <img className="w-100" src={sofa1} alt="sofa" />
               </section>
               <div className={`${styles.content_right} col-12 col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center`}>
@@ -173,21 +171,29 @@ function ProductDetail() {
             </div>
             <div className={`${styles["cont-card-down"]} container mb-5 mt-5`}>
               <h1 className="text-center">Related Products</h1>
-              <div className="d-flex mt-5 justify-content-between">
-                <div className="col-12 col-md-4 col-lg-4">
-                  <img className={`${styles["image"]}`} src={related} alt="Card" />
-                  <p className={` mt-3 ${styles["card-title"]}`}>Coaster 506222-CO Loveseat</p>
-                  <p className={` mt-3 ${styles["card-text"]} `}>$765.99</p>
-                </div>
-                <div className="col-12 col-md-4 col-lg-4">
-                  <img className={`${styles["image"]}`} src={related} alt="Card" />
-                  <p className={` mt-3 ${styles["card-title"]}`}>Coaster 506222-CO Loveseat</p>
-                  <p className={` mt-3 ${styles["card-text"]} `}>$765.99</p>
-                </div>
-                <div className="col-12  col-md-4 col-lg-4">
-                  <img className={`${styles["image"]}`} src={related} alt="Card" />
-                  <p className={` mt-3 ${styles["card-title"]}`}>Coaster 506222-CO Loveseat</p>
-                  <p className={` mt-3 ${styles["card-text"]} `}>$765.99</p>
+              <div className={`container mt-5 `}>
+                <div className=" row">
+                  <div className={`col-4`}>
+                    <div className={`container `}>
+                      <img className={` ${styles["image"]}`} src={related} alt="Card" />
+                      <p className={` mt-3 ${styles["card-title"]}`}>Coaster 506222-CO Loveseat</p>
+                      <p className={` mt-3 ${styles["card-text"]} `}>$765.99</p>
+                    </div>
+                  </div>
+                  <div className={`col-4`}>
+                    <div className={`container `}>
+                      <img className={` ${styles["image"]}`} src={related} alt="Card" />
+                      <p className={` mt-3 ${styles["card-title"]}`}>Coaster 506222-CO Loveseat</p>
+                      <p className={` mt-3 ${styles["card-text"]} `}>$765.99</p>
+                    </div>
+                  </div>
+                  <div className={`col-4`}>
+                    <div className={`container `}>
+                      <img className={` ${styles["image"]}`} src={related} alt="Card" />
+                      <p className={` mt-3 ${styles["card-title"]}`}>Coaster 506222-CO Loveseat</p>
+                      <p className={` mt-3 ${styles["card-text"]} `}>$765.99</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -1,5 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Lato&display=swap");
 
+.cont-faq {
+  margin-top: 1rem;
+  border-top: 2px solid grey;
+}
+.title-faq {
+  font-family: Arimo !important;
+  font-size: 16px !important;
+  font-family: Regular;
+  color: #1a1a1a;
+  font-weight: 400;
+}
+.stock {
+  position: relative;
+  left: -55px;
+}
 .img-left {
   width: 150px;
   margin-bottom: 2rem;
@@ -108,16 +123,21 @@
   line-height: 100%;
   fill: Solid #1a1a1a;
 }
-
+.love {
+  background-color: #1a1a1a;
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
 .title-desc {
   font-family: Arimo;
   font-style: bold;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 14px;
   line-height: 100%;
   fill: Solid;
-  color: #1a1a1a !important;
+  color: #1a1a1a;
 }
 .donec {
   font-family: Arimo;
@@ -133,17 +153,15 @@
   width: 30rem;
 }
 .image {
-  width: 80%;
+  width: 100%;
   height: 100%;
 }
-.cont-card-down {
-  height: 600px;
-}
+
 .card-title {
   font-family: Arimo;
   font-style: Regular;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 25px;
   line-height: 28px;
   line-height: 100%;
   fill: Solid #1a1a1a;
@@ -151,7 +169,7 @@
 .card-text {
   font-family: Arimo;
   font-style: bold;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 28px;
   line-height: 100%;
@@ -166,37 +184,116 @@
 }
 
 @media screen and (max-width: 768px) {
+  .cont-2 {
+    margin-top: 0rem;
+  }
+  .cont-card-down {
+    margin-top: 8rem !important;
+  }
   .card-text {
-    font-family: Arimo !important;
-    font-style: bold !important;
-    font-size: 24px !important;
-    font-weight: 700 !important;
-    line-height: 28px !important;
-    line-height: 100% !important;
+    font-family: Arimo;
+    font-style: bold;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    line-height: 100%;
     fill: Solid #1a1a1a;
   }
   .card-title {
-    font-family: Arimo !important;
-    font-style: Regular !important;
-    font-weight: 400 !important;
-    font-size: 20px !important;
-    line-height: 28px !important;
-    line-height: 100% !important;
-    fill: Solid #1a1a1a !important;
+    font-family: Arimo;
+    font-style: Regular;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 40px;
+    line-height: 130%;
+    fill: Solid #1a1a1a;
   }
   .hot {
     position: relative;
     top: -33rem;
     left: 37rem;
   }
+  .title-desc {
+    font-family: Arimo;
+    font-style: bold;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 14px;
+    line-height: 100%;
+    fill: Solid;
+    color: #1a1a1a;
+  }
 }
 @media screen and (max-width: 425px) {
-  .hot {
-    position: relative;
-    top: -20rem;
-    left: 20rem;
-    width: 32px;
+  .title-coast {
+    font-family: Arimo;
+    font-style: bold;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 28px;
+    line-height: 100%;
+    fill: Solid #1a1a1a;
   }
+  .cont-1 {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .cont-2 {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+  }
+  .price {
+    margin-right: 2rem !important;
+  }
+  .Sku {
+    margin-top: 2rem !important;
+  }
+  .shipping {
+    padding-bottom: 0px;
+  }
+  .card-title {
+    font-family: Arimo;
+    font-style: Regular;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 28px;
+    line-height: 150%;
+    fill: Solid #1a1a1a;
+  }
+
+  .cont-card-down {
+    margin-top: 4rem !important;
+  }
+  .card-text {
+    font-family: Arimo;
+    font-style: bold;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 28px;
+    line-height: 100%;
+    fill: Solid #1a1a1a;
+  }
+  /*
+  .card-title {
+    font-family: Arimo;
+    font-style: Regular;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 40px;
+    line-height: 130%;
+    fill: Solid #1a1a1a;
+  }
+
+  .title-desc {
+    font-family: Arimo;
+    font-style: bold;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 14px;
+    line-height: 100%;
+    fill: Solid;
+    color: #1a1a1a;
+  } */
 }
 @media screen and (max-width: 375px) {
   .hot {
@@ -207,11 +304,27 @@
   }
   .img-left {
     width: 100px;
-    margin-right: 0px !important;
+    margin-right: 0px;
   }
   .img-left-5 {
     width: 100px;
     position: relative;
     top: -17px;
+  }
+  .price {
+    font-size: 18px;
+  }
+  .stock {
+    font-size: 13px;
+    margin-right: -80px;
+  }
+  .sold-out {
+    width: 15px;
+    height: 15px;
+  }
+  .love {
+    position: relative;
+    top: -3rem;
+    left: 280px;
   }
 }
