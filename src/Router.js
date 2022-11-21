@@ -23,6 +23,7 @@ import Otp from "./pages/Otp";
 import OtpVerified from "./pages/OtpVerified";
 import Blog from "./pages/Blog";
 import Error from "./component/error/Error404";
+import Checkout from "./pages/Checkout";
 
 const router = createBrowserRouter([
    { path: "/", element: <Homepage />, errorElement: <Error /> },
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
    { path: "/forgot/otp/verify", element: <OtpVerified /> },
    { path: "/blog", element: <Blog /> },
    { path: "/error", element: <Error /> },
+   { path: "/cart/checkout", element: <Checkout /> },
 ]);
 
 export default router;

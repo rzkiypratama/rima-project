@@ -92,7 +92,6 @@ function Profile() {
          console.log("check setimage:", image);
       }
    };
-
    const [password, setPassword] = useState(null);
    const [new_password, setNew_password] = useState(null);
    const [confirm_password, setConfirm_password] = useState(null);
@@ -286,9 +285,11 @@ function Profile() {
             <span>
                <label htmlFor="images">
                   <img
-                     className={`${styles["profile-picture"]} `}
+                     className={`${styles["profile-picture"]} ${
+                        showInput ? null : `${styles.cursorPoint}`
+                     } `}
                      src={display}
-                     alt="/"
+                     alt="img_profile"
                   />
                </label>
                {showInput ? null : (

@@ -27,7 +27,7 @@ function CardRightImage(props) {
             </section>
             <section className="col-12 col-sm-12 col-md-6 col-lg-5 px-0 ">
                <img
-                  className={`${styles.images} `}
+                  className={`${styles.images} px-0`}
                   src={props.images}
                   alt="content_first"
                />

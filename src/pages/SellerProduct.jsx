@@ -13,7 +13,6 @@ import { Link } from "react-router-dom";
 
 function SellerProduct() {
    const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
-
    const [stock, setStock] = useState("");
    const [desc, setDesc] = useState("");
    const [price, setPrice] = useState("");
