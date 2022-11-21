@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 // styles
 import styles from "../styles/Homapage.module.css";
-
 //component
 import Navbar from "../component/navbar/Navbar";
 import Footer from "../component/footer/Footer";
@@ -20,21 +19,17 @@ function HomePage() {
    const [product, setProduct] = useState([]);
 
    useEffect(() => {
-      window.scrollTo(0, 0);
+      window.scrollTo(0, 2);
       const urlProduct = `${process.env.REACT_APP_BACKEND_HOST}/product?limit=6&page=1&sortby=latest`;
       console.log(product);
       axios
          .get(urlProduct)
          .then((res) => {
-            // const images = res.data.data.data[0].image;
-            // console.log(images);
-            // const listImage = images.replace(/{/g, "").replace(/}/g, "");
-            // let imageLink = [];
-            // listImage.split(",").map((link) => imageLink.push(link));
             setProduct(res.data.data.data);
             console.log(res.data.data.data);
          })
          .catch((err) => console.log(err));
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    return (
@@ -43,7 +38,6 @@ function HomePage() {
             {/* content main */}
             <section className={styles.home__bar}>
                <Navbar />
-
                <section
                   className={` d-flex justify-content-center align-items-center p-0`}
                >
@@ -55,7 +49,12 @@ function HomePage() {
                         <br /> Curabitur blandit ultrices ex. Curabitur ut magna
                         dignissim, dignissim
                      </p>
-                     <section className={`${styles.explore} text-center`}>
+                     <section
+                        className={`${styles.explore} text-center`}
+                        onClick={() => {
+                           window.scroll(0, 900);
+                        }}
+                     >
                         <p>Explore now</p>
                         <div className={`${styles.arrow}`}>
                            <i
@@ -68,22 +67,12 @@ function HomePage() {
                   </article>
                </section>
             </section>
-
             {/* content first */}
-            {product.map((e, index) => {
-               const listImage = e.image
-                  .replace(/{/g, "")
-                  .replace(/}/g, "")
-                  .replace(/"\"/g, "")
-                  .replace(/}/g, "");
-
-               let imageLink = [];
-               listImage.split(",").map((link) => imageLink.push(link));
-               console.log(imageLink);
-
+            <div id="#product"></div>
+            {product.map((e, index) =>
                index % 2 === 1 ? (
                   <CardImageLeft
-                     images={imageLink[0]}
+                     images={e.image.index}
                      title={e.name}
                      desc={e.description}
                      key={e.id}
@@ -97,8 +86,8 @@ function HomePage() {
                      id={e.id}
                      key={e.id}
                   />
-               );
-            })}
+               )
+            )}
 
             {/* services */}
             <section
