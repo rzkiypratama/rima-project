@@ -29,7 +29,7 @@ function BasicExample() {
   const isLogin = JSON.parse(localStorage["userInfo"] || "{}");
 
   return (
-    <Navbar expand="lg mt-3">
+    <Navbar expand="lg ">
       <Container>
         <Navbar.Brand className={`${styles["company"]}`}>
           <Link to={"/"} className={` ${styles["rima"]} text-decoration-none `}>
