@@ -13,20 +13,20 @@ import search from "../navbar/search.png";
 import cart from "../navbar/cart.png";
 
 function BasicExample() {
-   // const [navbar, setnavbar] = useState(NavbarLogin);
-   // navType = () => {
-   //   if (this.state.userInfo.token) {
-   //     if (this.state.userInfo.role === "user") {
-   //       return this.state.navLogin;
-   //     } else {
-   //       return this.state.navAdmin;
-   //     }
-   //   } else {
-   //     return this.state.navnotLogin;
-   //   }
-   // };
+  // const [navbar, setnavbar] = useState(NavbarLogin);
+  // navType = () => {
+  //   if (this.state.userInfo.token) {
+  //     if (this.state.userInfo.role === "user") {
+  //       return this.state.navLogin;
+  //     } else {
+  //       return this.state.navAdmin;
+  //     }
+  //   } else {
+  //     return this.state.navnotLogin;
+  //   }
+  // };
 
-   const isLogin = JSON.parse(localStorage["userInfo"] || "{}");
+  const isLogin = JSON.parse(localStorage["userInfo"] || "{}");
 
   return (
     <Navbar expand="lg ">
@@ -45,53 +45,12 @@ function BasicExample() {
                 HOME
               </Link>
             </Nav.Link>
-            <div className={`d-flex justify-content-center align-items-center ${styles["pages-shop"]}`}>
-              <p
-                className={`${styles["title"]} 
-               ${styles["cursor"]}`}
-              >
-                PAGES
-              </p>
+            <div className="d-flex justify-content-center align-items-center">
+              <p className={`${styles["title"]} ${styles["cursor"]}`}>PAGES</p>
               <NavDropdown className={styles["title"]} id="basic-nav-dropdown">
                 <Link className={styles["no-underline"]} to={"/about"}>
                   <NavDropdown.Item href="#action/3.1">About Us </NavDropdown.Item>
                 </Link>
-   return (
-      <Navbar expand="lg ">
-         <Container>
-            <Navbar.Brand className={`${styles["company"]}`}>
-               <Link
-                  to={"/"}
-                  className={` ${styles["rima"]} text-decoration-none `}
-               >
-                  RIMA
-               </Link>
-               <div className="dropdown"></div>
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-               <Nav className={`mx-auto gap-5 ${styles["navbar"]}`}>
-                  <Nav.Link className={styles["title"]}>
-                     <Link
-                        className={`${styles["color-text"]} ${styles["no-underline"]}`}
-                        to={"/"}
-                     >
-                        HOME
-                     </Link>
-                  </Nav.Link>
-                  <div className="d-flex justify-content-center align-items-center">
-                     <p className={`${styles["title"]} ${styles["cursor"]}`}>
-                        PAGES
-                     </p>
-                     <NavDropdown
-                        className={styles["title"]}
-                        id="basic-nav-dropdown"
-                     >
-                        <Link className={styles["no-underline"]} to={"/about"}>
-                           <NavDropdown.Item href="#action/3.1">
-                              About Us{" "}
-                           </NavDropdown.Item>
-                        </Link>
 
                 <NavDropdown.Item href="#action/3.2">Contact Us</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Coming Soon </NavDropdown.Item>
