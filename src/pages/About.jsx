@@ -8,7 +8,14 @@ import Navbar from "../component/navbar/Navbar";
 import Footer from "../component/footer/Footer";
 //assets
 import img_video from "../assets/About/img_video.png";
-import parker from "../assets/profile/parker.jpeg";
+import putra from "../assets/About/putra.jpg";
+import basri from "../assets/About/basri.jpg";
+import ikrom from "../assets/About/ikrom2.jpg";
+import review1 from "../assets/About/ikromOtot.jpg";
+import review2 from "../assets/About/ikromBola.jpeg";
+// import aksal from "../assets/About/aksal.jpg";
+import aksal from "../assets/About/aksal2.jpg";
+
 import img_user from "../assets/About/img_user.png";
 import Slider from "react-slick";
 
@@ -126,39 +133,39 @@ function About() {
                <section className="row d-flex flex-wrap">
                   <section className="col-12 col-sm-12 col-md-6 col-lg-3 text-start mb-sm-3">
                      <img
-                        src={parker}
+                        src={putra}
                         alt="img_team"
                         className={`${styles.img_team}`}
                      />
-                     <h5 className={styles.name}>Putra Parker</h5>
-                     <p className={`${styles.jobs}`}>CEO-Founder</p>
+                     <h5 className={styles.name}>Rizki Putra Pratama</h5>
+                     <p className={`${styles.jobs}`}>Jr.Frontend Developer</p>
                   </section>
                   <section className="col-12 col-sm-12 col-md-6 col-lg-3 text-start mb-sm-3">
                      <img
-                        src={parker}
+                        src={ikrom}
                         alt="img_team"
                         className={`${styles.img_team}`}
                      />
-                     <h5 className={styles.name}>Putra Parker</h5>
-                     <p className={`${styles.jobs}`}>CEO-Founder</p>
+                     <h5 className={styles.name}>Muhammad Ikram</h5>
+                     <p className={`${styles.jobs}`}>Jr.Frontend Developer</p>
                   </section>
                   <section className="col-12 col-sm-12 col-md-6 col-lg-3 text-start mb-sm-3">
                      <img
-                        src={parker}
+                        src={basri}
                         alt="img_team"
                         className={`${styles.img_team}`}
                      />
-                     <h5 className={styles.name}>Putra Parker</h5>
-                     <p className={`${styles.jobs}`}>CEO-Founder</p>
+                     <h5 className={styles.name}>Imam Basri</h5>
+                     <p className={`${styles.jobs}`}>Jr.Frontend Developer</p>
                   </section>
                   <section className="col-12 col-sm-12 col-md-6 col-lg-3 text-start mb-sm-3">
                      <img
-                        src={parker}
+                        src={aksal}
                         alt="img_team"
                         className={`${styles.img_team}`}
                      />
-                     <h5 className={styles.name}>Putra Parker</h5>
-                     <p className={`${styles.jobs}`}>CEO-Founder</p>
+                     <h5 className={styles.name}>Akshal Rizki Gandari</h5>
+                     <p className={`${styles.jobs}`}>Sr.Fullstack Developer</p>
                   </section>
                </section>
             </section>
@@ -166,7 +173,44 @@ function About() {
             <div className={`${styles.testimoni__bar} pb-5 container-fluid`}>
                <Slider {...settings}>
                   <div className={`${styles.testimoni} col-12`}>
-                     <p className="pb-5">
+                     <p className="">
+                        “Gave 5 stars for excellent customer service. I had a
+                        couple of questions which they replied quickly to
+                        answer. If I could give multiple reasons for my rating
+                        it would also be for the design quality and
+                        customization to go along with the great service. The
+                        theme is excellent, keep up the great work."
+                     </p>
+                     <img
+                        className={`${styles.img_user}`}
+                        src={review2}
+                        alt="img_user"
+                     />
+                     <p className={`${styles.name_testi}`}>
+                        Gonzales - Singapore
+                     </p>
+                  </div>
+                  {/* testi 2 */}
+                  <div className={`${styles.testimoni} col-12`}>
+                     <p className="">
+                        “Gave 5 stars for excellent customer service. I had a
+                        couple of questions which they replied quickly to
+                        answer. If I could give multiple reasons for my rating
+                        it would also be for the design quality and
+                        customization to go along with the great service. The
+                        theme is excellent, keep up the great work."
+                     </p>
+                     <img
+                        className={`${styles.img_user}`}
+                        src={review1}
+                        alt="img_user"
+                     />
+                     <p className={`${styles.name_testi}`}>
+                        Abang Otot - Indonesia
+                     </p>
+                  </div>
+                  <div className={`${styles.testimoni} col-12`}>
+                     <p className="">
                         “Gave 5 stars for excellent customer service. I had a
                         couple of questions which they replied quickly to
                         answer. If I could give multiple reasons for my rating
@@ -177,25 +221,6 @@ function About() {
                      <img
                         className={`${styles.img_user}`}
                         src={img_user}
-                        alt="img_user"
-                     />
-                     <p className={`${styles.name_testi}`}>
-                        Trevor Rivera - Calinofrnia
-                     </p>
-                  </div>
-                  {/* testi 2 */}
-                  <div className={`${styles.testimoni} col-12`}>
-                     <p className="pb-5">
-                        “Gave 5 stars for excellent customer service. I had a
-                        couple of questions which they replied quickly to
-                        answer. If I could give multiple reasons for my rating
-                        it would also be for the design quality and
-                        customization to go along with the great service. The
-                        theme is excellent, keep up the great work."
-                     </p>
-                     <img
-                        className={`${styles.img_user}`}
-                        src={parker}
                         alt="img_user"
                      />
                      <p className={`${styles.name_testi}`}>
