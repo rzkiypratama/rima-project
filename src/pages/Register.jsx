@@ -32,6 +32,7 @@ function Regist() {
    const changeHandler = (e) =>
       setBody({ ...body, [e.target.name]: e.target.value });
    console.log(body);
+   
 
    const toLogin = () => navigate("/login");
    const toHome = () => navigate("/");
@@ -73,6 +74,7 @@ function Regist() {
          return setErrMsg("* Alldata Must Be Filled *");
       if (body.password.length < 8)
          return setErrMsg("* Password at least in 8 character *");
+         console.log(body.role)
       //  return toast.error("All input must be fulfilled", {
       //    position: "top-center",
       //    autoClose: 2000,
@@ -262,6 +264,18 @@ function Regist() {
                               onChange={changeHandler}
                            />
                         </form>
+                        { body.role === 'seller' && (
+                           <form action="">
+                           <input
+                              type="text"
+                              name="store_desc"
+                              placeholder={
+                                 body.role === "seller" && "Input your store description"
+                              }
+                              onChange={changeHandler}
+                           />
+                        </form>
+                        )}
                      </div>
                      {errMsg && <p className={styles.errmsg2}>{errMsg}</p>}
                      <div className={styles["btn-username"]}>
