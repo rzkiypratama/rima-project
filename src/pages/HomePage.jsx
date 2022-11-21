@@ -12,16 +12,22 @@ import backtowork from "../assets/homepage/img_service_backtowork.png";
 import furniture from "../assets/homepage/img_service_furniture.png";
 import furnitureoffice from "../assets/homepage/img_service_furniture_office.png";
 import workspace from "../assets/homepage/img_service_workspace.png";
+import profileActions from "../redux/actions/profile";
+
 import axios from "axios";
 // helper
 import title from "../helper/title";
+import { useDispatch } from "react-redux";
 function HomePage() {
    title("RIMA FURNITURE");
    const [product, setProduct] = useState([]);
-
+   const dispatch = useDispatch();
    useEffect(() => {
       window.scrollTo(0, 0);
       const urlProduct = `${process.env.REACT_APP_BACKEND_HOST}/product?limit=6&page=1&sortby=latest`;
+      const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
+      dispatch(profileActions.profileThunk(userInfo.token));
+
       console.log(product);
       axios
          .get(urlProduct)
@@ -35,6 +41,7 @@ function HomePage() {
             console.log(res.data.data.data);
          })
          .catch((err) => console.log(err));
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    return (
@@ -70,20 +77,10 @@ function HomePage() {
             </section>
 
             {/* content first */}
-            {product.map((e, index) => {
-               const listImage = e.image
-                  .replace(/{/g, "")
-                  .replace(/}/g, "")
-                  .replace(/"\"/g, "")
-                  .replace(/}/g, "");
-
-               let imageLink = [];
-               listImage.split(",").map((link) => imageLink.push(link));
-               console.log(imageLink);
-
+            {product.map((e, index) =>
                index % 2 === 1 ? (
                   <CardImageLeft
-                     images={imageLink[0]}
+                     images={e.image}
                      title={e.name}
                      desc={e.description}
                      key={e.id}
@@ -97,8 +94,8 @@ function HomePage() {
                      id={e.id}
                      key={e.id}
                   />
-               );
-            })}
+               )
+            )}
 
             {/* services */}
             <section
