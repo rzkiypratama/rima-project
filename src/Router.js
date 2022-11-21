@@ -50,7 +50,7 @@ const router = createBrowserRouter([
   { path: "/blog", element: <Blog /> },
   { path: "/error", element: <Error /> },
   { path: "/cart/checkout", element: <Checkout /> },
-  { path: "/page/contact", element: <Checkout /> },
+  { path: "/page/contact", element: <Contact /> },
 ]);
 
 export default router;
