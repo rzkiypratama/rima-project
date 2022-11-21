@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-
+import PrivateElement from "./component/PrivateElement";
 // Pages
 import Homepage from "./pages/HomePage";
 import Login from "./pages/Login";
@@ -12,15 +12,19 @@ import Chat from "./pages/Chat";
 import FAQ from "./pages/FAQ";
 import Profile from "./pages/Profile";
 import Admin from "./pages/SellerProduct";
+import MyOrder from "./pages/MyOrder";
 import Product from "./pages/Product";
 import About from "./pages/About";
 import ProductDetail from "./pages/ProductDetail";
+import CreateProduct from "./pages/CreateProduct";
 import Cart from "./pages/Cart";
 import Otp from "./pages/Otp";
 import OtpVerified from "./pages/OtpVerified";
+import Blog from "./pages/Blog";
+import Error from './component/error/Error404'
 
 const router = createBrowserRouter([
-  { path: "/", element: <Homepage /> },
+  { path: "/", element: <Homepage />, errorElement: <Error/> },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },
   { path: "/forgot", element: <ForgotPassword /> },
@@ -28,7 +32,9 @@ const router = createBrowserRouter([
   { path: "/chat", element: <Chat /> },
   { path: "/faq", element: <FAQ /> },
   { path: "/profile", element: <Profile /> },
-  { path: "/profile/admin", element: <Admin /> },
+  { path: "/admin/my-product", element: <Admin /> },
+  { path: "/admin/create-product", element: <CreateProduct /> },
+  { path: "/admin/my-order", element: <MyOrder /> },
   { path: "/product", element: <Product /> },
   { path: "/order/tracking", element: <OrderTracking /> },
   { path: "/order/tracking/detail", element: <OrderTrackingDetail /> },
@@ -37,6 +43,7 @@ const router = createBrowserRouter([
   { path: "/cart", element: <Cart /> },
   { path: "/forgot/otp", element: <Otp /> },
   { path: "/forgot/otp/verify", element: <OtpVerified /> },
+  { path: "/blog", element: <Blog /> },
 ]);
 
 export default router;

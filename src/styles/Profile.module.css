@@ -1,5 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Lato&display=swap");
 
+
+.icon-eye {
+  position: absolute;
+  right: 25px;
+  top: 147px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon-eye-invisible {
+  position: absolute;
+  right: 20px;
+  top: 57px;
+  display: flex;
+  width: 2rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+}
+
+.input__password {
+  height: inherit;
+}
+
 .cont-fluid {
   background-image: url("../assets/background/bg.png");
 }
@@ -60,11 +87,12 @@
   width: 21px;
   height: 21px;
   position: relative;
+  top: -50px;
+  right: -30px;
 }
 
 .text-profile {
   font-weight: 400;
-
   font-family: Arimo;
   font-style: Regular;
   font-size: 16px;
@@ -72,6 +100,7 @@
   line-height: 100%;
   vertical-align: Top;
   fill: Solid #1a1a1a;
+  padding-top: 25px;
 }
 
 .logout {
@@ -93,9 +122,13 @@
   color: salmon;
 }
 
-.cursor:hover {
+/* .cursor:hover {
   transform: scale(1.2);
 
+} */
+
+.floating-form:disabled {
+  background-color: #ffffff;
 }
 
 .logout-icon {
@@ -125,6 +158,49 @@
 .username {
   border: none;
   width: 100%;
+}
+
+
+
+/* navbar admin */
+.color-text {
+  color: #1a1a1a;
+  font-family: arimo;
+  font-size: 20px;
+  font-style: bold;
+  font-weight: 500;
+}
+
+.color-text:hover {
+  color: #1a1a1a;
+}
+
+.menu {
+  color: #1a1a1a !important;
+}
+
+.nav-link {
+  display: block;
+  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+  font-size: var(--bs-nav-link-font-size);
+  font-weight: var(--bs-nav-link-font-weight);
+  color: #000000 !important;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.color {
+  color: #000000 !important;
+}
+
+/* navbar admin */
+
+
+
+/* modal password */
+.input__password {
+  height: 50px;
+
 }
 
 /*Any Mobile Device*/

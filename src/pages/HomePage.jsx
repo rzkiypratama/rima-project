@@ -1,3 +1,6 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable array-callback-return */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 // styles
 import styles from "../styles/Homapage.module.css";

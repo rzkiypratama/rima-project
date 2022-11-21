@@ -9,6 +9,27 @@
   padding: 3rem 0;
 }
 
+.icon-eye {
+  position: absolute;
+  right: 185px;
+  top: 85px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 2rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.input__ {
+  width: 80%;
+}
+
+.form__bar {
+  position: relative;
+}
+
 .page-title::after {
   content: "";
   position: absolute;
@@ -376,5 +397,73 @@
 
   .form .btn-login button {
     width: 100%;
+  }
+
+}
+
+@media screen and (max-width:1200px) {
+
+  .icon-eye {
+    right: 155px;
+    top: 85px;
+  }
+}
+
+
+
+@media screen and (max-width:992px) {
+
+  .icon-eye {
+    right: 140px;
+    top: 85px;
+  }
+}
+
+@media screen and (max-width:800px) {
+
+  .icon-eye {
+    right: 220px;
+    top: 85px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .icon-eye {
+    right: 220px;
+    top: 85px;
+  }
+}
+
+@media screen and (max-width:768px) {
+
+  .icon-eye {
+    right: 185px;
+    top: 85px;
+  }
+}
+
+@media screen and (max-width:769px) {
+  .icon-eye {
+    right: 185px;
+    top: 85px;
+  }
+}
+
+@media screen and (max-width:577px) {
+
+  .icon-eye {
+    right: 140px;
+    top: 85px;
+  }
+}
+
+@media screen and (max-width:576px) {
+  .input__ {
+    width: 100%;
+  }
+
+  .icon-eye {
+    right: 12px;
+    top: 85px;
   }
 }
