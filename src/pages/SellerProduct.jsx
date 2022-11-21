@@ -6,6 +6,7 @@ import axios from "axios";
 import styles from "../styles/SellerProduct.module.css";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Table from "../component/tableSelling/Table";
+
 import Loader from "../component/loader/Loader";
 import { Link } from "react-router-dom";
 // import Dropdown from "react-bootstrap/Dropdown";
@@ -19,6 +20,7 @@ function SellerProduct() {
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
   const [data, setData] = useState("");
+  const [id, setId] = useState("");
   useEffect(() => {
     const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
     axios
@@ -28,6 +30,7 @@ function SellerProduct() {
         setDesc(res.data.data.data.description);
         setPrice(res.data.data.data.price);
         setImage(res.data.data.data.image);
+        setId(res.data.data.data.id);
         setData(res.data.data.data);
         console.log("data : ", res.data.data.data);
       })
@@ -35,6 +38,21 @@ function SellerProduct() {
         console.log(err);
       });
   }, []);
+
+  const deleteProduct = (data) => {
+    const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
+    const token = userInfo.token;
+    // console.log(token);
+    axios
+      .delete(`${url}/delete/${data}`, { headers: { "x-access-token": token } })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const HandleProduct = () => {
     return axios
       .get(url)
@@ -44,7 +62,7 @@ function SellerProduct() {
         setPrice(res.data.data.data.price);
         setImage(res.data.data.data.image);
         setData(res.data.data.data);
-        console.log("data : ", res.data.data.data);
+        // console.log("data : ", res.data.data.data);
       })
       .catch((err) => {
         console.log(err);
@@ -66,6 +84,8 @@ function SellerProduct() {
           <p className={`text-center fs-6 ${styles["text-profile"]}`}>See your notifications for the latest updates</p>
         </div>
       </div>
+
+      {/* navigation */}
       <div className={`container justify-content-evenly d-flex  my-5 ${styles["cont-nav"]} `}>
         <p className="nav-item">
           <Link className={` text-decoration-none ${styles["no-underline"]}`} to={"/profile"}>
@@ -101,16 +121,16 @@ function SellerProduct() {
       </div>
 
       <hr className="container" />
-      <section className="container col-lg-12 py-md-3 d-flex px-5 justify-content-between ">
-        <p className={`${styles["title"]} col-3 col-lg-4 d-flex justify-content-start ms-4 `}>Product</p>
-        <p className={`${styles["title"]} col-4 col-md-3 col-lg-4 d-flex justify-content-start ms-4 `}> Stock Status</p>
-        <p className={`${styles["title"]} col-3 col-lg-4 d-flex justify-content-start ms-4 `}>Price</p>
+      <section className="container col-lg-12 d-flex px-5 justify-content-between ">
+        <p className={`${styles["title"]} col-3 col-lg-4 d-flex justify-content-center ms-4 `}>Product</p>
+        <p className={`${styles["title"]} col-4 col-md-3 col-lg-4 d-flex justify-content-center ms-4 `}> Stock Status</p>
+        <p className={`${styles["title"]} col-3 col-lg-4 d-flex justify-content-center ms-4 `}>Price</p>
       </section>
       <hr className="container" />
       <div className="container">
         {data.length > 0 ? (
-          data.map((data, index) => {
-            return <Table key={index} stock={data.stock} description={data.name} image={data.image} price={`${"IDR"} ${costing(data.price)}`} />;
+          data.map((data) => {
+            return <Table key={data.id} stock={data.stock} description={data.name} image={data.image} price={`${"IDR"} ${costing(data.price)} `} remove={deleteProduct} id={data.id} />;
           })
         ) : (
           <>

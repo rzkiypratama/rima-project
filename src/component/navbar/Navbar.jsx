@@ -45,7 +45,7 @@ function BasicExample() {
                 HOME
               </Link>
             </Nav.Link>
-            <div className="d-flex justify-content-center align-items-center">
+            <div className={`${styles["pages-shop"]} d-flex justify-content-center align-items-center`}>
               <p className={`${styles["title"]} ${styles["cursor"]}`}>PAGES</p>
               <NavDropdown className={styles["title"]} id="basic-nav-dropdown">
                 <Link className={styles["no-underline"]} to={"/about"}>
