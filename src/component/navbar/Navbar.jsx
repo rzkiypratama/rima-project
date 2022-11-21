@@ -63,13 +63,21 @@ function BasicExample() {
             <div className="d-flex justify-content-center align-items-center">
               <p className={`${styles["title"]} ${styles["cursor"]}`}>SHOP</p>
               <NavDropdown className={styles["title"]} id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Other Page </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.1">Shopping Cart </NavDropdown.Item>
+                <Link className={styles["no-underline"]} to={"/product"}>
+                  <NavDropdown.Item href="#action/3.1">Product </NavDropdown.Item>
+                </Link>
+                <Link className={styles["no-underline"]} to={"/cart"}>
+                  <NavDropdown.Item href="#action/3.1">Shopping Cart </NavDropdown.Item>
+                </Link>
 
                 <NavDropdown.Item href="#action/3.2">Check Out</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Coming Soon </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">My Account</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.1">Order Tracking</NavDropdown.Item>
+                <Link className={styles["no-underline"]} to={"/profile"}>
+                  <NavDropdown.Item href="#action/3.3">My Account</NavDropdown.Item>
+                </Link>
+                <Link className={styles["no-underline"]} to={"/order/tracking"}>
+                  <NavDropdown.Item href="#action/3.1">Order Tracking</NavDropdown.Item>
+                </Link>
               </NavDropdown>
             </div>
 
