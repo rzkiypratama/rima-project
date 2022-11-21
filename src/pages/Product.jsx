@@ -10,19 +10,42 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Card from '../component/productcard/ProductCard'
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/actions/product";
+// import categoriesActions from "../redux/action/categories";
+import {
+  createSearchParams,
+  useLocation,
+  useSearchParams,
+} from "react-router-dom";
+
+// const useQuery = () => {
+//   const { search } = useLocation();
+//   return useMemo(() => new URLSearchParams(search), [search]);
+// };
+
 
 
 function Product() {
   const [linkActive, setLinkActive] = useState("one")
   const [linkPage, setPageActive] = useState("one")
-  const product = useSelector((state) => state.products.products);
   const dispacth = useDispatch();
+  const product = useSelector((state) => state.products.products);
+  // const totalData = useSelector((state) => state.products.meta.totalData);
+  // const isLoading = useSelector((state) => state.products.isLoading);
+  // const isRejected = useSelector((state) => state.products.isError);
+  // const categories = useSelector((state) => state.categories.categories);
+
+  const [query, setQuery] = useState({});
+  const [searchParams, setSearchParams] = useSearchParams();
+  // const getQuery = useQuery();
+  
 
   console.log(product);
 
   useEffect(() => {
-    dispacth(productActions.getProductThunk());
-  }, [dispacth]);
+    const urlSearchParams = createSearchParams({...query});
+    setSearchParams(urlSearchParams);
+    dispacth(productActions.getProductThunk(query));
+  }, [dispacth, query, searchParams]);
 
   return (
     <>
@@ -87,7 +110,12 @@ function Product() {
         <h3>Brands</h3>
         <div className={styles["brand-checkbox"]}>
           <div className={styles["label-brands"]}>
-        <input type="checkbox" name="" id="" />
+        <input type="checkbox" name="" id="" onClick={() => {
+                        setQuery({
+                          ...query,
+                          brand: "IKEA",
+                        });
+                      }} />
         <label htmlFor="">IKEA</label>
           </div>
           <div className={styles["label-brands"]}>
@@ -114,12 +142,54 @@ function Product() {
         <div className={styles["color-box"]}>
         <h3>Colors</h3>
         <div className={styles["color-option"]}>
-        <input className={styles.one} type='radio' name="color"/>
-        <input className={styles.two} type='radio' name="color"/>
-        <input className={styles.three} type='radio' name="color"/>
-        <input className={styles.four} type='radio' name="color"/>
-        <input className={styles.five} type='radio' name="color"/>
-        <input className={styles.six} type='radio' name="color"/>
+        <input 
+        onClick={() => {
+          setQuery({
+            ...query,
+            color: "#A17F25",
+          });
+        }}
+        className={styles.one}  type='radio' name="color"/>
+        <input 
+        onClick={() => {
+          setQuery({
+            ...query,
+            color: "#6B8FBE",
+          });
+        }}
+        className={styles.two} type='radio' name="color"/>
+        <input 
+         onClick={() => {
+          setQuery({
+            ...query,
+            color: "#49453D",
+          });
+        }}
+        className={styles.three} type='radio' name="color"/>
+        <input 
+        onClick={() => {
+          setQuery({
+            ...query,
+            color: "#504E86",
+          });
+        }}
+        className={styles.four} type='radio' name="color"/>
+        <input 
+        onClick={() => {
+          setQuery({
+            ...query,
+            color: "#4E8651",
+          });
+        }}
+        className={styles.five} type='radio' name="color"/>
+        <input 
+        onClick={() => {
+          setQuery({
+            ...query,
+            color: "#EEA437",
+          });
+        }}
+        className={styles.six} type='radio' name="color"/>
         </div>
         </div>
       </div>
@@ -131,6 +201,10 @@ function Product() {
         <div className={styles["size-pagination"]}>
         <div 
         onClick={() => {
+          setQuery({
+            ...query,
+            size: "S",
+          });
           setLinkActive("one")
         }}
          style={{ "background-color": linkActive === "one" ? "#000000" : "" }}
@@ -139,6 +213,10 @@ function Product() {
         </div>
         <div 
         onClick={() => {
+          setQuery({
+            ...query,
+            size: "M",
+          });
           setLinkActive("two")
         }}
          style={{ "background-color": linkActive === "two" ? "#000000" : "" }}
@@ -147,6 +225,10 @@ function Product() {
         </div>
         <div 
         onClick={() => {
+          setQuery({
+            ...query,
+            size: "L",
+          });
           setLinkActive("three")
         }}
          style={{ "background-color": linkActive === "three" ? "#000000" : "" }}
@@ -155,6 +237,10 @@ function Product() {
         </div>
         <div 
         onClick={() => {
+          setQuery({
+            ...query,
+            size: "XL",
+          });
           setLinkActive("four")
         }}
          style={{ "background-color": linkActive === "four" ? "#000000" : "" }}
@@ -163,6 +249,10 @@ function Product() {
         </div>
         <div
         onClick={() => {
+          setQuery({
+            ...query,
+            size: "XXL",
+          });
           setLinkActive("five")
         }}
          style={{ "background-color": linkActive === "five" ? "#000000" : "" }}
@@ -173,6 +263,10 @@ function Product() {
       <div className={styles["box-pull"]}>
         <div
         onClick={() => {
+          setQuery({
+            ...query,
+            size: "Pull Size",
+          });
           setLinkActive("six")
         }}
          style={{ "background-color": linkActive === "six" ? "#000000" : "" }}
@@ -197,8 +291,30 @@ function Product() {
     <div className={styles["detail-right"]}>
       <div className="sort-page">
       <DropdownButton id="dropdown-basic-button" title="Sort by" className={styles.dropdown}>
-      <Dropdown.Item href="#/action-1">Cheapest</Dropdown.Item>
-      <Dropdown.Item href="#/action-2">Expensive</Dropdown.Item>
+      <Dropdown.Item onClick={() => {
+                        setQuery({
+                          ...query,
+                          price: "cheap",
+                        });
+                      }}>Cheapest</Dropdown.Item>
+      <Dropdown.Item onClick={() => {
+                        setQuery({
+                          ...query,
+                          price: "expensive",
+                        });
+                      }}>Expensive</Dropdown.Item>
+                      <Dropdown.Item onClick={() => {
+                        setQuery({
+                          ...query,
+                          sortby: "newest",
+                        });
+                      }}>Newest</Dropdown.Item>
+                      <Dropdown.Item onClick={() => {
+                        setQuery({
+                          ...query,
+                          sortby: "latest",
+                        });
+                      }}>Latest</Dropdown.Item>
     </DropdownButton>
       </div>
       <div className={styles["product-box-main"]}>
