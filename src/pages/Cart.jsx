@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Link } from "react-router-dom";
 // components
@@ -11,28 +12,28 @@ import styles from "../styles/Cart.module.css";
 import img_empty from "../assets/cart/img_empty.png";
 
 function Cart() {
-   title("Cart");
-   return (
-      <>
-         <Navbar />
-         <main>
-            {/* breadcrumb */}
-            <section className={styles.breadcrumb__bar}>
-               <nav className={`${styles.breadcrumb}`}>
-                  <Link to={"#"}>Your Cart</Link>
-                  <i className="bi bi-chevron-right mx-3"></i>
-               </nav>
-               <div className="text-center">
-                  <span>
-                     <h1 className="py-3">Your Cart</h1>
-                     <p>Buy everything in your cart now!</p>
-                  </span>
-                  {/* kondisi jika ada checkout */}
-               </div>
-            </section>
-            {/* cart */}
-            <section className="row container py-5 mx-auto d-flex flex-lg-row justify-content-between flex-md-column">
-               {/* <section
+  title("Cart");
+  return (
+    <>
+      <Navbar />
+      <main>
+        {/* breadcrumb */}
+        <section className={styles.breadcrumb__bar}>
+          <nav className={`${styles.breadcrumb}`}>
+            <Link to={"#"}>Your Cart</Link>
+            <i className="bi bi-chevron-right mx-3"></i>
+          </nav>
+          <div className="text-center">
+            <span>
+              <h1 className="py-3">Your Cart</h1>
+              <p>Buy everything in your cart now!</p>
+            </span>
+            {/* kondisi jika ada checkout */}
+          </div>
+        </section>
+        {/* cart */}
+        <section className="row container py-5 mx-auto d-flex flex-lg-row justify-content-between flex-md-column">
+          {/* <section
                   className={`${styles.cart_product} col-12 col-sm-12 col-md-12 col-lg-8`}
                >
                   <table
@@ -153,23 +154,19 @@ function Cart() {
                   </button>
                </section> */}
 
-               {/* kondisi belom ada cart */}
-               <div className={`${styles.empty__bar} text-center`}>
-                  <img src={img_empty} alt="img_empty" />
-                  <h3 className={`${styles.empty_title}`}>
-                     Your Cart is Empty
-                  </h3>
-                  <p className={styles.empty_text}>
-                     Donec nunc nunc, gravida vitae diam vel, varius interdum
-                     erat. Quisque a nunc vel <br /> diam auctor commodo.
-                     urabitur blandit ultri
-                  </p>
-               </div>
-            </section>
-         </main>
-         <Footer />
-      </>
-   );
+          {/* kondisi belom ada cart */}
+          <div className={`${styles.empty__bar} text-center`}>
+            <img src={img_empty} alt="img_empty" />
+            <h3 className={`${styles.empty_title}`}>Your Cart is Empty</h3>
+            <p className={styles.empty_text}>
+              Donec nunc nunc, gravida vitae diam vel, varius interdum erat. Quisque a nunc vel <br /> diam auctor commodo. urabitur blandit ultri
+            </p>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
 }
 
 export default Cart;

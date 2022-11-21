@@ -9,6 +9,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { Link } from "react-router-dom";
 
 import sofa1 from "../assets/productDetail/Sofa2.png";
+import NavsSeller from "../component/navigationSeller/navSeller/NavsSeller";
 // import { useNavigate } from "react-router-dom";
 
 function CreateProduct() {
@@ -21,14 +22,9 @@ function CreateProduct() {
           <p className={`text-center fs-6 ${styles["text-profile"]}`}>See your notifications for the latest updates</p>
         </div>
       </div>
-      <div className=" container justify-content-evenly d-flex  my-5">
-        <p className="nav-item">
-          <Link className={` text-decoration-none ${styles["no-underline"]}`} to={"/profile"}>
-            <p className={`nav-link ${styles["color-text"]}`}>Profile</p>
-          </Link>
-        </p>
 
-        <div className={`d-flex gap-2 align-items-center ${styles["cursor"]} ${styles["color"]}`}>
+      <NavsSeller />
+      {/* <div className={`d-flex gap-2 align-items-center ${styles["cursor"]} ${styles["color"]}`}>
           <Link className={` text-decoration-none ${styles["no-underline"]} `} to={"/admin/my-product"}>
             <p className={`${styles["cursor"]} ${styles["color-text"]}`}> My Product </p>
           </Link>
@@ -52,8 +48,7 @@ function CreateProduct() {
             <NavDropdown.Item>Archive</NavDropdown.Item>
             <NavDropdown.Item>Sold Out</NavDropdown.Item>
           </NavDropdown>
-        </div>
-      </div>
+        </div> */}
 
       <form className={`container ${styles["cont-form"]} `}>
         <div className="form-group">

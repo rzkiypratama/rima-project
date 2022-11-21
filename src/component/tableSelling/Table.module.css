@@ -37,4 +37,34 @@
   .name-product {
     font-size: 12px !important;
   }
+  .cont-product {
+    gap: 2rem;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .image-product {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  .cont-product {
+    font-size: 10px !important;
+    padding: 16px;
+  }
+  .check {
+    width: 15px;
+  }
+  .text-stock {
+    font-size: 12px;
+    position: relative;
+    left: 1px;
+  }
+  .price {
+    height: 7rem;
+    font-size: 11px;
+  }
+  .delete {
+    width: 64px;
+    height: 30px;
+    font-size: 11px;
+  }
 }
