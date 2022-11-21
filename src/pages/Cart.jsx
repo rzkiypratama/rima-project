@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 // components
 import Navbar from "../component/navbar/Navbar";
 import Footer from "../component/footer/Footer";
+import CardCart from "../component/cart/CardCart";
 // helpers
 import title from "../helper/title";
 // styles
 import styles from "../styles/Cart.module.css";
-import img_chair from "../assets/cart/img_chair.png";
+import img_empty from "../assets/cart/img_empty.png";
 
 function Cart() {
    title("Cart");
@@ -19,17 +20,19 @@ function Cart() {
             <section className={styles.breadcrumb__bar}>
                <nav className={`${styles.breadcrumb}`}>
                   <Link to={"#"}>Your Cart</Link>
-                  <i className="bi bi-chevron-right ms-3"></i>
+                  <i className="bi bi-chevron-right mx-3"></i>
                </nav>
                <div className="text-center">
-                  <h1 className="py-3">Your Cart</h1>
-                  <p>Buy everything in your cart now!</p>
+                  <span>
+                     <h1 className="py-3">Your Cart</h1>
+                     <p>Buy everything in your cart now!</p>
+                  </span>
+                  {/* kondisi jika ada checkout */}
                </div>
             </section>
             {/* cart */}
             <section className="row container py-5 mx-auto d-flex flex-lg-row justify-content-between flex-md-column">
-               {/* card cart */}
-               <section
+               {/* <section
                   className={`${styles.cart_product} col-12 col-sm-12 col-md-12 col-lg-8`}
                >
                   <table
@@ -66,78 +69,11 @@ function Cart() {
                         </tr>
                      </thead>
                      <tbody className={`${styles.product__bar}`}>
-                        {/* card 1 */}
-                        <tr className={styles.product}>
-                           <td className="w-50">
-                              <span className="d-flex justify-content-start align-items-center">
-                                 <span className={styles.delete}>
-                                    <i className="bi bi-x fs-3 pe-3"></i>
-                                 </span>
-                                 <img
-                                    className={`${styles.img_product}`}
-                                    src={img_chair}
-                                    alt="img_chair"
-                                 />
-                                 <span className="ms-0 ms-sm-0 ms-md-5 ms-lg-5">
-                                    Fabric Mid Century Chair
-                                 </span>
-                              </span>
-                           </td>
-                           <div className="w-50 d-flex justify-content-between align-items-center">
-                              <td className="text-center">$10.50</td>
-                              <td className="text-center">
-                                 <span className="d-flex justify-content-center align-items-center">
-                                    <span className={styles.btn__qty}>-</span>
-                                    <span>
-                                       <input
-                                          className={styles.input__qty}
-                                          type="number"
-                                          value={"02"}
-                                       />
-                                    </span>
-                                    <span className={styles.btn__qty}>+</span>
-                                 </span>
-                              </td>
-                              <td className="text-center fw-bold">$21.00</td>
-                           </div>
-                        </tr>
-                        {/* card 2 */}
-                        <tr className={styles.product}>
-                           <td className="w-50">
-                              <span className="d-flex justify-content-start align-items-center">
-                                 <span className={styles.delete}>
-                                    <i className="bi bi-x fs-3 pe-3"></i>
-                                 </span>
-                                 <img
-                                    className={`${styles.img_product}`}
-                                    src={img_chair}
-                                    alt="img_chair"
-                                 />
-                                 <span className="ms-0 ms-sm-0 ms-md-5 ms-lg-5">
-                                    Fabric Mid Century Chair
-                                 </span>
-                              </span>
-                           </td>
-                           <div className="w-50 d-flex justify-content-between align-items-center">
-                              <td className="text-center">$10.50</td>
-                              <td className="text-center">
-                                 <span className="d-flex justify-content-center align-items-center">
-                                    <span className={styles.btn__qty}>-</span>
-                                    <span>
-                                       <input
-                                          className={styles.input__qty}
-                                          type="number"
-                                          value={"02"}
-                                       />
-                                    </span>
-                                    <span className={styles.btn__qty}>+</span>
-                                 </span>
-                              </td>
-                              <td className="text-center fw-bold">$21.00</td>
-                           </div>
-                        </tr>
+                        <CardCart />
+                        <CardCart />
+                        <CardCart />
+                        <CardCart />
                      </tbody>
-                     {/* coupun */}
                      <section className={`${styles.coupon} row d-flex `}>
                         <section
                            className={`${styles.input__bar} col-12 col-sm-12 col-md-7`}
@@ -147,7 +83,10 @@ function Cart() {
                                  type="text"
                                  placeholder="Enter your coupon code"
                               />
-                              Apply Coupon
+                              <span className={styles.apply_coupon}>
+                                 {" "}
+                                 Apply Coupon
+                              </span>
                            </span>
                         </section>
                         <section className="col-12 col-sm-12 col-md-5 d-flex justify-content-end">
@@ -161,7 +100,6 @@ function Cart() {
                      </section>
                   </table>
                </section>
-               {/* cart total */}
                <section
                   className={`${styles.cart_total} col-12 col-sm-12 col-md-12 col-lg-4 `}
                >
@@ -213,7 +151,20 @@ function Cart() {
                   <button className={`${styles.btn_process}`}>
                      Procced To Check Out
                   </button>
-               </section>
+               </section> */}
+
+               {/* kondisi belom ada cart */}
+               <div className={`${styles.empty__bar} text-center`}>
+                  <img src={img_empty} alt="img_empty" />
+                  <h3 className={`${styles.empty_title}`}>
+                     Your Cart is Empty
+                  </h3>
+                  <p className={styles.empty_text}>
+                     Donec nunc nunc, gravida vitae diam vel, varius interdum
+                     erat. Quisque a nunc vel <br /> diam auctor commodo.
+                     urabitur blandit ultri
+                  </p>
+               </div>
             </section>
          </main>
          <Footer />
