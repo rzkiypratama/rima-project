@@ -54,6 +54,7 @@ function SellerProduct() {
         role
       )
       .then((res) => {
+        window.location.reload()
         console.log(res);
       })
       .catch((err) => {
