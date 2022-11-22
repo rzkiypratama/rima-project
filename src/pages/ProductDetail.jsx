@@ -30,11 +30,13 @@ import axios from "axios";
 function ProductDetail() {
    var settings = {
       dots: true,
-      infinite: false,
-      speed: 500,
+      infinite: true,
       slidesToShow: 3,
-      slidesToScroll: 3,
-      initialSlide: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      speed: 2000,
+      autoplaySpeed: 2000,
+      cssEase: "linear",
       responsive: [
          {
             breakpoint: 1024,
