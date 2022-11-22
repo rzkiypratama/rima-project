@@ -193,7 +193,9 @@ function SellerProduct() {
           })
         ) : (
           <>
-            <Loader />
+          <div className={`${styles["status-product"]} text-center`}>
+            <h1 className="text-center">You Dont Have Any Product</h1>
+          </div>
           </>
         )}
       </div>

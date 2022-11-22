@@ -4,6 +4,10 @@
   background-image: url("../assets/background/bg.png");
 }
 
+.container .status-product {
+  text-align: center;
+}
+
 .profile {
   font-weight: 400;
   font-family: Arimo;
