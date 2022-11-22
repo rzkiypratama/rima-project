@@ -32,8 +32,9 @@
 
 .main-product .category-list {
   display: flex;
-  justify-content: center;
-  padding-right: 1.6em;
+  /* justify-content: center;
+  padding-right: 1.6em; */
+  padding-left: 1.3em;
 }
 
 .main-product .category-list .category {
@@ -64,7 +65,7 @@
 .price-slider {
   display: table;
   flex-direction: column;
-  justify-content: center;
+  padding-left: 1.3em;
 }
 
 .price-slider .slider-box {
@@ -92,6 +93,7 @@
   padding-top: 4em;
   display: flex;
   width: max-content;
+  padding-left: 1.3em;
 }
 
 .brand-list .brand-box h3 {
@@ -126,6 +128,7 @@
 .color {
   padding-top: 3em;
   display: flex;
+  padding-left: 1.3em;
 }
 
 .color .color-box h3 {
@@ -242,6 +245,7 @@
 
 .size-picker {
   padding-top: 4em;
+  padding-left: 1.3em;
 }
 
 .size-picker .size-box h3 {
@@ -309,6 +313,7 @@
 
 .end-left {
   padding-top: 5em;
+  padding-left: 1.3em;
 }
 
 .end-left img {

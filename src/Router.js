@@ -38,7 +38,7 @@ const router = createBrowserRouter([
   { path: "/chat", element: <Chat /> },
   { path: "/faq", element: <FAQ /> },
   { path: "/profile", element: <PrivateElement allowedRoles={['seller', 'customer']} ><Profile /></PrivateElement>, errorElement: <Error /> },
-  { path: "/admin/my-product", element: <PrivateElement allowedRoles={['seller']}><Admin /></PrivateElement>, errorElement: <Error /> },
+  { path: "/admin/my-product", element: <Admin />, errorElement: <Error /> },
   { path: "/admin/create-product", element: <PrivateElement allowedRoles={['seller']}><CreateProduct /></PrivateElement> },
   { path: "/admin/my-order", element: <PrivateElement allowedRoles={['seller']}><MyOrder /></PrivateElement> },
   { path: "/product", element: <Product /> },
