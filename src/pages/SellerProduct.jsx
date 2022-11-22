@@ -21,6 +21,7 @@ function SellerProduct() {
   const [image, setImage] = useState("");
   const [data, setData] = useState("");
   const [id, setId] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const url = `${process.env.REACT_APP_BACKEND_HOST}/product/my-product`;
     const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
@@ -35,6 +36,7 @@ function SellerProduct() {
         // setImage(res.data.data.data.image);
         // setId(res.data.data.data.id);
         setData(res.data.data);
+        setIsLoading(false);
         console.log("data : ", res.data.data.data);
       })
       .catch((err) => {
@@ -54,7 +56,7 @@ function SellerProduct() {
         role
       )
       .then((res) => {
-        window.location.reload()
+        window.location.reload();
         console.log(res);
       })
       .catch((err) => {
@@ -175,6 +177,13 @@ function SellerProduct() {
         </p>
       </section>
       <hr className="container" />
+      {!setIsLoading && data.length === 0 && (
+        <>
+          <div className={`${styles["status-product"]} text-center`}>
+            <h1 className="text-center">You Dont Have Any Product</h1>
+          </div>
+        </>
+      )}
       <div className="container">
         {data.length > 0 ? (
           data.map((data, index) => {
@@ -192,11 +201,7 @@ function SellerProduct() {
             );
           })
         ) : (
-          <>
-          <div className={`${styles["status-product"]} text-center`}>
-            <h1 className="text-center">You Dont Have Any Product</h1>
-          </div>
-          </>
+          <Loader />
         )}
       </div>
       <Footer />
