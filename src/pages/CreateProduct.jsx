@@ -64,7 +64,7 @@ function CreateProduct() {
     formData.append("size_id", sizeSelect);
     formData.append("color_id", color);
     formData.append("desc", desc);
-    let link = `http://localhost:8080/api/v1/product/create`;
+    let link = `${process.env.REACT_APP_BACKEND_HOST}/product/create`;
     const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
     axios
       .post(link, formData, {
@@ -85,7 +85,7 @@ function CreateProduct() {
           progress: undefined,
           theme: "light",
         });
-        navigate(`/product-detail/${result.data.data.id}`);
+        navigate(`/product/detail/${result.data.data.id}`);
       })
       .catch((err) => {
         console.log(err);
