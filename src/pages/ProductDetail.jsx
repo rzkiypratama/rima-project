@@ -166,7 +166,6 @@ function ProductDetail() {
                               />
                            ))
                         )}
-                        ;
                      </div>
                      <div className=" col-12 col-md-12 col-sm-12 col-lg-8">
                         {load === "load" ? (
@@ -178,7 +177,7 @@ function ProductDetail() {
                               alt="/"
                            />
                         )}
-                        {/* <img className={`${styles["hot"]} `} src={hot} alt="/" /> */}
+                     
                      </div>
                   </div>
                </section>
