@@ -44,7 +44,7 @@ const router = createBrowserRouter([
   { path: "/product", element: <PrivateElement><Product /> </PrivateElement>},
   { path: "/order/tracking", element: <PrivateElement><OrderTracking /></PrivateElement> },
   { path: "/order/tracking/detail", element: <PrivateElement><OrderTrackingDetail /></PrivateElement> },
-  { path: "/product/detail/:id", element: <PrivateElement><ProductDetail /></PrivateElement>  },
+  { path: "/product/detail/:id", element: <ProductDetail /> },
   { path: "/about", element: <About /> },
   { path: "/cart", element: <PrivateElement><Cart /></PrivateElement> },
   { path: "/forgot/otp", element: <Otp /> },
