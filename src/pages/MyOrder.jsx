@@ -18,6 +18,7 @@ function MyOrder() {
   const [quantity, setQuantity] = useState("");
   const [status, setStatus] = useState("");
   const [total, setTotal] = useState("");
+  const [isLoading, setisLoading] = useState(true);
 
   useEffect(() => {
     const url = `${process.env.REACT_APP_BACKEND_HOST}/transaction/history-seller`;
@@ -31,6 +32,7 @@ function MyOrder() {
         // setPrice(res.data.data.data.price);
         // setImage(res.data.data.data.image);
         // setData(res.data.data.data);
+        setisLoading(false);
         console.log("data : ", res.data.data.data);
       })
       .catch((err) => {
@@ -60,48 +62,96 @@ function MyOrder() {
         <div className={`container-fluid p-5 ${styles["cont-fluid"]}`}>
           <div className="container justify-content-center">
             <p className={`text-center  ${styles["profile"]}`}>My Order</p>
-            <p className={`text-center fs-6 ${styles["text-profile"]}`}>See your notifications for the latest updates</p>
+            <p className={`text-center fs-6 ${styles["text-profile"]}`}>
+              See your notifications for the latest updates
+            </p>
           </div>
         </div>
         <div className=" container justify-content-evenly d-flex  my-5">
           <p className="nav-item">
-            <Link className={` text-decoration-none ${styles["no-underline"]}`} to={"/admin/profile"}>
+            <Link
+              className={` text-decoration-none ${styles["no-underline"]}`}
+              to={"/admin/profile"}
+            >
               <p className={`nav-link ${styles["color-text"]}`}>Profile</p>
             </Link>
           </p>
 
-          <div className={`d-flex gap-2 align-items-center ${styles["cursor"]} ${styles["color"]}`}>
-            <Link className={` text-decoration-none ${styles["no-underline"]} `} to={"/admin/my-product"}>
-              <p className={`${styles["cursor"]} ${styles["color-text"]}`}> My Product </p>
+          <div
+            className={`d-flex gap-2 align-items-center ${styles["cursor"]} ${styles["color"]}`}
+          >
+            <Link
+              className={` text-decoration-none ${styles["no-underline"]} `}
+              to={"/admin/my-product"}
+            >
+              <p className={`${styles["cursor"]} ${styles["color-text"]}`}>
+                {" "}
+                My Product{" "}
+              </p>
             </Link>
-            <NavDropdown className={` ${styles["menu"]} ${styles["color-text"]}`} id="basic-nav-dropdown">
+            <NavDropdown
+              className={` ${styles["menu"]} ${styles["color-text"]}`}
+              id="basic-nav-dropdown"
+            >
               <NavDropdown.Item>All</NavDropdown.Item>
               <NavDropdown.Item>Archive</NavDropdown.Item>
               <NavDropdown.Item>Sold Out</NavDropdown.Item>
             </NavDropdown>
           </div>
           <p className="nav-item">
-            <Link className={` text-decoration-none ${styles["no-underline"]} `} to={"/admin/create-product"}>
-              <p className={`nav-link ${styles["color-text"]}`}>Selling Product</p>
+            <Link
+              className={` text-decoration-none ${styles["no-underline"]} `}
+              to={"/admin/create-product"}
+            >
+              <p className={`nav-link ${styles["color-text"]}`}>
+                Selling Product
+              </p>
             </Link>
           </p>
-          <div className={`d-flex gap-2 align-items-center ${styles["cursor"]} ${styles["color"]}`}>
-            <p className={`${styles["cursor"]} ${styles["color-text"]}`}> My Order </p>
-            <NavDropdown className={` ${styles["menu"]} ${styles["color-text"]}`} id="basic-nav-dropdown">
+          <div
+            className={`d-flex gap-2 align-items-center ${styles["cursor"]} ${styles["color"]}`}
+          >
+            <p className={`${styles["cursor"]} ${styles["color-text"]}`}>
+              {" "}
+              My Order{" "}
+            </p>
+            <NavDropdown
+              className={` ${styles["menu"]} ${styles["color-text"]}`}
+              id="basic-nav-dropdown"
+            >
               <NavDropdown.Item>All</NavDropdown.Item>
               <NavDropdown.Item>Archive</NavDropdown.Item>
               <NavDropdown.Item>Sold Out</NavDropdown.Item>
             </NavDropdown>
           </div>
         </div>
-        <div className="container d-flex justify-content-between ">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div className={`${styles["status-product"]} text-center`}>
+          <h1 className="text-center">You Dont Have Any Transaction</h1>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        {/* <div className="container d-flex justify-content-between ">
+        <br />
           <p className="col-lg-4 d-flex justify-content-start">PRODUCTS</p>
           <p className="col-lg-2 d-flex justify-content-center">PRICE</p>
           <p className="col-lg-2 d-flex justify-content-center">QUANTITY</p>
           <p className="col-lg-2 d-flex justify-content-center">STATUS ORDER</p>
           <p className="col-lg-2 d-flex justify-content-center">TOTAL</p>
         </div>
-        <Order />
+        () */}
+        {/* <Order /> */}
         <Footer />
       </div>
     </div>
