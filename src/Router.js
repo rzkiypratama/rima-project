@@ -41,7 +41,7 @@ const router = createBrowserRouter([
   { path: "/admin/my-product", element: <PrivateElement><Admin /></PrivateElement>, errorElement: <Error /> },
   { path: "/admin/create-product", element: <PrivateElement allowedRoles={['seller']}><CreateProduct /></PrivateElement> },
   { path: "/admin/my-order", element: <PrivateElement><MyOrder /></PrivateElement> },
-  { path: "/product", element: <PrivateElement><Product /> </PrivateElement>},
+  { path: "/product", element: <Product />},
   { path: "/order/tracking", element: <PrivateElement><OrderTracking /></PrivateElement> },
   { path: "/order/tracking/detail", element: <PrivateElement><OrderTrackingDetail /></PrivateElement> },
   { path: "/product/detail/:id", element: <ProductDetail /> },
