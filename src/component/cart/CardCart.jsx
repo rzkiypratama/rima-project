@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../cart/CardCart.module.css";
 import img_chair from "../../assets/cart/img_chair.png";
 
 function CardCart() {
+   let [result, setResult] = useState(1);
+
+   const counterUp = () => {
+      setResult(result + 1);
+   };
+   const counterDown = () => {
+      setResult(result <= 1 ? (result = 1) : result - 1);
+   };
+
    return (
       <>
          <tr className={styles.product}>
@@ -27,15 +36,19 @@ function CardCart() {
                <td className="text-center">$10.50</td>
                <td className="text-center">
                   <span className="d-flex flex-column flex-sm-row flex-md-row justify-content-center align-items-center">
-                     <span className={styles.btn__qty}>-</span>
+                     <span onClick={counterDown} className={styles.btn__qty}>
+                        -
+                     </span>
                      <span>
                         <input
                            className={styles.input__qty}
                            type="number"
-                           value={"02"}
+                           value={result}
                         />
                      </span>
-                     <span className={styles.btn__qty}>+</span>
+                     <span onClick={counterUp} className={styles.btn__qty}>
+                        +
+                     </span>
                   </span>
                </td>
                <td className="text-center fw-bold">$21.00</td>

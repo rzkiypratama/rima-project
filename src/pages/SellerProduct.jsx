@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 // import NavigationSeller from "../component/navigationSeller/NavigationSeller";
 
 function SellerProduct() {
-  const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
+  const url = `${process.env.REACT_APP_BACKEND_HOST}/product/my-product`;
 
   const [stock, setStock] = useState("");
   const [desc, setDesc] = useState("");
@@ -22,18 +22,19 @@ function SellerProduct() {
   const [data, setData] = useState("");
   const [id, setId] = useState("");
   useEffect(() => {
-    const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
+    const url = `${process.env.REACT_APP_BACKEND_HOST}/product/my-product`;
     const userInfo = JSON.parse(localStorage["userInfo"] || "{}");
     const token = userInfo.token;
     axios
       .get(url, { headers: { "x-access-token": token } })
       .then((res) => {
-        setStock(res.data.data.data.stock);
-        setDesc(res.data.data.data.description);
-        setPrice(res.data.data.data.price);
-        setImage(res.data.data.data.image);
-        setId(res.data.data.data.id);
-        setData(res.data.data.data);
+        console.log(res);
+        // setStock(res.data.data.data.stock);
+        // setDesc(res.data.data.data.description);
+        // setPrice(res.data.data.data.price);
+        // setImage(res.data.data.data.image);
+        // setId(res.data.data.data.id);
+        setData(res.data.data);
         console.log("data : ", res.data.data.data);
       })
       .catch((err) => {
@@ -47,8 +48,13 @@ function SellerProduct() {
     const role = userInfo.role;
     // console.log(token);
     axios
-      .delete(`${url}/delete/${data}`, { headers: { "x-access-token": token } }, role)
+      .delete(
+        `${process.env.REACT_APP_BACKEND_HOST}/product/delete/${data}`,
+        { headers: { "x-access-token": token } },
+        role
+      )
       .then((res) => {
+        window.location.reload()
         console.log(res);
       })
       .catch((err) => {
@@ -84,38 +90,64 @@ function SellerProduct() {
       <div className={`container-fluid p-5 ${styles["cont-fluid"]}`}>
         <div className="container justify-content-center">
           <p className={`text-center  ${styles["profile"]}`}>My Product</p>
-          <p className={`text-center fs-6 ${styles["text-profile"]}`}>See your notifications for the latest updates</p>
+          <p className={`text-center fs-6 ${styles["text-profile"]}`}>
+            See your notifications for the latest updates
+          </p>
         </div>
       </div>
-
-      {/* navigation */}
-      <div className={`container justify-content-evenly d-flex  my-5 ${styles["cont-nav"]} `}>
+      <div className=" container justify-content-evenly d-flex  my-5">
         <p className="nav-item">
-          <Link className={` text-decoration-none ${styles["no-underline"]}`} to={"/profile"}>
-            <p className={`nav-link ${styles["nav-text"]} ${styles["color-text"]}`}>Profile</p>
+          <Link
+            className={` text-decoration-none ${styles["no-underline"]}`}
+            to={"/profile"}
+          >
+            <p className={`nav-link ${styles["color-text"]}`}>Profile</p>
           </Link>
         </p>
 
-        <div className={`d-flex gap-2 align-items-center ${styles["cursor"]} ${styles["color"]}`}>
-          <p className={`${styles["cursor"]} ${styles["color-text"]}`} onClick={HandleProduct}>
+        <div
+          className={`d-flex gap-2 align-items-center ${styles["cursor"]} ${styles["color"]}`}
+        >
+          <p
+            className={`${styles["cursor"]} ${styles["color-text"]}`}
+            onClick={HandleProduct}
+          >
             My Product
           </p>
-          <NavDropdown className={` ${styles["menu"]} ${styles["color-text"]}`} id="basic-nav-dropdown">
+          <NavDropdown
+            className={` ${styles["menu"]} ${styles["color-text"]}`}
+            id="basic-nav-dropdown"
+          >
             <NavDropdown.Item onClick={HandleProduct}>All</NavDropdown.Item>
             <NavDropdown.Item>Archive</NavDropdown.Item>
             <NavDropdown.Item>Sold Out</NavDropdown.Item>
           </NavDropdown>
         </div>
         <p className="nav-item">
-          <Link className={` text-decoration-none ${styles["no-underline"]} `} to={"/admin/create-product"}>
-            <p className={`nav-link ${styles["color-text"]}`}>Selling Product</p>
+          <Link
+            className={` text-decoration-none ${styles["no-underline"]} `}
+            to={"/admin/create-product"}
+          >
+            <p className={`nav-link ${styles["color-text"]}`}>
+              Selling Product
+            </p>
           </Link>
         </p>
-        <div className={`d-flex gap-2 align-items-center ${styles["cursor"]} ${styles["color"]}`}>
-          <Link to={"/admin/my-order"} className={` text-decoration-none ${styles["no-underline"]} `}>
-            <p className={`${styles["cursor"]} ${styles["color-text"]}`}>My Order</p>
+        <div
+          className={`d-flex gap-2 align-items-center ${styles["cursor"]} ${styles["color"]}`}
+        >
+          <Link
+            to={"/admin/my-order"}
+            className={` text-decoration-none ${styles["no-underline"]} `}
+          >
+            <p className={`${styles["cursor"]} ${styles["color-text"]}`}>
+              My Order
+            </p>
           </Link>
-          <NavDropdown className={` ${styles["menu"]} ${styles["color-text"]}`} id="basic-nav-dropdown">
+          <NavDropdown
+            className={` ${styles["menu"]} ${styles["color-text"]}`}
+            id="basic-nav-dropdown"
+          >
             <NavDropdown.Item onClick={HandleProduct}>All</NavDropdown.Item>
             <NavDropdown.Item>Archive</NavDropdown.Item>
             <NavDropdown.Item>Sold Out</NavDropdown.Item>
@@ -124,16 +156,40 @@ function SellerProduct() {
       </div>
 
       <hr className="container" />
-      <section className="container col-lg-12 d-flex px-5 justify-content-between ">
-        <p className={`${styles["title"]} col-3 col-lg-4 d-flex justify-content-center ms-4 `}>Product</p>
-        <p className={`${styles["title"]} col-4 col-md-3 col-lg-4 d-flex justify-content-center ms-4 `}> Stock Status</p>
-        <p className={`${styles["title"]} col-3 col-lg-4 d-flex justify-content-center ms-4 `}>Price</p>
+      <section className="container d-flex px-5 justify-content-between ">
+        <p
+          className={`${styles["title"]} col-4 d-flex justify-content-start ms-4 `}
+        >
+          Product
+        </p>
+        <p
+          className={`${styles["title"]} col-4 d-flex justify-content-start ms-4 `}
+        >
+          {" "}
+          Stock Status
+        </p>
+        <p
+          className={`${styles["title"]} col-4 d-flex justify-content-start ms-4 `}
+        >
+          Price
+        </p>
       </section>
       <hr className="container" />
       <div className="container">
         {data.length > 0 ? (
-          data.map((data) => {
-            return <Table key={data.id} stock={data.stock} description={data.name} image={data.image} price={`${"IDR"} ${costing(data.price)} `} remove={deleteProduct} id={data.id} />;
+          data.map((data, index) => {
+            return (
+              <Table
+                key={index}
+                title={data.name}
+                stock={data.stock}
+                description={data.desc}
+                image={data.image}
+                price={`${"IDR"} ${costing(data.price)}`}
+                remove={deleteProduct}
+                id={data.id}
+              />
+            );
           })
         ) : (
           <>

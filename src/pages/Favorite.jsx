@@ -21,7 +21,7 @@ const Favorite = () => {
             <div className={styles['content-favorite']}>favorite</div>
             <p className={styles['text']}>Pay and get your ordered items</p>
           </div>
-          <div className={`${styles['content-border']} container`}>
+          <div className={`${styles['content-border']} container-fluid`}>
             <div className={styles['line-top']}></div>
             <div className={styles['text-product']}>
               <div className={styles['']}>Product</div>
