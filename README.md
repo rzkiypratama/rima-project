@@ -48,7 +48,7 @@
 </div>
 
 ## Related Project
-* [`Monlight Coffee & Bar Website`](https://github.com/rzkiyprtm/react-monlight-app)
+* [`Rima Furniture Backend`](https://github.com/salzteam/RIMA-BE)
 
 
 ## Contributors
